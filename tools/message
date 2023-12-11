@@ -1,0 +1,93 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+
+import lang
+
+def list_rstrip(l, v):
+	x = l[:]
+	while len(x) > 0 and x[-1] == v: x.pop(-1)
+	return x
+
+def list_split(l, v):
+	x = l + [v]
+	n = []
+	while v in x:
+		i = x.index(v)
+		n.append(x[:i])
+		x = x[i+1:]
+	return n
+
+def fmt_str(lst):
+	return ",".join(["0x%02X" % x for x in lst+[0xFF]])
+
+if len(sys.argv) != 2:
+	sys.stderr.write("usage: %s <txt>\n" % sys.argv[0])
+	sys.exit(1)
+fn = sys.argv[1]
+ln = 0
+with open(fn, "r") as f:
+	ltbl = None
+	stbl = []
+	ctbl = []
+	ttbl = []
+	mtbl = []
+	cstr = None
+	for line in f:
+		ln += 1
+		if line.startswith("$$"): continue
+		if line.startswith("$"):
+			cmd, _, arg = line[1:].partition(":")
+			cmd = cmd.strip()
+			arg = [x.strip() for x in arg.split(";")]
+			if cmd == "lang":
+				ltbl = lang.table[arg[0]]
+			elif cmd == "name":
+				name = arg[0]
+			elif cmd == "str":
+				cstr = []
+				label = arg[0]
+				stbl.append([label, cstr])
+			elif cmd == "tbl":
+				cstr = []
+				label = "%s_%d" % (name, len(ttbl))
+				ctbl.append([label, cstr])
+				ttbl.append(label)
+			elif cmd == "msg":
+				cstr = []
+				label = "%s_%d" % (name, len(mtbl))
+				ctbl.append([label+"_str", cstr])
+				mtbl.append((label, arg[0] + ", " + label+"_str"))
+			else:
+				raise RuntimeError("%s:%d: bad cmd '%s'" % (fn, ln, cmd))
+			continue
+		if cstr is None: continue
+		i = 0
+		while i < len(line):
+			for s, c in ltbl:
+				if line[i:].startswith(s):
+					cstr.extend(c)
+					i += len(s)
+					break
+			else:
+				raise RuntimeError("%s:%d:%d: illegal character '%s'" % (
+					fn, ln, i, s[i]
+				))
+for label, lst in stbl:
+	print("#define %s %s" % (
+		label, fmt_str(list_rstrip(lst, 0xFE))
+	))
+for label, lst in ctbl:
+	print("static unsigned char %s[] = {%s};" % (
+		label, fmt_str(list_rstrip(lst, 0xFE))
+	))
+if ttbl:
+	print("unsigned char *%s[] =\n{" % name)
+	for label in ttbl: print("\t%s," % label)
+	print("\tNULL,\n};")
+if mtbl:
+	for label, arg in mtbl: print("static MESSAGE %s = {%s};" % (label, arg))
+	print("MESSAGE *%s[] =\n{" % name)
+	for label, arg in mtbl: print("\t&%s," % label)
+	print("\tNULL,\n};")

@@ -1,0 +1,18 @@
+#include <sm64/prglang.h>
+
+.data
+
+#define STAGE   0
+
+.globl p_main
+p_main:
+	pStageInit()
+	pSleep(2)
+	pViBlack(FALSE)
+	pSet(STAGE)
+#if STAGE == 0
+	pExecute(SEG_MENU_DATA, _TitleSegmentRomStart, _TitleSegmentRomEnd, p_logo)
+#else
+	pExecute(SEG_GAME, _GameSegmentRomStart, _GameSegmentRomEnd, p_game)
+#endif
+	pJump(p_main)

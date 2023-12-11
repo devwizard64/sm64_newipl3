@@ -1,0 +1,484 @@
+#define TAGOBJ_NULL {o_coin, S_COIN, 0}
+
+extern O_SCRIPT o_mr_i[];
+extern O_SCRIPT o_130001CC[];
+extern O_SCRIPT o_chest[];
+extern O_SCRIPT o_cannon[];
+extern O_SCRIPT o_chuckya[];
+extern O_SCRIPT o_13000708[];
+extern O_SCRIPT o_130008EC[];
+extern O_SCRIPT o_1300090C[];
+extern O_SCRIPT o_coin[];
+extern O_SCRIPT o_13000B8C[];
+extern O_SCRIPT o_13001108[];
+extern O_SCRIPT o_13001168[];
+extern O_SCRIPT o_13001298[];
+extern O_SCRIPT o_130012B4[];
+extern O_SCRIPT o_130013DC[];
+extern O_SCRIPT o_130014AC[];
+extern O_SCRIPT o_130014BC[];
+extern O_SCRIPT o_130014E0[];
+extern O_SCRIPT o_13001518[];
+extern O_SCRIPT o_13001548[];
+extern O_SCRIPT o_13001608[];
+extern O_SCRIPT o_13001650[];
+extern O_SCRIPT o_13001778[];
+extern O_SCRIPT o_1300179C[];
+extern O_SCRIPT o_13001CB0[];
+extern O_SCRIPT o_13001D0C[];
+extern O_SCRIPT o_13001F90[];
+extern O_SCRIPT o_13001FBC[];
+extern O_SCRIPT o_13002088[];
+extern O_SCRIPT o_130020E8[];
+extern O_SCRIPT o_1300215C[];
+extern O_SCRIPT o_130021E4[];
+extern O_SCRIPT o_itembox[];
+extern O_SCRIPT o_13002338[];
+extern O_SCRIPT o_bluecoinsw[];
+extern O_SCRIPT o_13002588[];
+extern O_SCRIPT o_130025F8[];
+extern O_SCRIPT o_13002650[];
+extern O_SCRIPT o_13002710[];
+extern O_SCRIPT o_130027D0[];
+extern O_SCRIPT o_13002804[];
+extern O_SCRIPT o_13002A20[];
+extern O_SCRIPT o_13002A48[];
+extern O_SCRIPT o_13002B5C[];
+extern O_SCRIPT o_13002BA0[];
+extern O_SCRIPT o_13002BCC[];
+extern O_SCRIPT o_130030A4[];
+extern O_SCRIPT o_130030D4[];
+extern O_SCRIPT o_kelp[];
+extern O_SCRIPT o_13003174[];
+extern O_SCRIPT o_13003228[];
+extern O_SCRIPT o_13003274[];
+extern O_SCRIPT o_signpost[];
+extern O_SCRIPT o_13003324[];
+extern O_SCRIPT o_13003354[];
+extern O_SCRIPT o_13003388[];
+extern O_SCRIPT o_130033BC[];
+extern O_SCRIPT o_13003454[];
+extern O_SCRIPT o_1300362C[];
+extern O_SCRIPT o_13003738[];
+extern O_SCRIPT o_130037EC[];
+extern O_SCRIPT o_130039D4[];
+extern O_SCRIPT o_13003A30[];
+extern O_SCRIPT o_redcoin[];
+extern O_SCRIPT o_13003F1C[];
+extern O_SCRIPT o_13004044[];
+extern O_SCRIPT o_1300407C[];
+extern O_SCRIPT o_130040B4[];
+extern O_SCRIPT o_130040EC[];
+extern O_SCRIPT o_13004124[];
+extern O_SCRIPT o_130041A4[];
+extern O_SCRIPT o_13004218[];
+extern O_SCRIPT o_13004580[];
+extern O_SCRIPT o_130045D0[];
+extern O_SCRIPT o_13004634[];
+extern O_SCRIPT o_13004698[];
+extern O_SCRIPT o_130046DC[];
+extern O_SCRIPT o_1300472C[];
+extern O_SCRIPT o_13004770[];
+extern O_SCRIPT o_1300478C[];
+extern O_SCRIPT o_1300481C[];
+extern O_SCRIPT o_13004898[];
+extern O_SCRIPT o_13004918[];
+extern O_SCRIPT o_13004A00[];
+extern O_SCRIPT o_13004A58[];
+extern O_SCRIPT o_13004B1C[];
+extern O_SCRIPT o_13004B44[];
+extern O_SCRIPT o_13004B8C[];
+extern O_SCRIPT o_13004BF0[];
+extern O_SCRIPT o_13004C24[];
+extern O_SCRIPT o_13004C5C[];
+extern O_SCRIPT o_13004C94[];
+extern O_SCRIPT o_13004CCC[];
+extern O_SCRIPT o_13004CF8[];
+extern O_SCRIPT o_13004D28[];
+extern O_SCRIPT o_13004D64[];
+extern O_SCRIPT o_13004D90[];
+extern O_SCRIPT o_13004DBC[];
+extern O_SCRIPT o_13004E4C[];
+extern O_SCRIPT o_13004E78[];
+extern O_SCRIPT o_13004EA0[];
+extern O_SCRIPT o_13004ECC[];
+extern O_SCRIPT o_13004EF8[];
+extern O_SCRIPT o_13004F10[];
+extern O_SCRIPT o_13004F40[];
+extern O_SCRIPT o_13004FD4[];
+extern O_SCRIPT o_13005120[];
+extern O_SCRIPT o_1300518C[];
+extern O_SCRIPT o_130051E0[];
+extern O_SCRIPT o_13005440[];
+extern O_SCRIPT o_skeeter[];
+extern O_SCRIPT o_13005598[];
+
+static TAG_OBJ tag_obj_table[] =
+{
+	/*  0*/	{o_coin, S_COIN, 0},
+	/*  1*/	{o_1300090C, S_COIN, 0},
+	/*  2*/	{o_130030A4, S_BLUECOIN, 0},
+	/*  3*/	{o_130030D4, S_BLUECOIN, 0},
+	/*  4*/	{o_redcoin, S_REDCOIN, 0},
+	/*  5*/	TAGOBJ_NULL,
+	/*  6*/	{o_130008EC, S_NULL, 0},
+	/*  7*/	{o_130008EC, S_NULL, 2},
+	/*  8*/	{o_130008EC, S_NULL, 4},
+	/*  9*/	{o_130008EC, S_NULL, 16},
+	/* 10*/	{o_130008EC, S_NULL, 17},
+	/* 11*/	{o_130008EC, S_NULL, 18},
+	/* 12*/	{o_130008EC, S_NULL, 19},
+	/* 13*/	{o_130008EC, S_NULL, 20},
+	/* 14*/	{o_13003F1C, S_NULL, 0},
+	/* 15*/	TAGOBJ_NULL,
+	/* 16*/	TAGOBJ_NULL,
+	/* 17*/	TAGOBJ_NULL,
+	/* 18*/	TAGOBJ_NULL,
+	/* 19*/	TAGOBJ_NULL,
+	/* 20*/	{o_13002A20, S_POWERSTAR, 0},
+	/* 21*/	{o_signpost, S_SIGNPOST, 0},
+	/* 22*/	{o_13003274, S_CANNONLID, 0},
+	/* 23*/	{o_13003228, S_REDBOBOMB, 0},
+	/* 24*/	{o_130033BC, S_BUTTERFLY, 0},
+	/* 25*/	{o_13001168, S_NULL, 0},
+	/* 26*/	{o_1300215C, S_NULL, 0},
+	/* 27*/	{o_1300215C, S_NULL, 1},
+	/* 28*/	{o_13001298, S_NULL, 0},
+	/* 29*/	{o_130041A4, S_NULL, 0},
+	/* 30*/	{o_1300472C, S_GOOMBA, 1},
+	/* 31*/	{o_1300472C, S_GOOMBA, 2},
+	/* 32*/	{o_13004770, S_NULL, 0},
+	/* 33*/	{o_13004770, S_NULL, 8},
+	/* 34*/	{o_13003324, S_NULL, 0},
+	/* 35*/	{o_chuckya, S_CHUCKYA, 0},
+	/* 36*/	{o_cannon, S_CANNON, 0},
+	/* 37*/	{o_1300472C, S_GOOMBA, 0},
+	/* 38*/	{o_13003354, S_AMP, 0},
+	/* 39*/	{o_13003388, S_AMP, 0},
+	/* 40*/	{o_13003454, 125, 0},
+	/* 41*/	{o_13001608, 181, 0},
+	/* 42*/	{o_13003A30, S_IRONBALL, 0},
+	/* 43*/	{o_130051E0, S_2F_206, 0},
+	/* 44*/	{o_13004EF8, S_HEART, 0},
+	/* 45*/	{o_13004044, S_1UP, 0},
+	/* 46*/	{o_1300407C, S_1UP, 0},
+	/* 47*/	{o_130040B4, S_1UP, 0},
+	/* 48*/	{o_130040EC, S_1UP, 0},
+	/* 49*/	{o_13004124, S_NULL, 0},
+	/* 50*/	{o_1300407C, S_1UP, 1},
+	/* 51*/	{o_1300407C, S_1UP, 2},
+	/* 52*/	TAGOBJ_NULL,
+	/* 53*/	{o_bluecoinsw, S_BLUECOINSW, 0},
+	/* 54*/	{o_13002588, S_BLUECOIN, 0},
+	/* 55*/	{o_130001CC, S_1H_85, 0},
+	/* 56*/	{o_130001CC, S_1H_85, 1},
+	/* 57*/	{o_130001CC, S_1H_85, 2},
+	/* 58*/	{o_130001CC, S_1H_85, 3},
+	/* 59*/	{o_130025F8, S_BLOCK, 0},
+	/* 60*/	{o_itembox, S_ITEMBOX, 0},
+	/* 61*/	{o_itembox, S_ITEMBOX, 1},
+	/* 62*/	{o_itembox, S_ITEMBOX, 2},
+	/* 63*/	{o_itembox, S_ITEMBOX, 3},
+	/* 64*/	{o_itembox, S_ITEMBOX, 4},
+	/* 65*/	{o_itembox, S_ITEMBOX, 5},
+	/* 66*/	{o_itembox, S_ITEMBOX, 6},
+	/* 67*/	{o_itembox, S_ITEMBOX, 7},
+	/* 68*/	{o_itembox, S_ITEMBOX, 8},
+	/* 69*/	{o_130014E0, S_BLOCK, 0},
+	/* 70*/	{o_130014E0, S_BLOCK, 1},
+	/* 71*/	{o_13001518, S_PUSHBLOCK, 0},
+	/* 72*/	{o_13004218, S_CRATE, 0},
+	/* 73*/	{o_130014AC, S_PURPLESW, 0},
+	/* 74*/	{o_130014BC, S_BLOCK, 0},
+	/* 75*/	{o_130014BC, S_BLOCK, 1},
+	/* 76*/	{o_130014BC, S_BLOCK, 2},
+	/* 77*/	{o_130014E0, S_BLOCK, 3},
+	/* 78*/	{o_13000708, S_SHELL, 0},
+	/* 79*/	{o_itembox, S_ITEMBOX, 9},
+	/* 80*/	TAGOBJ_NULL,
+	/* 81*/	{o_1300179C, S_1A_84, 0},
+	/* 82*/	{o_13001548, S_1A_89, 0},
+	/* 83*/	TAGOBJ_NULL,
+	/* 84*/	{o_13000B8C, S_1A_88, 0},
+	/* 85*/	{o_1300518C, S_IRONBALL, 0},
+	/* 86*/	{o_130046DC, S_FLYGUY, 1},
+	/* 87*/	{o_13001650, S_BLOCK, 0},
+	/* 88*/	{o_13005598, S_BUTTERFLY, 0},
+	/* 89*/	{o_13005598, S_BUTTERFLY, 4},
+	/* 90*/	TAGOBJ_NULL,
+	/* 91*/	TAGOBJ_NULL,
+	/* 92*/	TAGOBJ_NULL,
+	/* 93*/	{o_1300362C, S_BULLY, 0},
+	/* 94*/	{o_1300362C, S_BIGBULLY, 0},
+	/* 95*/	TAGOBJ_NULL,
+	/* 96*/	{o_13001D0C, 88, 0},
+	/* 97*/	{o_13001168, S_NULL, 0},
+	/* 98*/	{o_13001108, S_NULL, 4},
+	/* 99*/	TAGOBJ_NULL,
+	/*100*/	TAGOBJ_NULL,
+	/*101*/	TAGOBJ_NULL,
+	/*102*/	TAGOBJ_NULL,
+	/*103*/	TAGOBJ_NULL,
+	/*104*/	TAGOBJ_NULL,
+	/*105*/	TAGOBJ_NULL,
+	/*106*/	{o_1300481C, S_2C_107, 0},
+	/*107*/	{o_13004B8C, S_NULL, 0},
+	/*108*/	{o_13004918, S_1K_84, 0},
+	/*109*/	{o_13004580, S_2C_104, 2},
+	/*110*/	{o_130045D0, S_NULL, 0},
+	/*111*/	{o_13003174, S_BOBOMB, 0},
+	/*112*/	{o_13004F10, S_CANNON, 0},
+	/*113*/	{o_13003228, S_REDBOBOMB, 0},
+	/*114*/	{o_13004F10, S_CANNON, 0},
+	/*115*/	{o_13003174, S_BOBOMB, 1},
+	/*116*/	TAGOBJ_NULL,
+	/*117*/	TAGOBJ_NULL,
+	/*118*/	TAGOBJ_NULL,
+	/*119*/	TAGOBJ_NULL,
+	/*120*/	TAGOBJ_NULL,
+	/*121*/	TAGOBJ_NULL,
+	/*122*/	TAGOBJ_NULL,
+	/*123*/	{o_13002A20, S_1D_84, 0},
+	/*124*/	TAGOBJ_NULL,
+	/*125*/	{o_13004F40, S_1D_85, 0},
+	/*126*/	{o_13002338, S_1D_86, 0},
+	/*127*/	TAGOBJ_NULL,
+	/*128*/	TAGOBJ_NULL,
+	/*129*/	TAGOBJ_NULL,
+	/*130*/	TAGOBJ_NULL,
+	/*131*/	TAGOBJ_NULL,
+	/*132*/	TAGOBJ_NULL,
+	/*133*/	TAGOBJ_NULL,
+	/*134*/	TAGOBJ_NULL,
+	/*135*/	TAGOBJ_NULL,
+	/*136*/	TAGOBJ_NULL,
+	/*137*/	{o_13002A48, S_1E_87, 0},
+	/*138*/	{o_13002650, S_1E_86, 0},
+	/*139*/	{o_13004634, S_NULL, 0},
+	/*140*/	{o_13004634, S_NULL, 0},
+	/*141*/	{o_13001F90, S_SSL_199, 0},
+	/*142*/	TAGOBJ_NULL,
+	/*143*/	TAGOBJ_NULL,
+	/*144*/	TAGOBJ_NULL,
+	/*145*/	TAGOBJ_NULL,
+	/*146*/	TAGOBJ_NULL,
+	/*147*/	TAGOBJ_NULL,
+	/*148*/	TAGOBJ_NULL,
+	/*149*/	TAGOBJ_NULL,
+	/*150*/	TAGOBJ_NULL,
+	/*151*/	{o_13004A00, S_1F_85, 0},
+	/*152*/	{o_13004A00, S_1F_85, 1},
+	/*153*/	{o_13004A58, S_1F_84, 0},
+	/*154*/	{o_130046DC, S_FLYGUY, 0},
+	/*155*/	TAGOBJ_NULL,
+	/*156*/	{o_13004898, S_1K_87, 0},
+	/*157*/	TAGOBJ_NULL,
+	/*158*/	TAGOBJ_NULL,
+	/*159*/	TAGOBJ_NULL,
+	/*160*/	TAGOBJ_NULL,
+	/*161*/	TAGOBJ_NULL,
+	/*162*/	TAGOBJ_NULL,
+	/*163*/	TAGOBJ_NULL,
+	/*164*/	TAGOBJ_NULL,
+	/*165*/	{o_130012B4, S_1G_84, 0},
+	/*166*/	{o_13004DBC, S_1G_85, 0},
+	/*167*/	{o_13004DBC, S_1G_85, 0},
+	/*168*/	TAGOBJ_NULL,
+	/*169*/	{o_130020E8, S_1G_87, 0},
+	/*170*/	{o_13002088, S_1G_87, 0},
+	/*171*/	{o_13002088, S_1G_87, 0},
+	/*172*/	{o_13004DBC, S_1G_85, 1},
+	/*173*/	TAGOBJ_NULL,
+	/*174*/	TAGOBJ_NULL,
+	/*175*/	TAGOBJ_NULL,
+	/*176*/	TAGOBJ_NULL,
+	/*177*/	TAGOBJ_NULL,
+	/*178*/	TAGOBJ_NULL,
+	/*179*/	TAGOBJ_NULL,
+	/*180*/	TAGOBJ_NULL,
+	/*181*/	TAGOBJ_NULL,
+	/*182*/	TAGOBJ_NULL,
+	/*183*/	TAGOBJ_NULL,
+	/*184*/	TAGOBJ_NULL,
+	/*185*/	TAGOBJ_NULL,
+	/*186*/	TAGOBJ_NULL,
+	/*187*/	TAGOBJ_NULL,
+	/*188*/	TAGOBJ_NULL,
+	/*189*/	{o_13004FD4, S_1I_86, 0},
+	/*190*/	{o_13004FD4, S_1I_86, 0},
+	/*191*/	{o_13004FD4, S_1I_86, 0},
+	/*192*/	{o_13002804, S_1I_84, 0},
+	/*193*/	{o_13002804, S_1I_84, 0},
+	/*194*/	{o_130027D0, S_1I_84, 0},
+	/*195*/	{o_13002710, S_1I_84, 0},
+	/*196*/	{o_13001778, S_1I_85, 0},
+	/*197*/	TAGOBJ_NULL,
+	/*198*/	TAGOBJ_NULL,
+	/*199*/	TAGOBJ_NULL,
+	/*200*/	TAGOBJ_NULL,
+	/*201*/	TAGOBJ_NULL,
+	/*202*/	TAGOBJ_NULL,
+	/*203*/	TAGOBJ_NULL,
+	/*204*/	TAGOBJ_NULL,
+	/*205*/	TAGOBJ_NULL,
+	/*206*/	TAGOBJ_NULL,
+	/*207*/	TAGOBJ_NULL,
+	/*208*/	TAGOBJ_NULL,
+	/*209*/	TAGOBJ_NULL,
+	/*210*/	TAGOBJ_NULL,
+	/*211*/	TAGOBJ_NULL,
+	/*212*/	TAGOBJ_NULL,
+	/*213*/	TAGOBJ_NULL,
+	/*214*/	TAGOBJ_NULL,
+	/*215*/	TAGOBJ_NULL,
+	/*216*/	TAGOBJ_NULL,
+	/*217*/	TAGOBJ_NULL,
+	/*218*/	TAGOBJ_NULL,
+	/*219*/	TAGOBJ_NULL,
+	/*220*/	TAGOBJ_NULL,
+	/*221*/	TAGOBJ_NULL,
+	/*222*/	TAGOBJ_NULL,
+	/*223*/	TAGOBJ_NULL,
+	/*224*/	TAGOBJ_NULL,
+	/*225*/	TAGOBJ_NULL,
+	/*226*/	TAGOBJ_NULL,
+	/*227*/	TAGOBJ_NULL,
+	/*228*/	TAGOBJ_NULL,
+	/*229*/	TAGOBJ_NULL,
+	/*230*/	TAGOBJ_NULL,
+	/*231*/	TAGOBJ_NULL,
+	/*232*/	TAGOBJ_NULL,
+	/*233*/	TAGOBJ_NULL,
+	/*234*/	{o_130021E4, S_NULL, 0},
+	/*235*/	{o_kelp, S_NULL, 0},
+	/*236*/	{o_chest, S_CHEST, 0},
+	/*237*/	{o_130037EC, S_WATERMINE, 0},
+	/*238*/	{o_1300215C, S_NULL, 2},
+	/*239*/	{o_1300215C, S_NULL, 3},
+	/*240*/	{o_13003738, S_WATERRING, 0},
+	/*241*/	{o_13003738, S_WATERRING, 0},
+	/*242*/	{o_skeeter, S_SKEETER, 0},
+	/*243*/	{o_13005440, S_1D_88, 0},
+	/*244*/	TAGOBJ_NULL,
+	/*245*/	TAGOBJ_NULL,
+	/*246*/	TAGOBJ_NULL,
+	/*247*/	TAGOBJ_NULL,
+	/*248*/	TAGOBJ_NULL,
+	/*249*/	TAGOBJ_NULL,
+	/*250*/	TAGOBJ_NULL,
+	/*251*/	{o_13001CB0, S_1F_86, 0},
+	/*252*/	{o_13001CB0, S_1F_86, 1},
+	/*253*/	{o_13001FBC, S_2C_100, 0},
+	/*254*/	TAGOBJ_NULL,
+	/*255*/	{o_13002BCC, S_2C_103, 0},
+	/*256*/	{o_1300478C, S_2C_102, 0},
+	/*257*/	TAGOBJ_NULL,
+	/*258*/	{o_13004580, S_2C_104, 1},
+	/*259*/	{o_13004580, S_2C_191, 0},
+	/*260*/	{o_1300481C, S_2C_107, 0},
+	/*261*/	{o_13005120, S_2C_100, 0},
+	/*262*/	{o_13005120, S_2C_100, 1},
+	/*263*/	{o_13004580, S_2C_104, 4},
+	/*264*/	TAGOBJ_NULL,
+	/*265*/	TAGOBJ_NULL,
+	/*266*/	TAGOBJ_NULL,
+	/*267*/	TAGOBJ_NULL,
+	/*268*/	TAGOBJ_NULL,
+	/*269*/	TAGOBJ_NULL,
+	/*270*/	TAGOBJ_NULL,
+	/*271*/	TAGOBJ_NULL,
+	/*272*/	TAGOBJ_NULL,
+	/*273*/	TAGOBJ_NULL,
+	/*274*/	TAGOBJ_NULL,
+	/*275*/	TAGOBJ_NULL,
+	/*276*/	TAGOBJ_NULL,
+	/*277*/	TAGOBJ_NULL,
+	/*278*/	TAGOBJ_NULL,
+	/*279*/	TAGOBJ_NULL,
+	/*280*/	TAGOBJ_NULL,
+	/*281*/	{o_130039D4, S_COIN, 0},
+	/*282*/	TAGOBJ_NULL,
+	/*283*/	TAGOBJ_NULL,
+	/*284*/	TAGOBJ_NULL,
+	/*285*/	TAGOBJ_NULL,
+	/*286*/	TAGOBJ_NULL,
+	/*287*/	TAGOBJ_NULL,
+	/*288*/	TAGOBJ_NULL,
+	/*289*/	{o_13004698, S_2F_100, 0},
+	/*290*/	{o_13004698, S_2F_100, 1},
+	/*291*/	{o_mr_i, S_NULL, 0},
+	/*292*/	{o_13002BA0, S_NULL, 0},
+	/*293*/	{o_13002B5C, S_2F_101, 0},
+	/*294*/	TAGOBJ_NULL,
+	/*295*/	TAGOBJ_NULL,
+	/*296*/	TAGOBJ_NULL,
+	/*297*/	TAGOBJ_NULL,
+	/*298*/	TAGOBJ_NULL,
+	/*299*/	TAGOBJ_NULL,
+	/*300*/	TAGOBJ_NULL,
+	/*301*/	TAGOBJ_NULL,
+	/*302*/	TAGOBJ_NULL,
+	/*303*/	{o_coin, S_1K_84, 0},
+	/*304*/	TAGOBJ_NULL,
+	/*305*/	TAGOBJ_NULL,
+	/*306*/	TAGOBJ_NULL,
+	/*307*/	TAGOBJ_NULL,
+	/*308*/	TAGOBJ_NULL,
+	/*309*/	TAGOBJ_NULL,
+	/*310*/	TAGOBJ_NULL,
+	/*311*/	TAGOBJ_NULL,
+	/*312*/	TAGOBJ_NULL,
+	/*313*/	{o_13004BF0, 54, 0},
+	/*314*/	{o_13004BF0, 55, 1},
+	/*315*/	{o_13004C24, 56, 0},
+	/*316*/	{o_13004C5C, 57, 0},
+	/*317*/	{o_13004C5C, 58, 1},
+	/*318*/	{o_13004C94, 59, 0},
+	/*319*/	{o_13004CCC, 60, 0},
+	/*320*/	{o_13004CCC, 61, 2},
+	/*321*/	{o_13004CF8, 62, 0},
+	/*322*/	{o_13004CF8, 63, 1},
+	/*323*/	{o_13004D28, 64, 0},
+	/*324*/	{o_13004D64, 65, 0},
+	/*325*/	{o_13004D90, 66, 0},
+	/*326*/	{o_13004D64, 67, 1},
+	/*327*/	{o_13004D64, 68, 1},
+	/*328*/	{o_13004C5C, 57, 2},
+	/*329*/	{o_13004C5C, 58, 3},
+	/*330*/	TAGOBJ_NULL,
+	/*331*/	TAGOBJ_NULL,
+	/*332*/	TAGOBJ_NULL,
+	/*333*/	TAGOBJ_NULL,
+	/*334*/	TAGOBJ_NULL,
+	/*335*/	TAGOBJ_NULL,
+	/*336*/	TAGOBJ_NULL,
+	/*337*/	TAGOBJ_NULL,
+	/*338*/	TAGOBJ_NULL,
+	/*339*/	{o_itembox, S_ITEMBOX, 10},
+	/*340*/	{o_itembox, S_ITEMBOX, 11},
+	/*341*/	{o_itembox, S_ITEMBOX, 12},
+	/*342*/	{o_itembox, S_ITEMBOX, 13},
+	/*343*/	{o_itembox, S_ITEMBOX, 14},
+	/*344*/	TAGOBJ_NULL,
+	/*345*/	TAGOBJ_NULL,
+	/*346*/	TAGOBJ_NULL,
+	/*347*/	TAGOBJ_NULL,
+	/*348*/	TAGOBJ_NULL,
+	/*349*/	TAGOBJ_NULL,
+	/*350*/	{o_13004E4C, 54, 0},
+	/*351*/	{o_13004E4C, 55, 0},
+	/*352*/	{o_130013DC, 56, 0},
+	/*353*/	{o_13004E78, 57, 0},
+	/*354*/	{o_13004EA0, 65, 0},
+	/*355*/	TAGOBJ_NULL,
+	/*356*/	TAGOBJ_NULL,
+	/*357*/	{o_13004B44, 61, 0},
+	/*358*/	{o_13004ECC, 62, 0},
+	/*359*/	{o_13004B1C, 63, 0},
+	/*360*/	{o_13004B1C, 64, 0},
+	/*361*/	TAGOBJ_NULL,
+	/*362*/	TAGOBJ_NULL,
+	/*363*/	TAGOBJ_NULL,
+	/*364*/	TAGOBJ_NULL,
+	/*365*/	TAGOBJ_NULL,
+};

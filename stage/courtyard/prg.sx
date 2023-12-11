@@ -1,0 +1,56 @@
+#include <sm64/prglang.h>
+
+.data
+
+p_courtyard1_statbg:
+	pObject(S_NULL, 0, 200, -1652, 0, 0, 0, 0, 0, 0, o_13003C90)
+	pObject(S_NULL, -2700, 0, -1652, 0, 0, 0, 0, 0, 0, o_13003C7C)
+	pObject(S_NULL, 2700, 0, -1652, 0, 0, 0, 0, 1, 0, o_13003C7C)
+	pReturn()
+
+p_courtyard1_enemy:
+	pObject(S_1I_84, -3217, 100, -101, 0, 0, 0, 0, 0, 0, o_130027D0)
+	pObject(S_1I_84, 3317, 100, -1701, 0, 0, 0, 0, 0, 0, o_130027D0)
+	pObject(S_1I_84, -71, 1, -1387, 0, 0, 0, 0, 0, 0, o_130027D0)
+	pReturn()
+
+.globl p_courtyard
+p_courtyard:
+	pStageInit()
+	pLoadPres(SEG_STAGE_GFX, _CourtyardGfxSegmentRomStart, _CourtyardGfxSegmentRomEnd)
+	pLoadPres(SEG_BACK, _BackASegmentRomStart, _BackASegmentRomEnd)
+	pLoadText(SEG_TEXTURE, _TextureKSegmentRomStart, _TextureKSegmentRomEnd)
+	pLoadPres(SEG_SHAPE1_GFX, _Shape1IGfxSegmentRomStart, _Shape1IGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE1_SHP, _Shape1IShpSegmentRomStart, _Shape1IShpSegmentRomEnd)
+	pLoadPres(SEG_SHAPE3_GFX, _CommonGfxSegmentRomStart, _CommonGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE3_SHP, _CommonShpSegmentRomStart, _CommonShpSegmentRomEnd)
+	pStageStart()
+		pMario()
+		pCall(p_shape_common)
+		pCall(p_shape_1i)
+		pShapeScript(S_TREE_B, s_tree_b)
+		pShapeScript(S_PORTDOOR_B, s_door_b)
+		pShapeScript(S_COURTYARD_3, s_courtyard_3)
+		pSceneStart(1, s_courtyard1)
+			pObject(S_1I_84, -2360, -100, -2712, 0, 0, 0, 1, 5, 0, o_13002710)
+			pObject(S_NULL, 0, 51, -1000, 0, 180, 0, 0, 10, 0, o_13002F8C)
+			pObject(S_NULL, 0, 51, -1000, 0, 180, 0, 0, 11, 0, o_13002F90)
+			pPort(5, STAGE_BBH, 1, 10)
+			pPort(10, STAGE_COURTYARD, 1, 10)
+			pPort(11, STAGE_COURTYARD, 1, 11)
+			pPort(1, STAGE_INSIDE, 1, 2)
+			pPort(PORT_DIE, STAGE_GROUNDS, 1, 3)
+			pCall(p_courtyard1_statbg)
+			pCall(p_courtyard1_enemy)
+			pMap(0x070059A8)
+			pTag(0x07006E20)
+			pBgm(NA_MODE_DEFAULT, NA_BGM_NULL)
+			pEnv(ENV_ROCK)
+		pSceneEnd()
+	pStageEnd()
+	pPlayerOpen(1, 0, -14, 0, -201)
+	pCallback(game_process, 0)
+	pProcess(game_process, 1)
+	pStageExit()
+	pFreeze(1)
+	pExit()

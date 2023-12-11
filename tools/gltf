@@ -1,0 +1,294 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+import struct
+import base64
+import json
+
+def gltf_uri(obj):
+	uri = obj["uri"]
+	if uri.startswith("data:"):
+		assert uri.startswith("data:application/octet-stream;base64,")
+		data = base64.standard_b64decode(uri[37:])
+	else:
+		if os.path.isfile(os.path.join(path, uri)):
+			uri = os.path.join(path, uri)
+		elif not os.path.isfile(uri):
+			sys.stderr.write("error: %s: file not found\n" % uri)
+			sys.exit(1)
+		with open(uri, "rb") as f: data = f.read()
+	return data
+
+def gltf_bufferView(obj):
+	bufferView = gltf["bufferViews"][obj["bufferView"]]
+	i = bufferView["byteOffset"] if "byteOffset" in bufferView else 0
+	n = bufferView["byteLength"]
+	return buftab[bufferView["buffer"]][i:i+n]
+
+def gltf_array(i):
+	accessor = gltf["accessors"][i]
+	data = gltf_bufferView(accessor)
+	count = accessor["count"]
+	i = accessor["componentType"]-5120
+	f = "bBhHiIf"[i]
+	n = (1, 1, 2, 2, 4, 4, 4)[i]
+	t = accessor["type"]
+	if t.startswith("VEC"):
+		f = "<"+t[3:]+f
+		n *= int(t[3:])
+		return [
+			struct.unpack(f, data[n*i:n*(i+1)])
+			for i in range(count)
+		]
+	assert t == "SCALAR"
+	return struct.unpack("<"+str(count)+f, data)
+
+def gltf_rotation(node):
+	rotation = node["rotation"]
+	xx = rotation[0]*rotation[0]
+	xy = rotation[0]*rotation[1]
+	xz = rotation[0]*rotation[2]
+	xw = rotation[0]*rotation[3]
+	yy = rotation[1]*rotation[1]
+	yz = rotation[1]*rotation[2]
+	yw = rotation[1]*rotation[3]
+	zz = rotation[2]*rotation[2]
+	zw = rotation[2]*rotation[3]
+	return (
+		(1-2*(yy+zz),   2*(xy-zw),   2*(xz+yw)),
+		(  2*(xy+zw), 1-2*(xx+zz),   2*(yz-xw)),
+		(  2*(xz-yw),   2*(yz+xw), 1-2*(xx+yy)),
+	)
+
+def gltf_attr(m, attrib, attr):
+	if attr in attrib:
+		for i in range(len(attrib[attr])):
+			x, y, z = attrib[attr][i]
+			attrib[attr][i] = (
+				m[0][0]*x + m[1][0]*y + m[2][0]*z,
+				m[0][1]*x + m[1][1]*y + m[2][1]*z,
+				m[0][2]*x + m[1][2]*y + m[2][2]*z,
+			)
+
+def gltf_attrib(node, primitive):
+	attrib = {
+		attribute: gltf_array(primitive["attributes"][attribute])
+		for attribute in primitive["attributes"]
+	}
+	if "rotation" in node:
+		m = gltf_rotation(node)
+		gltf_attr(m, attrib, "POSITION")
+		gltf_attr(m, attrib, "NORMAL")
+	return attrib
+
+def gltf_tri(primitive):
+	mode = primitive["mode"] if "mode" in primitive else 4
+	assert mode == 4
+	return gltf_array(primitive["indices"])
+
+def gltf_material(primitive):
+	if "material" in primitive: return gltf["materials"][primitive["material"]]
+	return None
+
+def gltf_image(material):
+	if "pbrMetallicRoughness" in material:
+		x = material["pbrMetallicRoughness"]
+		if "baseColorTexture" in x:
+			index = x["baseColorTexture"]["index"]
+			texture = gltf["textures"][index]
+			return imgtab[texture["source"]]
+	return (0, 0)
+
+def notgltf():
+	sys.stderr.write("%s: not a glTF file\n" % fn)
+	sys.exit(1)
+
+def illfmt():
+	sys.stderr.write("%s: illegal format\n" % fn)
+	sys.exit(1)
+
+def sh(x): return max(-32768, min(32767, int(round(x))))
+def sb(x): return max(  -128, min(  127, int(round(x))))
+def ub(x): return max(     0, min(  255, int(round(x))))
+
+def gfx_v(v):
+	if debug or v not in vbuf:
+		i = len(vbuf)
+		vbuf.append(v)
+		return i
+	return vbuf.index(v)
+
+def gfx_flush():
+	global vcnt
+	if vbuf:
+		for v in vbuf: vf.write((
+			"\t{{{%6d, %6d, %6d}, 0, {%6d, %6d}, {%4d, %4d, %4d, %4d}}},\n"
+		) % (
+				position[v][0],
+				position[v][1],
+				position[v][2],
+				texcoord[v][0] if texcoord else 0,
+				texcoord[v][1] if texcoord else 0,
+				vr[0][v][vr[1]] if vr else 0,
+				vg[0][v][vg[1]] if vg else 0,
+				vb[0][v][vb[1]] if vb else 0,
+				va[0][v][va[1]] if va else 0,
+		))
+		f.write("gsSPVertex(&vtx_%s_%s[%d], %d, 0),\n" % (
+			name, mtl, vcnt, len(vbuf)
+		))
+		vcnt += len(vbuf)
+		vbuf.clear()
+	if tbuf:
+		for i in range(0, len(tbuf) & ~1, 2): f.write(
+			"gsSP2Triangles(%2d, %2d, %2d, 0, %2d, %2d, %2d, 0),\n" %
+				(tbuf[i+0] + tbuf[i+1])
+		)
+		if len(tbuf) & 1: f.write(
+			"gsSP1Triangle(%2d, %2d, %2d, 0),\n" % tbuf[-1]
+		)
+		tbuf.clear()
+
+fn = None
+debug = False
+i = 1
+while i < len(sys.argv):
+	x = sys.argv[i]
+	i += 1
+	if x.startswith("-"):
+		if x == "-g":
+			debug = True
+		else:
+			sys.stderr.write("error: bad opt '%s'\n" % x)
+			sys.exit(1)
+	elif not fn:
+		fn = x
+	else:
+		sys.stderr.write("error: multiple file specified\n")
+		sys.exit(1)
+if not fn:
+	sys.stderr.write("usage: %s [-g] <gltf>\n" % sys.argv[0])
+	sys.exit(1)
+path = os.path.dirname(fn)
+name, ext = os.path.splitext(os.path.basename(fn))
+ext = ext.lower()
+chunk = []
+if ext == ".gltf":
+	with open(fn, "rb") as f: chunk.append((B"JSON", f.read()))
+elif ext == ".glb":
+	with open(fn, "rb") as f:
+		code, version, size = struct.unpack("<4sII", f.read(12))
+		size -= 12
+		if code != B"glTF": notgltf()
+		if version != 2: illfmt()
+		chunk = []
+		while size > 0:
+			n, t = struct.unpack("<I4s", f.read(8))
+			size -= 8
+			chunk.append((t, f.read(n)))
+			size -= n
+		if len(chunk) < 1 or len(chunk) > 2: illfmt()
+		if chunk[0][0] != B"JSON": illfmt()
+else: notgltf()
+gltf = json.loads(chunk[0][1].decode())
+buftab = []
+imgtab = []
+for buffer in gltf["buffers"]:
+	if "uri" in buffer:
+		buftab.append(gltf_uri(buffer))
+	else:
+		if len(buftab) > 0: illfmt()
+		if len(chunk) < 2: illfmt()
+		if chunk[1][0] != B"BIN\0": illfmt()
+		buftab.append(chunk[1][1])
+if "images" in gltf:
+	for image in gltf["images"]:
+		if "uri" in image:
+			data = gltf_uri(image)
+		else:
+			data = gltf_bufferView(image)
+		if data.startswith(B"\211PNG\r\n\32\n"):
+			assert data[12:16] == B"IHDR"
+			imgtab.append(struct.unpack(">II", data[16:24]))
+		else:
+			sys.stderr.write("error: unknown image format (only support PNG)\n")
+			sys.exit(1)
+for node in gltf["nodes"]:
+	mesh = gltf["meshes"][node["mesh"]]
+	with open(os.path.join(path, mesh["name"] + ".h"), "w") as vf:
+		first = True
+		for primitive in mesh["primitives"]:
+			attrib = gltf_attrib(node, primitive)
+			material = gltf_material(primitive)
+			tri = gltf_tri(primitive)
+			position = [[sh(x) for x in x] for x in attrib["POSITION"]]
+			texcoord = None
+			vr = None
+			vg = None
+			vb = None
+			va = None
+			if "COLOR_0" in attrib:
+				accessor = gltf["accessors"][primitive["attributes"]["COLOR_0"]]
+				f = {
+					5121: lambda x: x,
+					5123: lambda x: x >> 8,
+					5126: lambda x: ub(255*x),
+				}[accessor["componentType"]]
+				color = [[f(x) for x in x] for x in attrib["COLOR_0"]]
+				vr = (color, 0)
+				vg = (color, 1)
+				vb = (color, 2)
+				if len(color[0]) > 3: va = (color, 3)
+			if "NORMAL" in attrib:
+				normal = [[sb(128*x) for x in x] for x in attrib["NORMAL"]]
+				vr = (normal, 0)
+				vg = (normal, 1)
+				vb = (normal, 2)
+			if "extras" in mesh:
+				x = mesh["extras"]
+				if "r" in x: vr = (color, x["r"])
+				if "g" in x: vg = (color, x["g"])
+				if "b" in x: vb = (color, x["b"])
+				if "a" in x: va = (color, x["a"])
+			if material:
+				if "TEXCOORD_0" in attrib:
+					w, h = gltf_image(material)
+					ss = st = 1
+					ts = tt = -0.5
+					if "extras" in material:
+						x = material["extras"]
+						if "w" in x: w = x["w"]
+						if "h" in x: h = x["h"]
+						if "ss" in x: ss = x["ss"]
+						if "st" in x: st = x["st"]
+						if "ts" in x: ts = x["ts"]
+						if "tt" in x: tt = x["tt"]
+					texcoord = [(
+						sh(32*((w*s + ts)/ss)),
+						sh(32*((h*t + tt)/st)),
+					) for s, t in attrib["TEXCOORD_0"]]
+			mtl = "%s.%s" % (
+				mesh["name"], material["name"] if material else None
+			)
+			with open(os.path.join(path, mtl + ".h"), "w") as f:
+				mtl = "".join([c if c in (
+					"0123456789"
+					"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+					"abcdefghijklmnopqrstuvwxyz"
+				) else "_" for c in mtl])
+				vbuf = []
+				tbuf = []
+				vcnt = 0
+				if first: first = False
+				else: vf.write("\n")
+				vf.write("static Vtx vtx_%s_%s[] =\n{\n" % (name, mtl))
+				for i in range(0, len(tri), 3):
+					t = tri[i:i+3]
+					n = 16
+					for v in t:
+						if debug or v not in vbuf: n -= 1
+					if len(vbuf) > n: gfx_flush()
+					tbuf.append(tuple([gfx_v(v) for v in t]))
+				gfx_flush()
+				vf.write("};\n")

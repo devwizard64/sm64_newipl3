@@ -1,0 +1,7 @@
+.globl p_shape_2d
+p_shape_2d:
+	pShapeScript(S_MIPS, s_mips)
+	pShapeScript(S_BOO2, s_boo2)
+	pShapeScript(S_LAKITU2, s_lakitu2)
+	pShapeScript(S_TOAD, s_toad)
+	pReturn()

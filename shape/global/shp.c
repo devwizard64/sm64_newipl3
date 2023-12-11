@@ -1,0 +1,27 @@
+#include <sm64/shplang.h>
+
+#define SCRIPT
+
+#include "puff/shape.c"
+#include "explosion/shape.c"
+#include "butterfly/shape.c"
+#include "coin/shape.c"
+#include "pipe/shape.c"
+#include "door/shape.c"
+#include "doorkey/shape.c"
+#include "flame/shape.c"
+#include "fish/shape.c"
+#include "stone/shape.c"
+#include "leaf/shape.c"
+#include "map/shape.c"
+#include "cap/shape.c"
+#include "meter/shape.c"
+#include "number/shape.c"
+#include "1up/shape.c"
+#include "powerstar/shape.c"
+#include "sand/shape.c"
+#include "shard/shape.c"
+#include "shadestar/shape.c"
+#include "snow/shape.c"
+#include "signpost/shape.c"
+#include "tree/shape.c"

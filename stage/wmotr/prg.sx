@@ -1,0 +1,54 @@
+#include <sm64/prglang.h>
+
+.data
+
+p_wmotr1_movebg:
+	pObject(S_NULL, 3996, -2739, 5477, 0, 0, 0, 0, 82, 0, o_13000144)
+	pObject(S_NULL, -2911, 3564, -3967, 0, 0, 0, 0, 84, 0, o_13000144)
+	pObject(S_NULL, -3258, 3359, -3946, 0, 0, 0, 0, 105, 0, o_13000144)
+	pObject(S_NULL, -2639, 3154, -4369, 0, 0, 0, 0, 125, 0, o_13000144)
+	pObject(S_NULL, -2980, 4048, -4248, 0, 0, 0, 0, 36, 0, o_13000144)
+	pObject(S_NULL, -3290, 3636, -4477, 0, 0, 0, 0, 77, 0, o_13000144)
+	pReturn()
+
+p_wmotr1_star:
+	pObject(S_NULL, -160, 1950, -470, 0, 0, 0, 0, 0, 0, o_13003E8C)
+	pReturn()
+
+.globl p_wmotr
+p_wmotr:
+	pStageInit()
+	pLoadPres(SEG_STAGE_GFX, _WMotRGfxSegmentRomStart, _WMotRGfxSegmentRomEnd)
+	pLoadPres(SEG_BACK, _BackFSegmentRomStart, _BackFSegmentRomEnd)
+	pLoadText(SEG_TEXTURE, _TextureESegmentRomStart, _TextureESegmentRomEnd)
+	pLoadPres(SEG_SHAPE1_GFX, _Shape1BGfxSegmentRomStart, _Shape1BGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE1_SHP, _Shape1BShpSegmentRomStart, _Shape1BShpSegmentRomEnd)
+	pLoadPres(SEG_SHAPE2_GFX, _Shape2FGfxSegmentRomStart, _Shape2FGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE2_SHP, _Shape2FShpSegmentRomStart, _Shape2FShpSegmentRomEnd)
+	pLoadPres(SEG_SHAPE3_GFX, _CommonGfxSegmentRomStart, _CommonGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE3_SHP, _CommonShpSegmentRomStart, _CommonShpSegmentRomEnd)
+	pStageStart()
+		pMario()
+		pCall(p_shape_common)
+		pCall(p_shape_1b)
+		pCall(p_shape_2f)
+		pSceneStart(1, s_wmotr1)
+			pObject(S_NULL, -67, 2669, -16, 0, 270, 0, 0, 10, 0, o_13002F64)
+			pPort(10, STAGE_WMOTR, 1, 10)
+			pPort(PORT_WIN, STAGE_INSIDE, 2, 56)
+			pPort(PORT_DIE, STAGE_INSIDE, 2, 109)
+			pPort(PORT_FALL, STAGE_GROUNDS, 1, 10)
+			pCall(p_wmotr1_movebg)
+			pCall(p_wmotr1_star)
+			pMap(0x07010688)
+			pTag(0x070136A8)
+			pBgm(NA_MODE_DEFAULT, NA_BGM_SLIDER)
+			pEnv(ENV_SNOW)
+		pSceneEnd()
+	pStageEnd()
+	pPlayerOpen(1, 270, -67, 1669, -16)
+	pCallback(game_process, 0)
+	pProcess(game_process, 1)
+	pStageExit()
+	pFreeze(1)
+	pExit()

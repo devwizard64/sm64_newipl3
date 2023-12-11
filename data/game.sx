@@ -1,0 +1,228 @@
+#include <sm64/prglang.h>
+
+.data
+
+.globl p_game
+p_game:
+	pLoadPres(SEG_PLAYER_GFX, _PlayerGfxSegmentRomStart, _PlayerGfxSegmentRomEnd)
+	pLoadPres(SEG_GLOBAL_GFX, _GlobalGfxSegmentRomStart, _GlobalGfxSegmentRomEnd)
+	pLoadData(SEG_PLAYER_SHP, _PlayerShpSegmentRomStart, _PlayerShpSegmentRomEnd)
+	pLoadData(SEG_GLOBAL_SHP, _GlobalShpSegmentRomStart, _GlobalShpSegmentRomEnd)
+	pLoadData(SEG_OBJECT, _ObjectSegmentRomStart, _ObjectSegmentRomEnd)
+	pStageStart()
+		pShapeScript(S_MARIO, s_mario)
+		pShapeScript(S_DUST, s_dust)
+		pShapeScript(S_SPARKLE, s_sparkle)
+		pShapeScript(S_BUBBLE_A, s_bubble_a)
+		pShapeScript(S_WAVE, s_wave)
+		pShapeScript(S_RIPPLE_STOP, s_ripple_stop)
+		pShapeScript(S_SPLASH, s_splash)
+		pShapeScript(S_RIPPLE_MOVE, s_ripple_move)
+		pShapeScript(S_COIN, s_coin)
+		pShapeScript(S_POWERSTAR, s_powerstar)
+		pShapeScript(S_SHADESTAR, s_shadestar)
+		pShapeScript(S_SIGNPOST, s_signpost)
+		pShapeGfx(S_DROPLET, gfx_droplet, LAYER_TEX_EDGE)
+		pShapeScript(S_FLAME, s_flame)
+		pShapeScript(S_BLUEFLAME, s_blueflame)
+		pShapeScript(S_SMOKE, s_smoke)
+		pShapeScript(S_LEAF, s_leaf)
+		pShapeScript(S_BUBBLE_B, s_bubble_b)
+		pShapeScript(S_FISH, s_fish)
+		pShapeScript(S_FISH_SHADOW, s_fish_shadow)
+		pShapeScript(S_GLOW, s_glow)
+		pShapeGfx(S_SAND, gfx_sand, LAYER_TEX_EDGE)
+		pShapeScript(S_BUTTERFLY, s_butterfly)
+		pShapeScript(S_SMOKE2, s_smoke)
+		pShapeGfx(S_STONE, gfx_stone, LAYER_TEX_EDGE)
+		pShapeScript(S_WHITEPUFF, s_whitepuff)
+		pShapeScript(S_BLACKPUFF, s_blackpuff)
+		pShapeGfx(S_SNOW, gfx_snow, LAYER_TEX_EDGE)
+		pShapeScript(S_SNOWBALL, s_snowball)
+		pShapeScript(S_COIN_NOSHADOW, s_coin_noshadow)
+		pShapeScript(S_BLUECOIN, s_bluecoin)
+		pShapeScript(S_BLUECOIN_NOSHADOW, s_bluecoin_noshadow)
+		pShapeScript(S_WINGCAP_E, s_wingcap_e)
+		pShapeScript(S_CAP_E, s_cap_e)
+		pShapeScript(S_WINGCAP_S, s_wingcap_s)
+		pShapeScript(S_CAP_S, s_cap_s)
+		pShapeScript(S_CAP_S, s_cap_s)
+		pShapeScript(S_DOORKEY, s_doorkey)
+		pShapeScript(S_BOWSERKEY, s_bowserkey)
+		pShapeScript(S_FLAME_SHADOW, s_flame_shadow)
+		pShapeScript(S_1UP, s_1up)
+		pShapeScript(S_REDCOIN, s_redcoin)
+		pShapeScript(S_REDCOIN_NOSHADOW, s_redcoin_noshadow)
+		pShapeScript(S_NUMBER, s_number)
+		pShapeScript(S_EXPLOSION, s_explosion)
+		pShapeScript(S_SHARD, s_shard)
+		pShapeScript(S_STAR, s_star)
+	pStageEnd()
+	pCallback(game_initialize, 0)
+	pRepeat()
+		pExecute(SEG_MENU_DATA, _SelectSegmentRomStart, _SelectSegmentRomEnd, p_starselect)
+		pCall(p_stage)
+		pSleep(1)
+	pUntil(LT, STAGE_NULL)
+	pJumpIf(EQ, EXIT_ENDING, .case_m1)
+	pJumpIf(EQ, EXIT_FACE, .case_m2)
+	pJumpIf(EQ, EXIT_GAMEOVER, .case_m3)
+	pJumpIf(EQ, EXIT_LOGO, .case_m8)
+	pJumpIf(EQ, EXIT_DEBUG, .case_m9)
+.case_m8:
+	pChain(SEG_MENU_DATA, _TitleSegmentRomStart, _TitleSegmentRomEnd, p_logo)
+.case_m1:
+	pChain(SEG_STAGE_DATA, _EndingSegmentRomStart, _EndingSegmentRomEnd, p_ending)
+.case_m2:
+	pChain(SEG_MENU_DATA, _TitleSegmentRomStart, _TitleSegmentRomEnd, p_face)
+.case_m3:
+	pChain(SEG_MENU_DATA, _TitleSegmentRomStart, _TitleSegmentRomEnd, p_gameover)
+.case_m9:
+	pChain(SEG_MENU_DATA, _TitleSegmentRomStart, _TitleSegmentRomEnd, p_debug)
+
+p_stage:
+	pLoad(STAGE)
+	pJumpIf(EQ, STAGE_BBH, .case_4)
+	pJumpIf(EQ, STAGE_CCM, .case_5)
+	pJumpIf(EQ, STAGE_INSIDE, .case_6)
+	pJumpIf(EQ, STAGE_HMC, .case_7)
+	pJumpIf(EQ, STAGE_SSL, .case_8)
+	pJumpIf(EQ, STAGE_BOB, .case_9)
+	pJumpIf(EQ, STAGE_SL, .case_10)
+	pJumpIf(EQ, STAGE_WDW, .case_11)
+	pJumpIf(EQ, STAGE_JRB, .case_12)
+	pJumpIf(EQ, STAGE_THI, .case_13)
+	pJumpIf(EQ, STAGE_TTC, .case_14)
+	pJumpIf(EQ, STAGE_RR, .case_15)
+	pJumpIf(EQ, STAGE_GROUNDS, .case_16)
+	pJumpIf(EQ, STAGE_BITDW, .case_17)
+	pJumpIf(EQ, STAGE_VCUTM, .case_18)
+	pJumpIf(EQ, STAGE_BITFS, .case_19)
+	pJumpIf(EQ, STAGE_SA, .case_20)
+	pJumpIf(EQ, STAGE_BITS, .case_21)
+	pJumpIf(EQ, STAGE_LLL, .case_22)
+	pJumpIf(EQ, STAGE_DDD, .case_23)
+	pJumpIf(EQ, STAGE_WF, .case_24)
+	pJumpIf(EQ, STAGE_ENDING, .case_25)
+	pJumpIf(EQ, STAGE_COURTYARD, .case_26)
+	pJumpIf(EQ, STAGE_PSS, .case_27)
+	pJumpIf(EQ, STAGE_COTMC, .case_28)
+	pJumpIf(EQ, STAGE_TOTWC, .case_29)
+	pJumpIf(EQ, STAGE_BITDWA, .case_30)
+	pJumpIf(EQ, STAGE_WMOTR, .case_31)
+	pJumpIf(EQ, STAGE_BITFSA, .case_33)
+	pJumpIf(EQ, STAGE_BITSA, .case_34)
+	pJumpIf(EQ, STAGE_TTM, .case_36)
+	pExit()
+.case_4:
+	pExecute(SEG_STAGE_DATA, _BBHSegmentRomStart, _BBHSegmentRomEnd, p_bbh)
+	pReturn()
+.case_5:
+	pExecute(SEG_STAGE_DATA, _CCMSegmentRomStart, _CCMSegmentRomEnd, p_ccm)
+	pReturn()
+.case_6:
+	pExecute(SEG_STAGE_DATA, _InsideSegmentRomStart, _InsideSegmentRomEnd, p_inside)
+	pReturn()
+.case_7:
+	pExecute(SEG_STAGE_DATA, _HMCSegmentRomStart, _HMCSegmentRomEnd, p_hmc)
+	pReturn()
+.case_8:
+	pExecute(SEG_STAGE_DATA, _SSLSegmentRomStart, _SSLSegmentRomEnd, p_ssl)
+	pReturn()
+.case_9:
+	pExecute(SEG_STAGE_DATA, _BoBSegmentRomStart, _BoBSegmentRomEnd, p_bob)
+	pReturn()
+.case_10:
+	pExecute(SEG_STAGE_DATA, _SLSegmentRomStart, _SLSegmentRomEnd, p_sl)
+	pReturn()
+.case_11:
+	pExecute(SEG_STAGE_DATA, _WDWSegmentRomStart, _WDWSegmentRomEnd, p_wdw)
+	pReturn()
+.case_12:
+	pExecute(SEG_STAGE_DATA, _JRBSegmentRomStart, _JRBSegmentRomEnd, p_jrb)
+	pReturn()
+.case_13:
+	pExecute(SEG_STAGE_DATA, _THISegmentRomStart, _THISegmentRomEnd, p_thi)
+	pReturn()
+.case_14:
+	pExecute(SEG_STAGE_DATA, _TTCSegmentRomStart, _TTCSegmentRomEnd, p_ttc)
+	pReturn()
+.case_15:
+	pExecute(SEG_STAGE_DATA, _RRSegmentRomStart, _RRSegmentRomEnd, p_rr)
+	pReturn()
+.case_16:
+	pExecute(SEG_STAGE_DATA, _GroundsSegmentRomStart, _GroundsSegmentRomEnd, p_grounds)
+	pReturn()
+.case_17:
+	pExecute(SEG_STAGE_DATA, _BitDWSegmentRomStart, _BitDWSegmentRomEnd, p_bitdw)
+	pReturn()
+.case_18:
+	pExecute(SEG_STAGE_DATA, _VCutMSegmentRomStart, _VCutMSegmentRomEnd, p_vcutm)
+	pReturn()
+.case_19:
+	pExecute(SEG_STAGE_DATA, _BitFSSegmentRomStart, _BitFSSegmentRomEnd, p_bitfs)
+	pReturn()
+.case_20:
+	pExecute(SEG_STAGE_DATA, _SASegmentRomStart, _SASegmentRomEnd, p_sa)
+	pReturn()
+.case_21:
+	pExecute(SEG_STAGE_DATA, _BitSSegmentRomStart, _BitSSegmentRomEnd, p_bits)
+	pReturn()
+.case_22:
+	pExecute(SEG_STAGE_DATA, _LLLSegmentRomStart, _LLLSegmentRomEnd, p_lll)
+	pReturn()
+.case_23:
+	pExecute(SEG_STAGE_DATA, _DDDSegmentRomStart, _DDDSegmentRomEnd, p_ddd)
+	pReturn()
+.case_24:
+	pExecute(SEG_STAGE_DATA, _WFSegmentRomStart, _WFSegmentRomEnd, p_wf)
+	pReturn()
+.case_25:
+	pExecute(SEG_STAGE_DATA, _EndingSegmentRomStart, _EndingSegmentRomEnd, p_ending)
+	pReturn()
+.case_26:
+	pExecute(SEG_STAGE_DATA, _CourtyardSegmentRomStart, _CourtyardSegmentRomEnd, p_courtyard)
+	pReturn()
+.case_27:
+	pExecute(SEG_STAGE_DATA, _PSSSegmentRomStart, _PSSSegmentRomEnd, p_pss)
+	pReturn()
+.case_28:
+	pExecute(SEG_STAGE_DATA, _CotMCSegmentRomStart, _CotMCSegmentRomEnd, p_cotmc)
+	pReturn()
+.case_29:
+	pExecute(SEG_STAGE_DATA, _TotWCSegmentRomStart, _TotWCSegmentRomEnd, p_totwc)
+	pReturn()
+.case_30:
+	pExecute(SEG_STAGE_DATA, _BitDWASegmentRomStart, _BitDWASegmentRomEnd, p_bitdwa)
+	pReturn()
+.case_31:
+	pExecute(SEG_STAGE_DATA, _WMotRSegmentRomStart, _WMotRSegmentRomEnd, p_wmotr)
+	pReturn()
+.case_33:
+	pExecute(SEG_STAGE_DATA, _BitFSASegmentRomStart, _BitFSASegmentRomEnd, p_bitfsa)
+	pReturn()
+.case_34:
+	pExecute(SEG_STAGE_DATA, _BitSASegmentRomStart, _BitSASegmentRomEnd, p_bitsa)
+	pReturn()
+.case_36:
+	pExecute(SEG_STAGE_DATA, _TTMSegmentRomStart, _TTMSegmentRomEnd, p_ttm)
+	pReturn()
+
+#include "shape/3common/prg.sx"
+#include "shape/1a/prg.sx"
+#include "shape/1b/prg.sx"
+#include "shape/1c/prg.sx"
+#include "shape/1d/prg.sx"
+#include "shape/1e/prg.sx"
+#include "shape/1f/prg.sx"
+#include "shape/1g/prg.sx"
+#include "shape/1h/prg.sx"
+#include "shape/1i/prg.sx"
+#include "shape/1j/prg.sx"
+#include "shape/1k/prg.sx"
+#include "shape/2a/prg.sx"
+#include "shape/2b/prg.sx"
+#include "shape/2c/prg.sx"
+#include "shape/2d/prg.sx"
+#include "shape/2e/prg.sx"
+#include "shape/2f/prg.sx"

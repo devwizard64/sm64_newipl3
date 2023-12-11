@@ -1,0 +1,86 @@
+#include <sm64/objlang.h>
+
+#define SCRIPT
+
+.data
+
+#include "player/player.c"
+.globl o_13002EF8
+o_13002EF8:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0008|OF_0040|OF_4000)
+	oPtr(O_ANIME, anime_toad)
+	oAnime(6)
+	oHitCode(0x00800000)
+	oHit(80, 100)
+	oSetI(O_HIT_TIMER, 0)
+	oCallback(objlib_802A4120)
+	oCallback(callback_80276910)
+	oWhile()
+		oCallback(callback_8027684C)
+	oWend()
+
+.globl o_13002F40
+o_13002F40:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001|OF_0008)
+	oCallback(callback_80276BB8)
+	oWhile()
+		oCallback(callback_80276CCC)
+	oWend()
+
+.globl o_13002F60
+o_13002F60:
+	oExit()
+
+.globl o_13002F64
+o_13002F64:
+	oExit()
+
+.globl o_13002F68
+o_13002F68:
+	oExit()
+
+.globl o_13002F6C
+o_13002F6C:
+	oExit()
+
+.globl o_13002F70
+o_13002F70:
+	oExit()
+
+.globl o_13002F74
+o_13002F74:
+	oExit()
+
+.globl o_13002F78
+o_13002F78:
+	oExit()
+
+.globl o_13002F7C
+o_13002F7C:
+	oExit()
+
+.globl o_13002F80
+o_13002F80:
+	oExit()
+
+.globl o_13002F84
+o_13002F84:
+	oExit()
+
+.globl o_13002F88
+o_13002F88:
+	oExit()
+
+.globl o_13002F8C
+o_13002F8C:
+	oExit()
+
+.globl o_13002F90
+o_13002F90:
+	oExit()
+
+.globl o_13002F94
+o_13002F94:
+	oExit()

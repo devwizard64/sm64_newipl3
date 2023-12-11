@@ -1,0 +1,35 @@
+#include <sm64/prglang.h>
+
+.data
+
+.globl p_pss
+p_pss:
+	pStageInit()
+	pLoadPres(SEG_STAGE_GFX, _PSSGfxSegmentRomStart, _PSSGfxSegmentRomEnd)
+	pLoadText(SEG_TEXTURE, _TextureISegmentRomStart, _TextureISegmentRomEnd)
+	pLoadPres(SEG_SHAPE1_GFX, _Shape1HGfxSegmentRomStart, _Shape1HGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE1_SHP, _Shape1HShpSegmentRomStart, _Shape1HShpSegmentRomEnd)
+	pLoadPres(SEG_SHAPE3_GFX, _CommonGfxSegmentRomStart, _CommonGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE3_SHP, _CommonShpSegmentRomStart, _CommonShpSegmentRomEnd)
+	pStageStart()
+		pMario()
+		pCall(p_shape_common)
+		pCall(p_shape_1h)
+		pSceneStart(1, s_pss1)
+			pObject(S_NULL, 5632, 6751, -5631, 0, 270, 0, 0, 10, 0, o_13002F64)
+			pPort(10, STAGE_PSS, 1, 10)
+			pPort(PORT_FALL, STAGE_INSIDE, 1, 32)
+			pPort(PORT_WIN, STAGE_INSIDE, 1, 38)
+			pPort(PORT_DIE, STAGE_INSIDE, 1, 35)
+			pMap(0x0700E490)
+			pTag(0x07010F00)
+			pEnv(ENV_SLIDER)
+			pBgm(NA_MODE_CASTLE, NA_BGM_SLIDER)
+		pSceneEnd()
+	pStageEnd()
+	pPlayerOpen(1, 270, 5632, 6451, -5631)
+	pCallback(game_process, 0)
+	pProcess(game_process, 1)
+	pStageExit()
+	pFreeze(1)
+	pExit()

@@ -1,0 +1,9 @@
+# metarep
+v 112 0 -111
+v -111 0 -111
+v -111 0 112
+v 112 0 112
+o cannonlid
+usemtl 0
+f 1 2 3
+f 1 3 4

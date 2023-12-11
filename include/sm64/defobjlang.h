@@ -1,0 +1,61 @@
+#ifndef __SM64_DEFOBJLANG_H__
+#define __SM64_DEFOBJLANG_H__
+
+#define O_CMD_INIT              0
+#define O_CMD_SLEEP             1
+#define O_CMD_CALL              2
+#define O_CMD_RETURN            3
+#define O_CMD_JUMP              4
+#define O_CMD_FOR               5
+#define O_CMD_FEND              6
+#define O_CMD_FCONTINUE         7
+#define O_CMD_WHILE             8
+#define O_CMD_WEND              9
+#define O_CMD_EXIT              10
+#define O_CMD_END               11
+#define O_CMD_CALLBACK          12
+#define O_CMD_ADDF              13
+#define O_CMD_SETF              14
+#define O_CMD_ADDI              15
+#define O_CMD_SETI              16
+#define O_CMD_SETFLAG           17
+#define O_CMD_CLRFLAG           18
+#define O_CMD_SETRANDA          19
+#define O_CMD_SETRANDF          20
+#define O_CMD_SETRANDI          21
+#define O_CMD_ADDRANDF          22
+#define O_CMD_ADDRANDA          23
+#define O_CMD_24                24
+#define O_CMD_25                25
+#define O_CMD_26                26
+#define O_CMD_SHAPE             27
+#define O_CMD_MAKEOBJ           28
+#define O_CMD_DESTROY           29
+#define O_CMD_GROUND            30
+#define O_CMD_MEMADDF           31
+#define O_CMD_MEMADDI           32
+#define O_CMD_BILLBOARD         33
+#define O_CMD_SHAPEHIDE         34
+#define O_CMD_HIT               35
+#define O_CMD_36                36
+#define O_CMD_MEMSLEEP          37
+#define O_CMD_FOR2              38
+#define O_CMD_PTR               39
+#define O_CMD_ANIME             40
+#define O_CMD_MAKEOBJCODE       41
+#define O_CMD_MAP               42
+#define O_CMD_HITOFF            43
+#define O_CMD_MAKECHILD         44
+#define O_CMD_SAVEPOS           45
+#define O_CMD_DMG               46
+#define O_CMD_HITCODE           47
+#define O_CMD_PHYSICS           48
+#define O_CMD_HITFLAG           49
+#define O_CMD_SCALE             50
+#define O_CMD_MEMCLRPARENTFLAG  51
+#define O_CMD_INC               52
+#define O_CMD_SHAPEDISABLE      53
+#define O_CMD_SETS              54
+#define O_CMD_SPLASH            55
+
+#endif /* __SM64_DEFOBJLANG_H__ */

@@ -1,0 +1,47 @@
+#include <sm64/prglang.h>
+
+.data
+
+p_sa1_enemy:
+	pObject(S_NULL, 0, -1000, 0, 0, 0, 0, 0, 0, 0, o_1300215C)
+	pObject(S_NULL, 0, -1000, 0, 0, 0, 0, 0, 2, 0, o_1300215C)
+	pReturn()
+
+p_sa1_star:
+	pObject(S_NULL, 0, -4250, 0, 0, 0, 0, 0, 0, 0, o_13003E8C)
+	pReturn()
+
+.globl p_sa
+p_sa:
+	pStageInit()
+	pLoadPres(SEG_STAGE_GFX, _SAGfxSegmentRomStart, _SAGfxSegmentRomEnd)
+	pLoadText(SEG_TEXTURE, _TextureLSegmentRomStart, _TextureLSegmentRomEnd)
+	pLoadPres(SEG_BACK, _BackFSegmentRomStart, _BackFSegmentRomEnd)
+	pLoadPres(SEG_WEATHER, _WeatherSegmentRomStart, _WeatherSegmentRomEnd)
+	pLoadPres(SEG_SHAPE1_GFX, _Shape1DGfxSegmentRomStart, _Shape1DGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE1_SHP, _Shape1DShpSegmentRomStart, _Shape1DShpSegmentRomEnd)
+	pLoadPres(SEG_SHAPE2_GFX, _Shape2BGfxSegmentRomStart, _Shape2BGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE2_SHP, _Shape2BShpSegmentRomStart, _Shape2BShpSegmentRomEnd)
+	pStageStart()
+		pMario()
+		pCall(p_shape_1d)
+		pCall(p_shape_2b)
+		pSceneStart(1, s_sa1)
+			pObject(S_NULL, 0, -1535, 0, 0, 90, 0, 0, 10, 0, o_13002F94)
+			pPort(10, STAGE_SA, 1, 10)
+			pPort(PORT_WIN, STAGE_INSIDE, 1, 39)
+			pPort(PORT_DIE, STAGE_INSIDE, 1, 40)
+			pCall(p_sa1_enemy)
+			pCall(p_sa1_star)
+			pMap(0x07003000)
+			pTag(0x07003284)
+			pBgm(NA_MODE_WATER, NA_BGM_AQUARIUM)
+			pEnv(ENV_WATER)
+		pSceneEnd()
+	pStageEnd()
+	pPlayerOpen(1, 90, 0, -1535, 0)
+	pCallback(game_process, 0)
+	pProcess(game_process, 1)
+	pStageExit()
+	pFreeze(1)
+	pExit()

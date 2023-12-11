@@ -1,0 +1,7555 @@
+wave music
+{
+	sound banjoL "music/banjoL.aifc";
+	sound banjo "music/banjo.aifc";
+	sound violin "music/violin.aifc";
+	sound whistle "music/whistle.aifc";
+	sound honky_tonk "music/honky_tonk.aifc";
+	sound acoustic_bass "music/acoustic_bass.aifc";
+	sound kick "music/kick.aifc";
+	sound rim "music/rim.aifc";
+	sound snare "music/snare.aifc";
+	sound tom "music/tom.aifc";
+	sound tambourine "music/tambourine.aifc";
+	sound bongo_1 "music/bongo_1.aifc";
+	sound bongo_2 "music/bongo_2.aifc";
+	sound claves "music/claves.aifc";
+	sound closed_hi_hat "music/closed_hi_hat.aifc";
+	sound open_hi_hat "music/open_hi_hat.aifc";
+	sound ride_cymbal "music/ride_cymbal.aifc";
+	sound crash_cymbal "music/crash_cymbal.aifc";
+	sound snare_2L "music/snare_2L.aifc";
+	sound snare_2 "music/snare_2.aifc";
+	sound strings_1L "music/strings_1L.aifc";
+	sound strings_1 "music/strings_1.aifc";
+	sound french_horn "music/french_horn.aifc";
+	sound trumpet "music/trumpet.aifc";
+	sound timpani "music/timpani.aifc";
+	sound brass_section "music/brass_section.aifc";
+	sound slap_bass "music/slap_bass.aifc";
+	sound synth_voice "music/synth_voice.aifc";
+	sound muted_guitar_fourth "music/muted_guitar_fourth.aifc";
+	sound melodic_tom "music/melodic_tom.aifc";
+	sound triangleL "music/triangleL.aifc";
+	sound triangle "music/triangle.aifc";
+	sound cabasa "music/cabasa.aifc";
+	sound bass_lead "music/bass_lead.aifc";
+	sound choir_ooh "music/choir_ooh.aifc";
+	sound strings_2L "music/strings_2L.aifc";
+	sound strings_2 "music/strings_2.aifc";
+	sound strings_2H "music/strings_2H.aifc";
+	sound electric_piano "music/electric_piano.aifc";
+	sound harpsichord "music/harpsichord.aifc";
+	sound sitar_1 "music/sitar_1.aifc";
+	sound orchestra_hit "music/orchestra_hit.aifc";
+	sound percussion_loopL "music/percussion_loopL.aifc";
+	sound percussion_loop "music/percussion_loop.aifc";
+	sound percussion_loopH "music/percussion_loopH.aifc";
+	sound trombone "music/trombone.aifc";
+	sound accordion "music/accordion.aifc";
+	sound snow_bells "music/snow_bells.aifc";
+	sound charang "music/charang.aifc";
+	sound overdriven_guitar "music/overdriven_guitar.aifc";
+	sound power_snare "music/power_snare.aifc";
+	sound power_kick "music/power_kick.aifc";
+	sound flute "music/flute.aifc";
+	sound percussive_organ "music/percussive_organ.aifc";
+	sound synth_bass "music/synth_bass.aifc";
+	sound square_lead "music/square_lead.aifc";
+	sound synth_kick "music/synth_kick.aifc";
+	sound sitar_2 "music/sitar_2.aifc";
+	sound music_box "music/music_box.aifc";
+	sound acoustic_guitarL "music/acoustic_guitarL.aifc";
+	sound acoustic_guitar "music/acoustic_guitar.aifc";
+	sound acoustic_guitarH "music/acoustic_guitarH.aifc";
+	sound ghost "music/ghost.aifc";
+	sound ghost_bell_1 "music/ghost_bell_1.aifc";
+	sound ghost_bell_2 "music/ghost_bell_2.aifc";
+	sound pan_flute "music/pan_flute.aifc";
+	sound celesta "music/celesta.aifc";
+	sound harmonica "music/harmonica.aifc";
+	sound piano "music/piano.aifc";
+	sound french_hornH "music/french_hornH.aifc";
+	sound pizzicato_strings "music/pizzicato_strings.aifc";
+	sound pizzicato_stringsH "music/pizzicato_stringsH.aifc";
+	sound steel_drum "music/steel_drum.aifc";
+};
+
+wave music20
+{
+	sound music_box "music/music_box.aifc";
+};
+
+wave music22
+{
+	sound voice_pah "music/voice_pah.aifc";
+};
+
+wave music29
+{
+	sound church_organ "music/church_organ.aifc";
+	sound church_organH "music/church_organH.aifc";
+	sound choir_ooh "music/choir_ooh.aifc";
+};
+
+bank music11
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env5 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env6 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 19;
+		envelope = env0;
+		soundL = {D3, acoustic_guitarL, A2};
+		sound = {acoustic_guitar, E4};
+		soundH = {C6, acoustic_guitarH, E6};
+	};
+	instrument[1] =
+	{
+		release = 208;
+		envelope = env1;
+		sound = {accordion, C4};
+	};
+	instrument[2] =
+	{
+		release = 208;
+		envelope = env2;
+		sound = {accordion, C4};
+	};
+	instrument[6] =
+	{
+		release = 208;
+		envelope = env3;
+		sound = {french_horn, C4};
+	};
+	instrument[7] =
+	{
+		release = 208;
+		envelope = env4;
+		sound = {french_horn, C4};
+	};
+	instrument[10] =
+	{
+		release = 10;
+		envelope = env5;
+		soundL = {A2, closed_hi_hat, E2};
+		sound = {open_hi_hat, Bb2};
+	};
+	instrument[11] =
+	{
+		release = 208;
+		envelope = env6;
+		sound = {snow_bells, B5};
+	};
+};
+
+bank music12
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 205, 1651, 211, 0, -1, 0};
+	envelope env3 {2, 32700, 205, 1651, 211, 0, -1, 0};
+	envelope env4 {2, 32700, 205, 1651, 211, 0, -1, 0};
+	envelope env5 {2, 32700, 205, 1651, 211, 0, -1, 0};
+	envelope env6 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env7 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env8 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env9 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env10 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env11 {2, 32700, 55, 32700, 127, 0, -1, 0};
+	envelope env12 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env13 {2, 32700, 103, 24112, 409, 0, -1, 0};
+	instrument[0] =
+	{
+		release = 19;
+		envelope = env0;
+		soundL = {D3, acoustic_guitarL, A2};
+		sound = {acoustic_guitar, E4};
+		soundH = {C6, acoustic_guitarH, E6};
+	};
+	instrument[1] =
+	{
+		release = 24;
+		envelope = env1;
+		soundL = {D3, acoustic_guitarL, A2};
+		sound = {acoustic_guitar, E4};
+		soundH = {Bb5, acoustic_guitarH, E6};
+	};
+	instrument[2] =
+	{
+		release = 38;
+		envelope = env2;
+		soundL = {D3, acoustic_guitarL, A2};
+		sound = {acoustic_guitar, E4};
+		soundH = {Bb5, acoustic_guitarH, E6};
+	};
+	instrument[3] =
+	{
+		release = 38;
+		envelope = env3;
+		soundL = {D3, acoustic_guitarL, A2};
+		sound = {acoustic_guitar, E4};
+		soundH = {Bb5, acoustic_guitarH, E6};
+	};
+	instrument[4] =
+	{
+		release = 38;
+		envelope = env4;
+		soundL = {D3, acoustic_guitarL, A2};
+		sound = {acoustic_guitar, E4};
+		soundH = {Bb5, acoustic_guitarH, E6};
+	};
+	instrument[5] =
+	{
+		release = 38;
+		envelope = env5;
+		soundL = {D3, acoustic_guitarL, A2};
+		sound = {acoustic_guitar, E4};
+		soundH = {Bb5, acoustic_guitarH, E6};
+	};
+	instrument[6] =
+	{
+		release = 208;
+		envelope = env6;
+		sound = {bass_lead, F2};
+	};
+	instrument[7] =
+	{
+		release = 114;
+		envelope = env7;
+		sound = {flute, A5};
+	};
+	instrument[8] =
+	{
+		release = 208;
+		envelope = env8;
+		sound = {flute, A5};
+	};
+	percussion[0] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, A2};
+	};
+	percussion[1] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, Bb2};
+	};
+	percussion[2] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, B2};
+	};
+	percussion[3] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, C3};
+	};
+	percussion[4] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, Cs3};
+	};
+	percussion[5] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, D3};
+	};
+	percussion[6] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, Eb3};
+	};
+	percussion[7] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, E3};
+	};
+	percussion[8] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, F3};
+	};
+	percussion[9] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, Fs3};
+	};
+	percussion[10] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, G3};
+	};
+	percussion[11] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, Ab3};
+	};
+	percussion[12] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, A3};
+	};
+	percussion[13] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, Bb3};
+	};
+	percussion[14] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, B3};
+	};
+	percussion[15] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env9;
+		sound = {kick, C4};
+	};
+	percussion[16] =
+	{
+		release = 10;
+		pan = 57;
+		envelope = env9;
+		sound = {rim, C4};
+	};
+	percussion[17] =
+	{
+		release = 10;
+		pan = 65;
+		envelope = env9;
+		sound = {snare, Ab4};
+	};
+	percussion[18] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env9;
+		sound = {snare, D4};
+	};
+	percussion[19] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env9;
+		sound = {snare, Eb4};
+	};
+	percussion[20] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env9;
+		sound = {tom, B2};
+	};
+	percussion[21] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env9;
+		sound = {tom, C3};
+	};
+	percussion[22] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env9;
+		sound = {tom, F3};
+	};
+	percussion[23] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env9;
+		sound = {tom, Fs3};
+	};
+	percussion[24] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env9;
+		sound = {tom, Ab3};
+	};
+	percussion[25] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env9;
+		sound = {tom, A3};
+	};
+	percussion[26] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env9;
+		sound = {tom, C4};
+	};
+	percussion[27] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env9;
+		sound = {tom, Cs4};
+	};
+	percussion[28] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env9;
+		sound = {tom, Eb4};
+	};
+	percussion[29] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env9;
+		sound = {tom, E4};
+	};
+	percussion[30] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env9;
+		sound = {tom, F4};
+	};
+	percussion[31] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env9;
+		sound = {tom, Fs4};
+	};
+	percussion[32] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env9;
+		sound = {tom, G4};
+	};
+	percussion[33] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env9;
+		sound = {tambourine, Eb4};
+	};
+	percussion[34] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env9;
+		sound = {tambourine, E4};
+	};
+	percussion[35] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env9;
+		sound = {tambourine, F4};
+	};
+	percussion[36] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env9;
+		sound = {tambourine, Fs4};
+	};
+	percussion[37] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env9;
+		sound = {tambourine, G4};
+	};
+	percussion[38] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env9;
+		sound = {tambourine, Ab4};
+	};
+	percussion[39] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env9;
+		sound = {tambourine, A4};
+	};
+	percussion[40] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env9;
+		sound = {tambourine, Bb4};
+	};
+	percussion[41] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env9;
+		sound = {bongo_1, Ab3};
+	};
+	percussion[42] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env9;
+		sound = {bongo_1, A3};
+	};
+	percussion[43] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env9;
+		sound = {bongo_1, Bb3};
+	};
+	percussion[44] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env9;
+		sound = {bongo_1, B3};
+	};
+	percussion[45] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env9;
+		sound = {bongo_1, C4};
+	};
+	percussion[46] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env9;
+		sound = {bongo_1, Cs4};
+	};
+	percussion[47] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env9;
+		sound = {bongo_1, D4};
+	};
+	percussion[48] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env9;
+		sound = {bongo_1, Eb4};
+	};
+	percussion[49] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env9;
+		sound = {bongo_1, D5};
+	};
+	percussion[50] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env9;
+		sound = {bongo_1, Eb5};
+	};
+	percussion[51] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env9;
+		sound = {bongo_2, Ab3};
+	};
+	percussion[52] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env9;
+		sound = {bongo_2, A3};
+	};
+	percussion[53] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env9;
+		sound = {bongo_2, Bb3};
+	};
+	percussion[54] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env9;
+		sound = {bongo_2, B3};
+	};
+	percussion[55] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env9;
+		sound = {bongo_2, C4};
+	};
+	percussion[56] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env9;
+		sound = {bongo_2, Cs4};
+	};
+	percussion[57] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env9;
+		sound = {bongo_2, D4};
+	};
+	percussion[58] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env9;
+		sound = {bongo_2, Eb4};
+	};
+	percussion[59] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env9;
+		sound = {bongo_2, E4};
+	};
+	percussion[60] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env9;
+		sound = {bongo_2, F4};
+	};
+	percussion[61] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env9;
+		sound = {bongo_2, Fs4};
+	};
+	percussion[62] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env9;
+		sound = {bongo_2, G4};
+	};
+	percussion[63] =
+	{
+		release = 10;
+		pan = 128;
+		envelope = env9;
+		sound = {claves, C4};
+	};
+	instrument[11] =
+	{
+		release = 10;
+		envelope = env10;
+		soundL = {Cs3, ride_cymbal, Eb3};
+		sound = {crash_cymbal, Eb3};
+		soundH = {Cs3, ride_cymbal, Eb3};
+	};
+	instrument[12] =
+	{
+		release = 10;
+		envelope = env11;
+		soundL = {Eb2, snare_2L, F2};
+		sound = {snare_2, E2};
+	};
+	instrument[13] =
+	{
+		release = 208;
+		envelope = env12;
+		soundL = {A5, triangleL, Ab5};
+		sound = {triangle, A5};
+		soundH = {A5, cabasa, Bb5};
+	};
+	instrument[15] =
+	{
+		release = 10;
+		envelope = env13;
+		sound = {celesta, C5};
+	};
+};
+
+bank music13
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 130, 4954, 523, 0, -1, 0};
+	envelope env1 {2, 32700, 130, 4954, 523, 0, -1, 0};
+	envelope env2 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env5 {2, 32700, 205, 0, 1, 0, -1, 0};
+	envelope env6 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env7 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env8 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env9 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env10 {2, 32700, 55, 32700, 127, 0, -1, 0};
+	instrument[0] =
+	{
+		release = 100;
+		envelope = env0;
+		soundL = {D4, banjoL, D3};
+		sound = {banjo, A3};
+	};
+	instrument[1] =
+	{
+		release = 100;
+		envelope = env1;
+		soundL = {D4, banjoL, D3};
+		sound = {banjo, A3};
+	};
+	instrument[2] =
+	{
+		release = 180;
+		envelope = env2;
+		sound = {violin, B3};
+	};
+	instrument[3] =
+	{
+		release = 208;
+		envelope = env3;
+		sound = {violin, B3};
+	};
+	instrument[4] =
+	{
+		release = 76;
+		envelope = env4;
+		sound = {whistle, C4};
+	};
+	instrument[5] =
+	{
+		release = 53;
+		envelope = env5;
+		sound = {honky_tonk, Ab4};
+	};
+	instrument[6] =
+	{
+		release = 208;
+		envelope = env6;
+		sound = {acoustic_bass, E2};
+	};
+	percussion[0] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, A2};
+	};
+	percussion[1] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, Bb2};
+	};
+	percussion[2] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, B2};
+	};
+	percussion[3] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, C3};
+	};
+	percussion[4] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, Cs3};
+	};
+	percussion[5] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, D3};
+	};
+	percussion[6] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, Eb3};
+	};
+	percussion[7] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, E3};
+	};
+	percussion[8] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, F3};
+	};
+	percussion[9] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, Fs3};
+	};
+	percussion[10] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, G3};
+	};
+	percussion[11] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, Ab3};
+	};
+	percussion[12] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, A3};
+	};
+	percussion[13] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, Bb3};
+	};
+	percussion[14] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, B3};
+	};
+	percussion[15] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, C4};
+	};
+	percussion[16] =
+	{
+		release = 10;
+		pan = 57;
+		envelope = env7;
+		sound = {rim, C4};
+	};
+	percussion[17] =
+	{
+		release = 10;
+		pan = 65;
+		envelope = env7;
+		sound = {snare, Ab4};
+	};
+	percussion[18] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env7;
+		sound = {snare, D4};
+	};
+	percussion[19] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env7;
+		sound = {snare, Eb4};
+	};
+	percussion[20] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env7;
+		sound = {tom, B2};
+	};
+	percussion[21] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env7;
+		sound = {tom, C3};
+	};
+	percussion[22] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env7;
+		sound = {tom, F3};
+	};
+	percussion[23] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env7;
+		sound = {tom, Fs3};
+	};
+	percussion[24] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env7;
+		sound = {tom, Ab3};
+	};
+	percussion[25] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env7;
+		sound = {tom, A3};
+	};
+	percussion[26] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env7;
+		sound = {tom, C4};
+	};
+	percussion[27] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env7;
+		sound = {tom, Cs4};
+	};
+	percussion[28] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env7;
+		sound = {tom, Eb4};
+	};
+	percussion[29] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env7;
+		sound = {tom, E4};
+	};
+	percussion[30] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env7;
+		sound = {tom, F4};
+	};
+	percussion[31] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env7;
+		sound = {tom, Fs4};
+	};
+	percussion[32] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env7;
+		sound = {tom, G4};
+	};
+	percussion[33] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, Eb4};
+	};
+	percussion[34] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, E4};
+	};
+	percussion[35] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, F4};
+	};
+	percussion[36] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, Fs4};
+	};
+	percussion[37] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, G4};
+	};
+	percussion[38] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, Ab4};
+	};
+	percussion[39] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, A4};
+	};
+	percussion[40] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, Bb4};
+	};
+	percussion[41] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, Ab3};
+	};
+	percussion[42] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, A3};
+	};
+	percussion[43] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, Bb3};
+	};
+	percussion[44] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, B3};
+	};
+	percussion[45] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, C4};
+	};
+	percussion[46] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, Cs4};
+	};
+	percussion[47] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, D4};
+	};
+	percussion[48] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, Eb4};
+	};
+	percussion[49] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env7;
+		sound = {bongo_1, D5};
+	};
+	percussion[50] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env7;
+		sound = {bongo_1, Eb5};
+	};
+	percussion[51] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, Ab3};
+	};
+	percussion[52] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, A3};
+	};
+	percussion[53] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, Bb3};
+	};
+	percussion[54] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, B3};
+	};
+	percussion[55] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, C4};
+	};
+	percussion[56] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, Cs4};
+	};
+	percussion[57] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, D4};
+	};
+	percussion[58] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, Eb4};
+	};
+	percussion[59] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, E4};
+	};
+	percussion[60] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, F4};
+	};
+	percussion[61] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, Fs4};
+	};
+	percussion[62] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, G4};
+	};
+	percussion[63] =
+	{
+		release = 10;
+		pan = 128;
+		envelope = env7;
+		sound = {claves, C4};
+	};
+	instrument[10] =
+	{
+		release = 10;
+		envelope = env8;
+		soundL = {A2, closed_hi_hat, E2};
+		sound = {open_hi_hat, Bb2};
+	};
+	instrument[11] =
+	{
+		release = 10;
+		envelope = env9;
+		soundL = {Cs3, ride_cymbal, Eb3};
+		sound = {crash_cymbal, Eb3};
+		soundH = {Cs3, ride_cymbal, Eb3};
+	};
+	instrument[12] =
+	{
+		release = 10;
+		envelope = env10;
+		soundL = {Eb2, snare_2L, F2};
+		sound = {snare_2, E2};
+	};
+};
+
+bank music14
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 136, 0, 32700, 0, -1, 0};
+	envelope env4 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env5 {6, 32700, 298, 0, 1, 0, -1, 0};
+	envelope env6 {3, 32700, 298, 0, 1, 0, -1, 0};
+	instrument[0] =
+	{
+		release = 15;
+		envelope = env0;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+	instrument[1] =
+	{
+		release = 15;
+		envelope = env1;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+	instrument[2] =
+	{
+		release = 15;
+		envelope = env2;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+	instrument[3] =
+	{
+		release = 43;
+		envelope = env3;
+		sound = {pizzicato_strings, Bb3};
+		soundH = {Ab4, pizzicato_stringsH, Bb3};
+	};
+	instrument[4] =
+	{
+		release = 119;
+		envelope = env4;
+		sound = {trombone, Bb3};
+	};
+	instrument[5] =
+	{
+		release = 10;
+		envelope = env5;
+		sound = {electric_piano, C5};
+	};
+	instrument[6] =
+	{
+		release = 10;
+		envelope = env6;
+		sound = {electric_piano, C5};
+	};
+};
+
+bank music15
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 187, 0, 32700, 0, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 100;
+		envelope = env0;
+		soundL = {E5, percussion_loopL, Cs5};
+		sound = {percussion_loop, F5};
+		soundH = {F5, percussion_loopH, G5};
+	};
+	instrument[1] =
+	{
+		release = 10;
+		envelope = env1;
+		sound = {choir_ooh, F5};
+	};
+	instrument[2] =
+	{
+		release = 90;
+		envelope = env2;
+		sound = {sitar_1, E3};
+	};
+	instrument[3] =
+	{
+		release = 10;
+		envelope = env3;
+		sound = {sitar_2, Ab3};
+	};
+};
+
+bank music16
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 145, 7597, 343, 0, -1, 0};
+	envelope env4 {2, 32700, 154, 7597, 295, 0, -1, 0};
+	envelope env6 {2, 32700, 145, 8257, 325, 0, -1, 0};
+	envelope env5 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 10;
+		envelope = env0;
+		sound = {ghost, B3};
+	};
+	instrument[1] =
+	{
+		release = 10;
+		envelope = env1;
+		sound = {ghost, B3};
+	};
+	instrument[2] =
+	{
+		release = 208;
+		envelope = env2;
+		sound = {ghost_bell_1, C4};
+	};
+	instrument[4] =
+	{
+		release = 10;
+		envelope = env3;
+		sound = {ghost_bell_2, C4};
+	};
+	instrument[5] =
+	{
+		release = 10;
+		envelope = env4;
+		sound = {ghost_bell_2, C4};
+	};
+	percussion[0] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, A2};
+	};
+	percussion[1] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, Bb2};
+	};
+	percussion[2] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, B2};
+	};
+	percussion[3] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, C3};
+	};
+	percussion[4] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, Cs3};
+	};
+	percussion[5] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, D3};
+	};
+	percussion[6] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, Eb3};
+	};
+	percussion[7] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, E3};
+	};
+	percussion[8] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, F3};
+	};
+	percussion[9] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, Fs3};
+	};
+	percussion[10] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, G3};
+	};
+	percussion[11] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, Ab3};
+	};
+	percussion[12] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, A3};
+	};
+	percussion[13] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, Bb3};
+	};
+	percussion[14] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, B3};
+	};
+	percussion[15] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, C4};
+	};
+	percussion[16] =
+	{
+		release = 10;
+		pan = 57;
+		envelope = env5;
+		sound = {rim, C4};
+	};
+	percussion[17] =
+	{
+		release = 10;
+		pan = 65;
+		envelope = env5;
+		sound = {snare, Ab4};
+	};
+	percussion[18] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env5;
+		sound = {snare, D4};
+	};
+	percussion[19] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env5;
+		sound = {snare, Eb4};
+	};
+	percussion[20] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env5;
+		sound = {tom, B2};
+	};
+	percussion[21] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env5;
+		sound = {tom, C3};
+	};
+	percussion[22] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env5;
+		sound = {tom, F3};
+	};
+	percussion[23] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env5;
+		sound = {tom, Fs3};
+	};
+	percussion[24] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env5;
+		sound = {tom, Ab3};
+	};
+	percussion[25] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env5;
+		sound = {tom, A3};
+	};
+	percussion[26] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env5;
+		sound = {tom, C4};
+	};
+	percussion[27] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env5;
+		sound = {tom, Cs4};
+	};
+	percussion[28] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env5;
+		sound = {tom, Eb4};
+	};
+	percussion[29] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env5;
+		sound = {tom, E4};
+	};
+	percussion[30] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env5;
+		sound = {tom, F4};
+	};
+	percussion[31] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env5;
+		sound = {tom, Fs4};
+	};
+	percussion[32] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env5;
+		sound = {tom, G4};
+	};
+	percussion[33] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, Eb4};
+	};
+	percussion[34] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, E4};
+	};
+	percussion[35] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, F4};
+	};
+	percussion[36] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, Fs4};
+	};
+	percussion[37] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, G4};
+	};
+	percussion[38] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, Ab4};
+	};
+	percussion[39] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, A4};
+	};
+	percussion[40] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, Bb4};
+	};
+	percussion[41] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, Ab3};
+	};
+	percussion[42] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, A3};
+	};
+	percussion[43] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, Bb3};
+	};
+	percussion[44] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, B3};
+	};
+	percussion[45] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, C4};
+	};
+	percussion[46] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, Cs4};
+	};
+	percussion[47] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, D4};
+	};
+	percussion[48] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, Eb4};
+	};
+	percussion[49] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env5;
+		sound = {bongo_1, D5};
+	};
+	percussion[50] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env5;
+		sound = {bongo_1, Eb5};
+	};
+	percussion[51] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, Ab3};
+	};
+	percussion[52] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, A3};
+	};
+	percussion[53] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, Bb3};
+	};
+	percussion[54] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, B3};
+	};
+	percussion[55] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, C4};
+	};
+	percussion[56] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, Cs4};
+	};
+	percussion[57] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, D4};
+	};
+	percussion[58] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, Eb4};
+	};
+	percussion[59] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, E4};
+	};
+	percussion[60] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, F4};
+	};
+	percussion[61] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, Fs4};
+	};
+	percussion[62] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, G4};
+	};
+	percussion[63] =
+	{
+		release = 10;
+		pan = 128;
+		envelope = env5;
+		sound = {claves, C4};
+	};
+	instrument[6] =
+	{
+		release = 10;
+		envelope = env6;
+		sound = {ghost_bell_2, C4};
+	};
+};
+
+bank music17
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env5 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env6 {2, 32700, 205, 19818, 535, 0, -1, 0};
+	envelope env7 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env8 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env9 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env10 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env11 {2, 32700, 55, 32700, 127, 0, -1, 0};
+	envelope env12 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 10;
+		envelope = env0;
+		soundL = {E2, synth_kick, F1};
+		sound = {snare, Fs2};
+		soundH = {E2, synth_kick, F1};
+	};
+	instrument[1] =
+	{
+		release = 208;
+		envelope = env1;
+		sound = {bass_lead, F2};
+	};
+	instrument[3] =
+	{
+		release = 208;
+		envelope = env2;
+		sound = {percussive_organ, C5};
+	};
+	instrument[4] =
+	{
+		release = 10;
+		envelope = env3;
+		sound = {steel_drum, Cs4};
+	};
+	instrument[5] =
+	{
+		release = 208;
+		envelope = env4;
+		sound = {brass_section, Eb4};
+	};
+	instrument[6] =
+	{
+		release = 208;
+		envelope = env5;
+		sound = {slap_bass, Ab3};
+	};
+	instrument[7] =
+	{
+		release = 128;
+		envelope = env6;
+		sound = {synth_voice, Eb4};
+	};
+	instrument[8] =
+	{
+		release = 208;
+		envelope = env7;
+		sound = {muted_guitar_fourth, E3};
+	};
+	percussion[0] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, A2};
+	};
+	percussion[1] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Bb2};
+	};
+	percussion[2] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, B2};
+	};
+	percussion[3] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, C3};
+	};
+	percussion[4] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Cs3};
+	};
+	percussion[5] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, D3};
+	};
+	percussion[6] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Eb3};
+	};
+	percussion[7] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, E3};
+	};
+	percussion[8] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, F3};
+	};
+	percussion[9] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Fs3};
+	};
+	percussion[10] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, G3};
+	};
+	percussion[11] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Ab3};
+	};
+	percussion[12] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, A3};
+	};
+	percussion[13] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Bb3};
+	};
+	percussion[14] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, B3};
+	};
+	percussion[15] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, C4};
+	};
+	percussion[16] =
+	{
+		release = 10;
+		pan = 57;
+		envelope = env8;
+		sound = {rim, C4};
+	};
+	percussion[17] =
+	{
+		release = 10;
+		pan = 65;
+		envelope = env8;
+		sound = {snare, Ab4};
+	};
+	percussion[18] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env8;
+		sound = {snare, D4};
+	};
+	percussion[19] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env8;
+		sound = {snare, Eb4};
+	};
+	percussion[20] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env8;
+		sound = {tom, B2};
+	};
+	percussion[21] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env8;
+		sound = {tom, C3};
+	};
+	percussion[22] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env8;
+		sound = {tom, F3};
+	};
+	percussion[23] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env8;
+		sound = {tom, Fs3};
+	};
+	percussion[24] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env8;
+		sound = {tom, Ab3};
+	};
+	percussion[25] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env8;
+		sound = {tom, A3};
+	};
+	percussion[26] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env8;
+		sound = {tom, C4};
+	};
+	percussion[27] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env8;
+		sound = {tom, Cs4};
+	};
+	percussion[28] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, Eb4};
+	};
+	percussion[29] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, E4};
+	};
+	percussion[30] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, F4};
+	};
+	percussion[31] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, Fs4};
+	};
+	percussion[32] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, G4};
+	};
+	percussion[33] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, Eb4};
+	};
+	percussion[34] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, E4};
+	};
+	percussion[35] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, F4};
+	};
+	percussion[36] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, Fs4};
+	};
+	percussion[37] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, G4};
+	};
+	percussion[38] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, Ab4};
+	};
+	percussion[39] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, A4};
+	};
+	percussion[40] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, Bb4};
+	};
+	percussion[41] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, Ab3};
+	};
+	percussion[42] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, A3};
+	};
+	percussion[43] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, Bb3};
+	};
+	percussion[44] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, B3};
+	};
+	percussion[45] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, C4};
+	};
+	percussion[46] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, Cs4};
+	};
+	percussion[47] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, D4};
+	};
+	percussion[48] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, Eb4};
+	};
+	percussion[49] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env8;
+		sound = {bongo_1, D5};
+	};
+	percussion[50] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env8;
+		sound = {bongo_1, Eb5};
+	};
+	percussion[51] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Ab3};
+	};
+	percussion[52] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, A3};
+	};
+	percussion[53] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Bb3};
+	};
+	percussion[54] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, B3};
+	};
+	percussion[55] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, C4};
+	};
+	percussion[56] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Cs4};
+	};
+	percussion[57] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, D4};
+	};
+	percussion[58] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Eb4};
+	};
+	percussion[59] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, E4};
+	};
+	percussion[60] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, F4};
+	};
+	percussion[61] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Fs4};
+	};
+	percussion[62] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, G4};
+	};
+	percussion[63] =
+	{
+		release = 10;
+		pan = 128;
+		envelope = env8;
+		sound = {claves, C4};
+	};
+	instrument[10] =
+	{
+		release = 10;
+		envelope = env9;
+		soundL = {A2, closed_hi_hat, E2};
+		sound = {open_hi_hat, Bb2};
+	};
+	instrument[11] =
+	{
+		release = 10;
+		envelope = env10;
+		soundL = {Cs3, ride_cymbal, Eb3};
+		sound = {crash_cymbal, Eb3};
+		soundH = {Cs3, ride_cymbal, Eb3};
+	};
+	instrument[12] =
+	{
+		release = 10;
+		envelope = env11;
+		soundL = {Eb2, snare_2L, F2};
+		sound = {snare_2, E2};
+	};
+	instrument[13] =
+	{
+		release = 208;
+		envelope = env12;
+		soundL = {A5, triangleL, Ab5};
+		sound = {triangle, A5};
+		soundH = {A5, cabasa, Bb5};
+	};
+};
+
+bank music18
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env5 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env6 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env7 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env8 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 10;
+		envelope = env0;
+		sound = {charang, E5};
+	};
+	instrument[1] =
+	{
+		release = 208;
+		envelope = env1;
+		sound = {overdriven_guitar, Eb3};
+	};
+	instrument[2] =
+	{
+		release = 208;
+		envelope = env2;
+		sound = {overdriven_guitar, Eb3};
+	};
+	instrument[8] =
+	{
+		release = 10;
+		envelope = env3;
+		soundL = {B1, power_snare, Bb2};
+		sound = {power_kick, C2};
+		soundH = {C2, power_snare, Fs2};
+	};
+	instrument[10] =
+	{
+		release = 10;
+		envelope = env4;
+		soundL = {A2, closed_hi_hat, E2};
+		sound = {open_hi_hat, Bb2};
+	};
+	instrument[11] =
+	{
+		release = 10;
+		envelope = env5;
+		soundL = {Cs3, ride_cymbal, Eb3};
+		sound = {crash_cymbal, Eb3};
+		soundH = {Cs3, ride_cymbal, Eb3};
+	};
+	instrument[3] =
+	{
+		release = 208;
+		envelope = env6;
+		sound = {orchestra_hit, C4};
+	};
+	instrument[4] =
+	{
+		release = 114;
+		envelope = env7;
+		sound = {flute, A5};
+	};
+	instrument[6] =
+	{
+		release = 15;
+		envelope = env8;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+};
+
+bank music19
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env5 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env6 {6, 32700, 298, 0, 1, 0, -1, 0};
+	envelope env7 {3, 32700, 298, 0, 1, 0, -1, 0};
+	instrument[0] =
+	{
+		release = 15;
+		envelope = env0;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+	instrument[1] =
+	{
+		release = 15;
+		envelope = env1;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+	instrument[6] =
+	{
+		release = 208;
+		envelope = env2;
+		sound = {bass_lead, F2};
+	};
+	percussion[0] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, A2};
+	};
+	percussion[1] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, Bb2};
+	};
+	percussion[2] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, B2};
+	};
+	percussion[3] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, C3};
+	};
+	percussion[4] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, Cs3};
+	};
+	percussion[5] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, D3};
+	};
+	percussion[6] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, Eb3};
+	};
+	percussion[7] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, E3};
+	};
+	percussion[8] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, F3};
+	};
+	percussion[9] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, Fs3};
+	};
+	percussion[10] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, G3};
+	};
+	percussion[11] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, Ab3};
+	};
+	percussion[12] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, A3};
+	};
+	percussion[13] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, Bb3};
+	};
+	percussion[14] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, B3};
+	};
+	percussion[15] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env3;
+		sound = {kick, C4};
+	};
+	percussion[16] =
+	{
+		release = 10;
+		pan = 57;
+		envelope = env3;
+		sound = {rim, C4};
+	};
+	percussion[17] =
+	{
+		release = 10;
+		pan = 65;
+		envelope = env3;
+		sound = {snare, Ab4};
+	};
+	percussion[18] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env3;
+		sound = {snare, D4};
+	};
+	percussion[19] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env3;
+		sound = {snare, Eb4};
+	};
+	percussion[20] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env3;
+		sound = {tom, B2};
+	};
+	percussion[21] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env3;
+		sound = {tom, C3};
+	};
+	percussion[22] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env3;
+		sound = {tom, F3};
+	};
+	percussion[23] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env3;
+		sound = {tom, Fs3};
+	};
+	percussion[24] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env3;
+		sound = {tom, Ab3};
+	};
+	percussion[25] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env3;
+		sound = {tom, A3};
+	};
+	percussion[26] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env3;
+		sound = {tom, C4};
+	};
+	percussion[27] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env3;
+		sound = {tom, Cs4};
+	};
+	percussion[28] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env3;
+		sound = {tom, Eb4};
+	};
+	percussion[29] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env3;
+		sound = {tom, E4};
+	};
+	percussion[30] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env3;
+		sound = {tom, F4};
+	};
+	percussion[31] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env3;
+		sound = {tom, Fs4};
+	};
+	percussion[32] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env3;
+		sound = {tom, G4};
+	};
+	percussion[33] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env3;
+		sound = {tambourine, Eb4};
+	};
+	percussion[34] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env3;
+		sound = {tambourine, E4};
+	};
+	percussion[35] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env3;
+		sound = {tambourine, F4};
+	};
+	percussion[36] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env3;
+		sound = {tambourine, Fs4};
+	};
+	percussion[37] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env3;
+		sound = {tambourine, G4};
+	};
+	percussion[38] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env3;
+		sound = {tambourine, Ab4};
+	};
+	percussion[39] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env3;
+		sound = {tambourine, A4};
+	};
+	percussion[40] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env3;
+		sound = {tambourine, Bb4};
+	};
+	percussion[41] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env3;
+		sound = {bongo_1, Ab3};
+	};
+	percussion[42] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env3;
+		sound = {bongo_1, A3};
+	};
+	percussion[43] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env3;
+		sound = {bongo_1, Bb3};
+	};
+	percussion[44] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env3;
+		sound = {bongo_1, B3};
+	};
+	percussion[45] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env3;
+		sound = {bongo_1, C4};
+	};
+	percussion[46] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env3;
+		sound = {bongo_1, Cs4};
+	};
+	percussion[47] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env3;
+		sound = {bongo_1, D4};
+	};
+	percussion[48] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env3;
+		sound = {bongo_1, Eb4};
+	};
+	percussion[49] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env3;
+		sound = {bongo_1, D5};
+	};
+	percussion[50] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env3;
+		sound = {bongo_1, Eb5};
+	};
+	percussion[51] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env3;
+		sound = {bongo_2, Ab3};
+	};
+	percussion[52] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env3;
+		sound = {bongo_2, A3};
+	};
+	percussion[53] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env3;
+		sound = {bongo_2, Bb3};
+	};
+	percussion[54] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env3;
+		sound = {bongo_2, B3};
+	};
+	percussion[55] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env3;
+		sound = {bongo_2, C4};
+	};
+	percussion[56] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env3;
+		sound = {bongo_2, Cs4};
+	};
+	percussion[57] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env3;
+		sound = {bongo_2, D4};
+	};
+	percussion[58] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env3;
+		sound = {bongo_2, Eb4};
+	};
+	percussion[59] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env3;
+		sound = {bongo_2, E4};
+	};
+	percussion[60] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env3;
+		sound = {bongo_2, F4};
+	};
+	percussion[61] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env3;
+		sound = {bongo_2, Fs4};
+	};
+	percussion[62] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env3;
+		sound = {bongo_2, G4};
+	};
+	percussion[63] =
+	{
+		release = 10;
+		pan = 128;
+		envelope = env3;
+		sound = {claves, C4};
+	};
+	instrument[10] =
+	{
+		release = 10;
+		envelope = env4;
+		soundL = {A2, closed_hi_hat, E2};
+		sound = {open_hi_hat, Bb2};
+	};
+	instrument[11] =
+	{
+		release = 10;
+		envelope = env5;
+		soundL = {Cs3, ride_cymbal, Eb3};
+		sound = {crash_cymbal, Eb3};
+		soundH = {Cs3, ride_cymbal, Eb3};
+	};
+	instrument[14] =
+	{
+		release = 10;
+		envelope = env6;
+		sound = {electric_piano, C5};
+	};
+	instrument[15] =
+	{
+		release = 10;
+		envelope = env7;
+		sound = {electric_piano, C5};
+	};
+};
+
+bank music20
+{
+	date = {1996, 3, 19};
+	wave music20;
+	envelope env0 {6, 32700, 298, 32700, 32700, 29430, -1, 0};
+	envelope env1 {6, 32700, 298, 32700, 32700, 29430, -1, 0};
+	envelope env2 {6, 32700, 298, 32700, 32700, 29430, -1, 0};
+	envelope env3 {6, 32700, 298, 32700, 32700, 29430, -1, 0};
+	envelope env4 {6, 32700, 298, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 119;
+		envelope = env0;
+		sound = {music_box, C5};
+	};
+	instrument[1] =
+	{
+		release = 119;
+		envelope = env1;
+		sound = {music_box, C5};
+	};
+	instrument[2] =
+	{
+		release = 119;
+		envelope = env2;
+		sound = {music_box, C5};
+	};
+	instrument[3] =
+	{
+		release = 119;
+		envelope = env3;
+		sound = {music_box, C5};
+	};
+	instrument[4] =
+	{
+		release = 119;
+		envelope = env4;
+		sound = {music_box, C5};
+	};
+};
+
+bank music21
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 205, 18167, 205, 0, -1, 0};
+	envelope env3 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {2, 32700, 205, 18167, 205, 0, -1, 0};
+	envelope env5 {2, 32700, 205, 0, 1, 0, -1, 0};
+	envelope env6 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env7 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env9 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env8 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 34;
+		envelope = env0;
+		sound = {melodic_tom, C4};
+	};
+	instrument[1] =
+	{
+		release = 208;
+		envelope = env1;
+		soundL = {A5, triangleL, Ab5};
+		sound = {triangle, A5};
+		soundH = {A5, cabasa, Bb5};
+	};
+	instrument[2] =
+	{
+		release = 10;
+		envelope = env2;
+		sound = {bass_lead, F2};
+	};
+	instrument[3] =
+	{
+		release = 208;
+		envelope = env3;
+		sound = {slap_bass, Ab3};
+	};
+	instrument[4] =
+	{
+		release = 114;
+		envelope = env4;
+		sound = {bass_lead, F2};
+	};
+	instrument[5] =
+	{
+		release = 53;
+		envelope = env5;
+		sound = {honky_tonk, Ab4};
+	};
+	instrument[6] =
+	{
+		release = 208;
+		envelope = env6;
+		sound = {melodic_tom, C4};
+	};
+	instrument[7] =
+	{
+		release = 10;
+		envelope = env7;
+		sound = {choir_ooh, F5};
+	};
+	percussion[0] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, A2};
+	};
+	percussion[1] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Bb2};
+	};
+	percussion[2] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, B2};
+	};
+	percussion[3] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, C3};
+	};
+	percussion[4] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Cs3};
+	};
+	percussion[5] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, D3};
+	};
+	percussion[6] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Eb3};
+	};
+	percussion[7] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, E3};
+	};
+	percussion[8] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, F3};
+	};
+	percussion[9] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Fs3};
+	};
+	percussion[10] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, G3};
+	};
+	percussion[11] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Ab3};
+	};
+	percussion[12] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, A3};
+	};
+	percussion[13] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Bb3};
+	};
+	percussion[14] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, B3};
+	};
+	percussion[15] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, C4};
+	};
+	percussion[16] =
+	{
+		release = 10;
+		pan = 57;
+		envelope = env8;
+		sound = {rim, C4};
+	};
+	percussion[17] =
+	{
+		release = 10;
+		pan = 65;
+		envelope = env8;
+		sound = {snare, Ab4};
+	};
+	percussion[18] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env8;
+		sound = {snare, D4};
+	};
+	percussion[19] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env8;
+		sound = {snare, Eb4};
+	};
+	percussion[20] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env8;
+		sound = {tom, B2};
+	};
+	percussion[21] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env8;
+		sound = {tom, C3};
+	};
+	percussion[22] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env8;
+		sound = {tom, F3};
+	};
+	percussion[23] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env8;
+		sound = {tom, Fs3};
+	};
+	percussion[24] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env8;
+		sound = {tom, Ab3};
+	};
+	percussion[25] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env8;
+		sound = {tom, A3};
+	};
+	percussion[26] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env8;
+		sound = {tom, C4};
+	};
+	percussion[27] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env8;
+		sound = {tom, Cs4};
+	};
+	percussion[28] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, Eb4};
+	};
+	percussion[29] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, E4};
+	};
+	percussion[30] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, F4};
+	};
+	percussion[31] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, Fs4};
+	};
+	percussion[32] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, G4};
+	};
+	percussion[33] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, Eb4};
+	};
+	percussion[34] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, E4};
+	};
+	percussion[35] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, F4};
+	};
+	percussion[36] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, Fs4};
+	};
+	percussion[37] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, G4};
+	};
+	percussion[38] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, Ab4};
+	};
+	percussion[39] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, A4};
+	};
+	percussion[40] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, Bb4};
+	};
+	percussion[41] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, Ab3};
+	};
+	percussion[42] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, A3};
+	};
+	percussion[43] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, Bb3};
+	};
+	percussion[44] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, B3};
+	};
+	percussion[45] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, C4};
+	};
+	percussion[46] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, Cs4};
+	};
+	percussion[47] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, D4};
+	};
+	percussion[48] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, Eb4};
+	};
+	percussion[49] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env8;
+		sound = {bongo_1, D5};
+	};
+	percussion[50] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env8;
+		sound = {bongo_1, Eb5};
+	};
+	percussion[51] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Ab3};
+	};
+	percussion[52] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, A3};
+	};
+	percussion[53] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Bb3};
+	};
+	percussion[54] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, B3};
+	};
+	percussion[55] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, C4};
+	};
+	percussion[56] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Cs4};
+	};
+	percussion[57] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, D4};
+	};
+	percussion[58] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Eb4};
+	};
+	percussion[59] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, E4};
+	};
+	percussion[60] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, F4};
+	};
+	percussion[61] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Fs4};
+	};
+	percussion[62] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, G4};
+	};
+	percussion[63] =
+	{
+		release = 10;
+		pan = 128;
+		envelope = env8;
+		sound = {claves, C4};
+	};
+	instrument[8] =
+	{
+		release = 10;
+		envelope = env9;
+		sound = {choir_ooh, F5};
+	};
+};
+
+bank music22
+{
+	date = {1996, 3, 19};
+	wave music22;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 208;
+		envelope = env0;
+		sound = {voice_pah, E4};
+	};
+	instrument[1] =
+	{
+		release = 208;
+		envelope = env1;
+		sound = {voice_pah, E4};
+	};
+};
+
+bank music23
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {6, 32700, 298, 0, 1, 0, -1, 0};
+	envelope env5 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env6 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env7 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env8 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 19;
+		envelope = env0;
+		soundL = {D3, acoustic_guitarL, A2};
+		sound = {acoustic_guitar, E4};
+		soundH = {C6, acoustic_guitarH, E6};
+	};
+	instrument[1] =
+	{
+		release = 208;
+		envelope = env1;
+		sound = {acoustic_bass, E2};
+	};
+	instrument[2] =
+	{
+		release = 15;
+		envelope = env2;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+	instrument[3] =
+	{
+		release = 15;
+		envelope = env3;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+	instrument[4] =
+	{
+		release = 10;
+		envelope = env4;
+		sound = {electric_piano, C5};
+	};
+	percussion[0] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, A2};
+	};
+	percussion[1] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, Bb2};
+	};
+	percussion[2] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, B2};
+	};
+	percussion[3] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, C3};
+	};
+	percussion[4] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, Cs3};
+	};
+	percussion[5] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, D3};
+	};
+	percussion[6] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, Eb3};
+	};
+	percussion[7] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, E3};
+	};
+	percussion[8] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, F3};
+	};
+	percussion[9] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, Fs3};
+	};
+	percussion[10] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, G3};
+	};
+	percussion[11] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, Ab3};
+	};
+	percussion[12] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, A3};
+	};
+	percussion[13] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, Bb3};
+	};
+	percussion[14] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, B3};
+	};
+	percussion[15] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env5;
+		sound = {kick, C4};
+	};
+	percussion[16] =
+	{
+		release = 10;
+		pan = 57;
+		envelope = env5;
+		sound = {rim, C4};
+	};
+	percussion[17] =
+	{
+		release = 10;
+		pan = 65;
+		envelope = env5;
+		sound = {snare, Ab4};
+	};
+	percussion[18] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env5;
+		sound = {snare, D4};
+	};
+	percussion[19] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env5;
+		sound = {snare, Eb4};
+	};
+	percussion[20] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env5;
+		sound = {tom, B2};
+	};
+	percussion[21] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env5;
+		sound = {tom, C3};
+	};
+	percussion[22] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env5;
+		sound = {tom, F3};
+	};
+	percussion[23] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env5;
+		sound = {tom, Fs3};
+	};
+	percussion[24] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env5;
+		sound = {tom, Ab3};
+	};
+	percussion[25] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env5;
+		sound = {tom, A3};
+	};
+	percussion[26] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env5;
+		sound = {tom, C4};
+	};
+	percussion[27] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env5;
+		sound = {tom, Cs4};
+	};
+	percussion[28] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env5;
+		sound = {tom, Eb4};
+	};
+	percussion[29] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env5;
+		sound = {tom, E4};
+	};
+	percussion[30] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env5;
+		sound = {tom, F4};
+	};
+	percussion[31] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env5;
+		sound = {tom, Fs4};
+	};
+	percussion[32] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env5;
+		sound = {tom, G4};
+	};
+	percussion[33] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, Eb4};
+	};
+	percussion[34] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, E4};
+	};
+	percussion[35] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, F4};
+	};
+	percussion[36] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, Fs4};
+	};
+	percussion[37] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, G4};
+	};
+	percussion[38] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, Ab4};
+	};
+	percussion[39] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, A4};
+	};
+	percussion[40] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env5;
+		sound = {tambourine, Bb4};
+	};
+	percussion[41] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, Ab3};
+	};
+	percussion[42] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, A3};
+	};
+	percussion[43] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, Bb3};
+	};
+	percussion[44] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, B3};
+	};
+	percussion[45] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, C4};
+	};
+	percussion[46] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, Cs4};
+	};
+	percussion[47] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, D4};
+	};
+	percussion[48] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env5;
+		sound = {bongo_1, Eb4};
+	};
+	percussion[49] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env5;
+		sound = {bongo_1, D5};
+	};
+	percussion[50] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env5;
+		sound = {bongo_1, Eb5};
+	};
+	percussion[51] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, Ab3};
+	};
+	percussion[52] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, A3};
+	};
+	percussion[53] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, Bb3};
+	};
+	percussion[54] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, B3};
+	};
+	percussion[55] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, C4};
+	};
+	percussion[56] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, Cs4};
+	};
+	percussion[57] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, D4};
+	};
+	percussion[58] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, Eb4};
+	};
+	percussion[59] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, E4};
+	};
+	percussion[60] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, F4};
+	};
+	percussion[61] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, Fs4};
+	};
+	percussion[62] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env5;
+		sound = {bongo_2, G4};
+	};
+	percussion[63] =
+	{
+		release = 10;
+		pan = 128;
+		envelope = env5;
+		sound = {claves, C4};
+	};
+	instrument[10] =
+	{
+		release = 10;
+		envelope = env6;
+		soundL = {A2, closed_hi_hat, E2};
+		sound = {open_hi_hat, Bb2};
+	};
+	instrument[11] =
+	{
+		release = 10;
+		envelope = env7;
+		soundL = {Cs3, ride_cymbal, Eb3};
+		sound = {crash_cymbal, Eb3};
+		soundH = {Cs3, ride_cymbal, Eb3};
+	};
+	instrument[12] =
+	{
+		release = 208;
+		envelope = env8;
+		soundL = {A5, triangleL, Ab5};
+		sound = {triangle, A5};
+		soundH = {A5, cabasa, Bb5};
+	};
+};
+
+bank music24
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env5 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env6 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env7 {2, 32700, 55, 32700, 127, 0, -1, 0};
+	envelope env8 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 208;
+		envelope = env0;
+		sound = {percussive_organ, C5};
+	};
+	instrument[1] =
+	{
+		release = 208;
+		envelope = env1;
+		sound = {synth_bass, Eb2};
+	};
+	instrument[2] =
+	{
+		release = 208;
+		envelope = env2;
+		sound = {square_lead, C5};
+	};
+	instrument[3] =
+	{
+		release = 208;
+		envelope = env3;
+		sound = {orchestra_hit, C4};
+	};
+	percussion[0] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, A2};
+	};
+	percussion[1] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, Bb2};
+	};
+	percussion[2] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, B2};
+	};
+	percussion[3] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, C3};
+	};
+	percussion[4] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, Cs3};
+	};
+	percussion[5] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, D3};
+	};
+	percussion[6] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, Eb3};
+	};
+	percussion[7] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, E3};
+	};
+	percussion[8] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, F3};
+	};
+	percussion[9] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, Fs3};
+	};
+	percussion[10] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, G3};
+	};
+	percussion[11] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, Ab3};
+	};
+	percussion[12] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, A3};
+	};
+	percussion[13] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, Bb3};
+	};
+	percussion[14] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, B3};
+	};
+	percussion[15] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, C4};
+	};
+	percussion[16] =
+	{
+		release = 10;
+		pan = 57;
+		envelope = env4;
+		sound = {rim, C4};
+	};
+	percussion[17] =
+	{
+		release = 10;
+		pan = 65;
+		envelope = env4;
+		sound = {snare, Ab4};
+	};
+	percussion[18] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env4;
+		sound = {snare, D4};
+	};
+	percussion[19] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env4;
+		sound = {snare, Eb4};
+	};
+	percussion[20] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env4;
+		sound = {tom, B2};
+	};
+	percussion[21] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env4;
+		sound = {tom, C3};
+	};
+	percussion[22] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env4;
+		sound = {tom, F3};
+	};
+	percussion[23] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env4;
+		sound = {tom, Fs3};
+	};
+	percussion[24] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env4;
+		sound = {tom, Ab3};
+	};
+	percussion[25] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env4;
+		sound = {tom, A3};
+	};
+	percussion[26] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env4;
+		sound = {tom, C4};
+	};
+	percussion[27] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env4;
+		sound = {tom, Cs4};
+	};
+	percussion[28] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env4;
+		sound = {tom, Eb4};
+	};
+	percussion[29] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env4;
+		sound = {tom, E4};
+	};
+	percussion[30] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env4;
+		sound = {tom, F4};
+	};
+	percussion[31] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env4;
+		sound = {tom, Fs4};
+	};
+	percussion[32] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env4;
+		sound = {tom, G4};
+	};
+	percussion[33] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, Eb4};
+	};
+	percussion[34] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, E4};
+	};
+	percussion[35] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, F4};
+	};
+	percussion[36] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, Fs4};
+	};
+	percussion[37] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, G4};
+	};
+	percussion[38] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, Ab4};
+	};
+	percussion[39] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, A4};
+	};
+	percussion[40] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, Bb4};
+	};
+	percussion[41] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, Ab3};
+	};
+	percussion[42] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, A3};
+	};
+	percussion[43] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, Bb3};
+	};
+	percussion[44] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, B3};
+	};
+	percussion[45] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, C4};
+	};
+	percussion[46] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, Cs4};
+	};
+	percussion[47] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, D4};
+	};
+	percussion[48] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, Eb4};
+	};
+	percussion[49] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env4;
+		sound = {bongo_1, D5};
+	};
+	percussion[50] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env4;
+		sound = {bongo_1, Eb5};
+	};
+	percussion[51] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, Ab3};
+	};
+	percussion[52] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, A3};
+	};
+	percussion[53] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, Bb3};
+	};
+	percussion[54] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, B3};
+	};
+	percussion[55] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, C4};
+	};
+	percussion[56] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, Cs4};
+	};
+	percussion[57] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, D4};
+	};
+	percussion[58] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, Eb4};
+	};
+	percussion[59] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, E4};
+	};
+	percussion[60] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, F4};
+	};
+	percussion[61] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, Fs4};
+	};
+	percussion[62] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, G4};
+	};
+	percussion[63] =
+	{
+		release = 10;
+		pan = 128;
+		envelope = env4;
+		sound = {claves, C4};
+	};
+	instrument[10] =
+	{
+		release = 10;
+		envelope = env5;
+		soundL = {A2, closed_hi_hat, E2};
+		sound = {open_hi_hat, Bb2};
+	};
+	instrument[12] =
+	{
+		release = 208;
+		envelope = env6;
+		soundL = {A5, triangleL, Ab5};
+		sound = {triangle, A5};
+		soundH = {A5, cabasa, Bb5};
+	};
+	instrument[13] =
+	{
+		release = 10;
+		envelope = env7;
+		soundL = {Eb2, snare_2L, F2};
+		sound = {snare_2, E2};
+	};
+	instrument[14] =
+	{
+		release = 10;
+		envelope = env8;
+		soundL = {E2, synth_kick, F1};
+		sound = {snare, Fs2};
+		soundH = {E2, synth_kick, F1};
+	};
+};
+
+bank music25
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env5 {2, 32700, 187, 0, 32700, 0, -1, 0};
+	envelope env6 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env7 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env8 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env9 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env10 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env11 {2, 32700, 55, 32700, 127, 0, -1, 0};
+	instrument[0] =
+	{
+		release = 10;
+		envelope = env0;
+		sound = {choir_ooh, F5};
+	};
+	instrument[1] =
+	{
+		release = 208;
+		envelope = env1;
+		sound = {brass_section, Eb4};
+	};
+	instrument[2] =
+	{
+		release = 15;
+		envelope = env2;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+	instrument[3] =
+	{
+		release = 90;
+		envelope = env3;
+		sound = {sitar_1, E3};
+	};
+	instrument[4] =
+	{
+		release = 208;
+		envelope = env4;
+		sound = {orchestra_hit, C4};
+	};
+	instrument[5] =
+	{
+		release = 100;
+		envelope = env5;
+		soundL = {E5, percussion_loopL, Cs5};
+		sound = {percussion_loop, F5};
+		soundH = {F5, percussion_loopH, G5};
+	};
+	instrument[6] =
+	{
+		release = 208;
+		envelope = env6;
+		sound = {brass_section, Eb4};
+	};
+	instrument[7] =
+	{
+		release = 10;
+		envelope = env7;
+		sound = {choir_ooh, F5};
+	};
+	percussion[0] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, A2};
+	};
+	percussion[1] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Bb2};
+	};
+	percussion[2] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, B2};
+	};
+	percussion[3] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, C3};
+	};
+	percussion[4] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Cs3};
+	};
+	percussion[5] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, D3};
+	};
+	percussion[6] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Eb3};
+	};
+	percussion[7] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, E3};
+	};
+	percussion[8] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, F3};
+	};
+	percussion[9] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Fs3};
+	};
+	percussion[10] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, G3};
+	};
+	percussion[11] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Ab3};
+	};
+	percussion[12] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, A3};
+	};
+	percussion[13] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, Bb3};
+	};
+	percussion[14] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, B3};
+	};
+	percussion[15] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env8;
+		sound = {kick, C4};
+	};
+	percussion[16] =
+	{
+		release = 10;
+		pan = 57;
+		envelope = env8;
+		sound = {rim, C4};
+	};
+	percussion[17] =
+	{
+		release = 10;
+		pan = 65;
+		envelope = env8;
+		sound = {snare, Ab4};
+	};
+	percussion[18] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env8;
+		sound = {snare, D4};
+	};
+	percussion[19] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env8;
+		sound = {snare, Eb4};
+	};
+	percussion[20] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env8;
+		sound = {tom, B2};
+	};
+	percussion[21] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env8;
+		sound = {tom, C3};
+	};
+	percussion[22] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env8;
+		sound = {tom, F3};
+	};
+	percussion[23] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env8;
+		sound = {tom, Fs3};
+	};
+	percussion[24] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env8;
+		sound = {tom, Ab3};
+	};
+	percussion[25] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env8;
+		sound = {tom, A3};
+	};
+	percussion[26] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env8;
+		sound = {tom, C4};
+	};
+	percussion[27] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env8;
+		sound = {tom, Cs4};
+	};
+	percussion[28] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, Eb4};
+	};
+	percussion[29] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, E4};
+	};
+	percussion[30] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, F4};
+	};
+	percussion[31] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, Fs4};
+	};
+	percussion[32] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env8;
+		sound = {tom, G4};
+	};
+	percussion[33] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, Eb4};
+	};
+	percussion[34] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, E4};
+	};
+	percussion[35] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, F4};
+	};
+	percussion[36] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, Fs4};
+	};
+	percussion[37] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, G4};
+	};
+	percussion[38] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, Ab4};
+	};
+	percussion[39] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, A4};
+	};
+	percussion[40] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env8;
+		sound = {tambourine, Bb4};
+	};
+	percussion[41] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, Ab3};
+	};
+	percussion[42] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, A3};
+	};
+	percussion[43] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, Bb3};
+	};
+	percussion[44] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, B3};
+	};
+	percussion[45] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, C4};
+	};
+	percussion[46] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, Cs4};
+	};
+	percussion[47] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, D4};
+	};
+	percussion[48] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env8;
+		sound = {bongo_1, Eb4};
+	};
+	percussion[49] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env8;
+		sound = {bongo_1, D5};
+	};
+	percussion[50] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env8;
+		sound = {bongo_1, Eb5};
+	};
+	percussion[51] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Ab3};
+	};
+	percussion[52] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, A3};
+	};
+	percussion[53] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Bb3};
+	};
+	percussion[54] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, B3};
+	};
+	percussion[55] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, C4};
+	};
+	percussion[56] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Cs4};
+	};
+	percussion[57] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, D4};
+	};
+	percussion[58] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Eb4};
+	};
+	percussion[59] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, E4};
+	};
+	percussion[60] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, F4};
+	};
+	percussion[61] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, Fs4};
+	};
+	percussion[62] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env8;
+		sound = {bongo_2, G4};
+	};
+	percussion[63] =
+	{
+		release = 10;
+		pan = 128;
+		envelope = env8;
+		sound = {claves, C4};
+	};
+	instrument[11] =
+	{
+		release = 10;
+		envelope = env9;
+		soundL = {Cs3, ride_cymbal, Eb3};
+		sound = {crash_cymbal, Eb3};
+		soundH = {Cs3, ride_cymbal, Eb3};
+	};
+	instrument[12] =
+	{
+		release = 10;
+		envelope = env10;
+		sound = {timpani, Bb2};
+	};
+	instrument[10] =
+	{
+		release = 10;
+		envelope = env11;
+		soundL = {Eb2, snare_2L, F2};
+		sound = {snare_2, E2};
+	};
+};
+
+bank music26
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env5 {6, 32700, 298, 0, 1, 0, -1, 0};
+	envelope env6 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env7 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env8 {2, 32700, 55, 32700, 127, 0, -1, 0};
+	instrument[0] =
+	{
+		release = 67;
+		envelope = env0;
+		sound = {trumpet, C4};
+	};
+	instrument[1] =
+	{
+		release = 119;
+		envelope = env1;
+		sound = {trombone, Bb3};
+	};
+	instrument[2] =
+	{
+		release = 208;
+		envelope = env2;
+		sound = {french_horn, C4};
+	};
+	instrument[3] =
+	{
+		release = 24;
+		envelope = env3;
+		soundL = {Eb4, strings_1L, Eb3};
+		sound = {strings_1, B4};
+	};
+	instrument[4] =
+	{
+		release = 208;
+		envelope = env4;
+		sound = {brass_section, Eb4};
+	};
+	instrument[5] =
+	{
+		release = 10;
+		envelope = env5;
+		sound = {electric_piano, C5};
+	};
+	instrument[10] =
+	{
+		release = 10;
+		envelope = env6;
+		sound = {timpani, Bb2};
+	};
+	instrument[11] =
+	{
+		release = 10;
+		envelope = env7;
+		soundL = {Cs3, ride_cymbal, Eb3};
+		sound = {crash_cymbal, Eb3};
+		soundH = {Cs3, ride_cymbal, Eb3};
+	};
+	instrument[12] =
+	{
+		release = 10;
+		envelope = env8;
+		soundL = {Eb2, snare_2L, F2};
+		sound = {snare_2, E2};
+	};
+};
+
+bank music27
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env5 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env6 {2, 32700, 55, 32700, 127, 0, -1, 0};
+	envelope env7 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env8 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 24;
+		envelope = env0;
+		soundL = {Eb4, strings_1L, Eb3};
+		sound = {strings_1, B4};
+	};
+	instrument[1] =
+	{
+		release = 24;
+		envelope = env1;
+		soundL = {Eb4, strings_1L, Eb3};
+		sound = {strings_1, B4};
+	};
+	instrument[2] =
+	{
+		release = 208;
+		envelope = env2;
+		sound = {french_horn, C4};
+	};
+	instrument[3] =
+	{
+		release = 67;
+		envelope = env3;
+		sound = {trumpet, C4};
+	};
+	instrument[4] =
+	{
+		release = 24;
+		envelope = env4;
+		soundL = {Eb4, strings_1L, Eb3};
+		sound = {strings_1, B4};
+	};
+	instrument[7] =
+	{
+		release = 10;
+		envelope = env5;
+		sound = {timpani, Bb2};
+	};
+	instrument[8] =
+	{
+		release = 10;
+		envelope = env6;
+		soundL = {Eb2, snare_2L, F2};
+		sound = {snare_2, E2};
+	};
+	percussion[0] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, A2};
+	};
+	percussion[1] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, Bb2};
+	};
+	percussion[2] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, B2};
+	};
+	percussion[3] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, C3};
+	};
+	percussion[4] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, Cs3};
+	};
+	percussion[5] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, D3};
+	};
+	percussion[6] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, Eb3};
+	};
+	percussion[7] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, E3};
+	};
+	percussion[8] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, F3};
+	};
+	percussion[9] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, Fs3};
+	};
+	percussion[10] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, G3};
+	};
+	percussion[11] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, Ab3};
+	};
+	percussion[12] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, A3};
+	};
+	percussion[13] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, Bb3};
+	};
+	percussion[14] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, B3};
+	};
+	percussion[15] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env7;
+		sound = {kick, C4};
+	};
+	percussion[16] =
+	{
+		release = 10;
+		pan = 57;
+		envelope = env7;
+		sound = {rim, C4};
+	};
+	percussion[17] =
+	{
+		release = 10;
+		pan = 65;
+		envelope = env7;
+		sound = {snare, Ab4};
+	};
+	percussion[18] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env7;
+		sound = {snare, D4};
+	};
+	percussion[19] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env7;
+		sound = {snare, Eb4};
+	};
+	percussion[20] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env7;
+		sound = {tom, B2};
+	};
+	percussion[21] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env7;
+		sound = {tom, C3};
+	};
+	percussion[22] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env7;
+		sound = {tom, F3};
+	};
+	percussion[23] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env7;
+		sound = {tom, Fs3};
+	};
+	percussion[24] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env7;
+		sound = {tom, Ab3};
+	};
+	percussion[25] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env7;
+		sound = {tom, A3};
+	};
+	percussion[26] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env7;
+		sound = {tom, C4};
+	};
+	percussion[27] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env7;
+		sound = {tom, Cs4};
+	};
+	percussion[28] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env7;
+		sound = {tom, Eb4};
+	};
+	percussion[29] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env7;
+		sound = {tom, E4};
+	};
+	percussion[30] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env7;
+		sound = {tom, F4};
+	};
+	percussion[31] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env7;
+		sound = {tom, Fs4};
+	};
+	percussion[32] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env7;
+		sound = {tom, G4};
+	};
+	percussion[33] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, Eb4};
+	};
+	percussion[34] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, E4};
+	};
+	percussion[35] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, F4};
+	};
+	percussion[36] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, Fs4};
+	};
+	percussion[37] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, G4};
+	};
+	percussion[38] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, Ab4};
+	};
+	percussion[39] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, A4};
+	};
+	percussion[40] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env7;
+		sound = {tambourine, Bb4};
+	};
+	percussion[41] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, Ab3};
+	};
+	percussion[42] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, A3};
+	};
+	percussion[43] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, Bb3};
+	};
+	percussion[44] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, B3};
+	};
+	percussion[45] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, C4};
+	};
+	percussion[46] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, Cs4};
+	};
+	percussion[47] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, D4};
+	};
+	percussion[48] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env7;
+		sound = {bongo_1, Eb4};
+	};
+	percussion[49] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env7;
+		sound = {bongo_1, D5};
+	};
+	percussion[50] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env7;
+		sound = {bongo_1, Eb5};
+	};
+	percussion[51] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, Ab3};
+	};
+	percussion[52] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, A3};
+	};
+	percussion[53] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, Bb3};
+	};
+	percussion[54] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, B3};
+	};
+	percussion[55] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, C4};
+	};
+	percussion[56] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, Cs4};
+	};
+	percussion[57] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, D4};
+	};
+	percussion[58] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, Eb4};
+	};
+	percussion[59] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, E4};
+	};
+	percussion[60] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, F4};
+	};
+	percussion[61] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, Fs4};
+	};
+	percussion[62] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env7;
+		sound = {bongo_2, G4};
+	};
+	percussion[63] =
+	{
+		release = 10;
+		pan = 128;
+		envelope = env7;
+		sound = {claves, C4};
+	};
+	instrument[11] =
+	{
+		release = 10;
+		envelope = env8;
+		soundL = {Cs3, ride_cymbal, Eb3};
+		sound = {crash_cymbal, Eb3};
+		soundH = {Cs3, ride_cymbal, Eb3};
+	};
+};
+
+bank music28
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {6, 32700, 298, 32700, 32700, 29430, -1, 0};
+	envelope env1 {6, 32700, 298, 32700, 32700, 29430, -1, 0};
+	envelope env2 {6, 32700, 298, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env5 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 119;
+		envelope = env0;
+		sound = {music_box, C5};
+	};
+	instrument[1] =
+	{
+		release = 119;
+		envelope = env1;
+		sound = {music_box, C5};
+	};
+	instrument[2] =
+	{
+		release = 119;
+		envelope = env2;
+		sound = {music_box, C5};
+	};
+	instrument[4] =
+	{
+		release = 24;
+		envelope = env3;
+		soundL = {Eb4, strings_1L, Eb3};
+		sound = {strings_1, B4};
+	};
+	instrument[5] =
+	{
+		release = 24;
+		envelope = env4;
+		soundL = {Eb4, strings_1L, Eb3};
+		sound = {strings_1, B4};
+	};
+	instrument[6] =
+	{
+		release = 24;
+		envelope = env5;
+		soundL = {Eb4, strings_1L, Eb3};
+		sound = {strings_1, B4};
+	};
+};
+
+bank music29
+{
+	date = {1996, 3, 19};
+	wave music29;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env5 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 19;
+		envelope = env0;
+		sound = {church_organ, C4};
+		soundH = {B4, church_organH, C4};
+	};
+	instrument[1] =
+	{
+		release = 19;
+		envelope = env1;
+		sound = {church_organ, C4};
+		soundH = {B4, church_organH, C4};
+	};
+	instrument[2] =
+	{
+		release = 19;
+		envelope = env2;
+		sound = {church_organ, C4};
+		soundH = {B4, church_organH, C4};
+	};
+	instrument[3] =
+	{
+		release = 19;
+		envelope = env3;
+		sound = {church_organ, C4};
+		soundH = {B4, church_organH, C4};
+	};
+	instrument[4] =
+	{
+		release = 19;
+		envelope = env4;
+		sound = {church_organ, C4};
+		soundH = {B4, church_organH, C4};
+	};
+	instrument[5] =
+	{
+		release = 10;
+		envelope = env5;
+		sound = {choir_ooh, F5};
+	};
+};
+
+bank music30
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 202, 0, 1, 0, -1, 0};
+	envelope env1 {2, 32700, 82, 0, 1, 0, -1, 0};
+	envelope env2 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 255;
+		envelope = env0;
+		sound = {harpsichord, F4};
+	};
+	instrument[1] =
+	{
+		release = 255;
+		envelope = env1;
+		sound = {harpsichord, F4};
+	};
+	instrument[2] =
+	{
+		release = 15;
+		envelope = env2;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+	instrument[3] =
+	{
+		release = 15;
+		envelope = env3;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+};
+
+bank music31
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {2, 32700, 55, 32700, 127, 0, -1, 0};
+	instrument[0] =
+	{
+		release = 208;
+		envelope = env0;
+		sound = {accordion, C4};
+	};
+	instrument[2] =
+	{
+		release = 208;
+		envelope = env1;
+		sound = {accordion, C4};
+	};
+	instrument[11] =
+	{
+		release = 208;
+		envelope = env2;
+		sound = {snow_bells, B5};
+	};
+	instrument[12] =
+	{
+		release = 10;
+		envelope = env3;
+		soundL = {Eb2, snare_2L, F2};
+		sound = {snare_2, E2};
+	};
+};
+
+bank music32
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 208;
+		envelope = env0;
+		sound = {french_horn, C4};
+	};
+	instrument[7] =
+	{
+		release = 208;
+		envelope = env1;
+		sound = {french_horn, C4};
+	};
+	instrument[8] =
+	{
+		release = 15;
+		envelope = env2;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+};
+
+bank music33
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {6, 32700, 298, 0, 1, 0, -1, 0};
+	instrument[0] =
+	{
+		release = 208;
+		envelope = env0;
+		sound = {accordion, C4};
+	};
+	instrument[2] =
+	{
+		release = 208;
+		envelope = env1;
+		sound = {accordion, C4};
+	};
+	instrument[3] =
+	{
+		release = 10;
+		envelope = env2;
+		sound = {electric_piano, C5};
+	};
+};
+
+bank music34
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 205, 19818, 535, 0, -1, 0};
+	envelope env3 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env5 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env6 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 208;
+		envelope = env0;
+		sound = {brass_section, Eb4};
+	};
+	instrument[6] =
+	{
+		release = 208;
+		envelope = env1;
+		sound = {slap_bass, Ab3};
+	};
+	instrument[7] =
+	{
+		release = 128;
+		envelope = env2;
+		sound = {synth_voice, Eb4};
+	};
+	instrument[8] =
+	{
+		release = 208;
+		envelope = env3;
+		sound = {muted_guitar_fourth, E3};
+	};
+	percussion[0] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, A2};
+	};
+	percussion[1] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, Bb2};
+	};
+	percussion[2] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, B2};
+	};
+	percussion[3] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, C3};
+	};
+	percussion[4] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, Cs3};
+	};
+	percussion[5] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, D3};
+	};
+	percussion[6] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, Eb3};
+	};
+	percussion[7] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, E3};
+	};
+	percussion[8] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, F3};
+	};
+	percussion[9] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, Fs3};
+	};
+	percussion[10] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, G3};
+	};
+	percussion[11] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, Ab3};
+	};
+	percussion[12] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, A3};
+	};
+	percussion[13] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, Bb3};
+	};
+	percussion[14] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, B3};
+	};
+	percussion[15] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env4;
+		sound = {kick, C4};
+	};
+	percussion[16] =
+	{
+		release = 10;
+		pan = 57;
+		envelope = env4;
+		sound = {rim, C4};
+	};
+	percussion[17] =
+	{
+		release = 10;
+		pan = 65;
+		envelope = env4;
+		sound = {snare, Ab4};
+	};
+	percussion[18] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env4;
+		sound = {snare, D4};
+	};
+	percussion[19] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env4;
+		sound = {snare, Eb4};
+	};
+	percussion[20] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env4;
+		sound = {tom, B2};
+	};
+	percussion[21] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env4;
+		sound = {tom, C3};
+	};
+	percussion[22] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env4;
+		sound = {tom, F3};
+	};
+	percussion[23] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env4;
+		sound = {tom, Fs3};
+	};
+	percussion[24] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env4;
+		sound = {tom, Ab3};
+	};
+	percussion[25] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env4;
+		sound = {tom, A3};
+	};
+	percussion[26] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env4;
+		sound = {tom, C4};
+	};
+	percussion[27] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env4;
+		sound = {tom, Cs4};
+	};
+	percussion[28] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env4;
+		sound = {tom, Eb4};
+	};
+	percussion[29] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env4;
+		sound = {tom, E4};
+	};
+	percussion[30] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env4;
+		sound = {tom, F4};
+	};
+	percussion[31] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env4;
+		sound = {tom, Fs4};
+	};
+	percussion[32] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env4;
+		sound = {tom, G4};
+	};
+	percussion[33] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, Eb4};
+	};
+	percussion[34] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, E4};
+	};
+	percussion[35] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, F4};
+	};
+	percussion[36] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, Fs4};
+	};
+	percussion[37] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, G4};
+	};
+	percussion[38] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, Ab4};
+	};
+	percussion[39] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, A4};
+	};
+	percussion[40] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env4;
+		sound = {tambourine, Bb4};
+	};
+	percussion[41] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, Ab3};
+	};
+	percussion[42] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, A3};
+	};
+	percussion[43] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, Bb3};
+	};
+	percussion[44] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, B3};
+	};
+	percussion[45] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, C4};
+	};
+	percussion[46] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, Cs4};
+	};
+	percussion[47] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, D4};
+	};
+	percussion[48] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env4;
+		sound = {bongo_1, Eb4};
+	};
+	percussion[49] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env4;
+		sound = {bongo_1, D5};
+	};
+	percussion[50] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env4;
+		sound = {bongo_1, Eb5};
+	};
+	percussion[51] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, Ab3};
+	};
+	percussion[52] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, A3};
+	};
+	percussion[53] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, Bb3};
+	};
+	percussion[54] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, B3};
+	};
+	percussion[55] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, C4};
+	};
+	percussion[56] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, Cs4};
+	};
+	percussion[57] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, D4};
+	};
+	percussion[58] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, Eb4};
+	};
+	percussion[59] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, E4};
+	};
+	percussion[60] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, F4};
+	};
+	percussion[61] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, Fs4};
+	};
+	percussion[62] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env4;
+		sound = {bongo_2, G4};
+	};
+	percussion[63] =
+	{
+		release = 10;
+		pan = 128;
+		envelope = env4;
+		sound = {claves, C4};
+	};
+	instrument[10] =
+	{
+		release = 10;
+		envelope = env5;
+		soundL = {A2, closed_hi_hat, E2};
+		sound = {open_hi_hat, Bb2};
+	};
+	instrument[11] =
+	{
+		release = 10;
+		envelope = env6;
+		soundL = {Cs3, ride_cymbal, Eb3};
+		sound = {crash_cymbal, Eb3};
+		soundH = {Cs3, ride_cymbal, Eb3};
+	};
+};
+
+bank music35
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {6, 32700, 298, 0, 1, 0, -1, 0};
+	envelope env4 {3, 32700, 298, 0, 1, 0, -1, 0};
+	envelope env5 {2, 32700, 202, 0, 1, 0, -1, 0};
+	instrument[0] =
+	{
+		release = 15;
+		envelope = env0;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+	instrument[1] =
+	{
+		release = 15;
+		envelope = env1;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+	instrument[2] =
+	{
+		release = 15;
+		envelope = env2;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+	instrument[5] =
+	{
+		release = 10;
+		envelope = env3;
+		sound = {electric_piano, C5};
+	};
+	instrument[6] =
+	{
+		release = 10;
+		envelope = env4;
+		sound = {electric_piano, C5};
+	};
+	instrument[7] =
+	{
+		release = 255;
+		envelope = env5;
+		sound = {harpsichord, F4};
+	};
+};
+
+bank music36
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {26, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env4 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 43;
+		envelope = env0;
+		sound = {pan_flute, C4};
+	};
+	instrument[2] =
+	{
+		release = 24;
+		envelope = env1;
+		soundL = {Eb4, strings_1L, Eb3};
+		sound = {strings_1, B4};
+	};
+	percussion[0] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, A2};
+	};
+	percussion[1] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, Bb2};
+	};
+	percussion[2] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, B2};
+	};
+	percussion[3] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, C3};
+	};
+	percussion[4] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, Cs3};
+	};
+	percussion[5] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, D3};
+	};
+	percussion[6] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, Eb3};
+	};
+	percussion[7] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, E3};
+	};
+	percussion[8] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, F3};
+	};
+	percussion[9] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, Fs3};
+	};
+	percussion[10] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, G3};
+	};
+	percussion[11] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, Ab3};
+	};
+	percussion[12] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, A3};
+	};
+	percussion[13] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, Bb3};
+	};
+	percussion[14] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, B3};
+	};
+	percussion[15] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env2;
+		sound = {kick, C4};
+	};
+	percussion[16] =
+	{
+		release = 10;
+		pan = 57;
+		envelope = env2;
+		sound = {rim, C4};
+	};
+	percussion[17] =
+	{
+		release = 10;
+		pan = 65;
+		envelope = env2;
+		sound = {snare, Ab4};
+	};
+	percussion[18] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env2;
+		sound = {snare, D4};
+	};
+	percussion[19] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env2;
+		sound = {snare, Eb4};
+	};
+	percussion[20] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env2;
+		sound = {tom, B2};
+	};
+	percussion[21] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env2;
+		sound = {tom, C3};
+	};
+	percussion[22] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env2;
+		sound = {tom, F3};
+	};
+	percussion[23] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env2;
+		sound = {tom, Fs3};
+	};
+	percussion[24] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env2;
+		sound = {tom, Ab3};
+	};
+	percussion[25] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env2;
+		sound = {tom, A3};
+	};
+	percussion[26] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env2;
+		sound = {tom, C4};
+	};
+	percussion[27] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env2;
+		sound = {tom, Cs4};
+	};
+	percussion[28] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env2;
+		sound = {tom, Eb4};
+	};
+	percussion[29] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env2;
+		sound = {tom, E4};
+	};
+	percussion[30] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env2;
+		sound = {tom, F4};
+	};
+	percussion[31] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env2;
+		sound = {tom, Fs4};
+	};
+	percussion[32] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env2;
+		sound = {tom, G4};
+	};
+	percussion[33] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env2;
+		sound = {tambourine, Eb4};
+	};
+	percussion[34] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env2;
+		sound = {tambourine, E4};
+	};
+	percussion[35] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env2;
+		sound = {tambourine, F4};
+	};
+	percussion[36] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env2;
+		sound = {tambourine, Fs4};
+	};
+	percussion[37] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env2;
+		sound = {tambourine, G4};
+	};
+	percussion[38] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env2;
+		sound = {tambourine, Ab4};
+	};
+	percussion[39] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env2;
+		sound = {tambourine, A4};
+	};
+	percussion[40] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env2;
+		sound = {tambourine, Bb4};
+	};
+	percussion[41] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env2;
+		sound = {bongo_1, Ab3};
+	};
+	percussion[42] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env2;
+		sound = {bongo_1, A3};
+	};
+	percussion[43] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env2;
+		sound = {bongo_1, Bb3};
+	};
+	percussion[44] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env2;
+		sound = {bongo_1, B3};
+	};
+	percussion[45] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env2;
+		sound = {bongo_1, C4};
+	};
+	percussion[46] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env2;
+		sound = {bongo_1, Cs4};
+	};
+	percussion[47] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env2;
+		sound = {bongo_1, D4};
+	};
+	percussion[48] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env2;
+		sound = {bongo_1, Eb4};
+	};
+	percussion[49] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env2;
+		sound = {bongo_1, D5};
+	};
+	percussion[50] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env2;
+		sound = {bongo_1, Eb5};
+	};
+	percussion[51] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env2;
+		sound = {bongo_2, Ab3};
+	};
+	percussion[52] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env2;
+		sound = {bongo_2, A3};
+	};
+	percussion[53] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env2;
+		sound = {bongo_2, Bb3};
+	};
+	percussion[54] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env2;
+		sound = {bongo_2, B3};
+	};
+	percussion[55] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env2;
+		sound = {bongo_2, C4};
+	};
+	percussion[56] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env2;
+		sound = {bongo_2, Cs4};
+	};
+	percussion[57] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env2;
+		sound = {bongo_2, D4};
+	};
+	percussion[58] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env2;
+		sound = {bongo_2, Eb4};
+	};
+	percussion[59] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env2;
+		sound = {bongo_2, E4};
+	};
+	percussion[60] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env2;
+		sound = {bongo_2, F4};
+	};
+	percussion[61] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env2;
+		sound = {bongo_2, Fs4};
+	};
+	percussion[62] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env2;
+		sound = {bongo_2, G4};
+	};
+	percussion[63] =
+	{
+		release = 10;
+		pan = 128;
+		envelope = env2;
+		sound = {claves, C4};
+	};
+	instrument[1] =
+	{
+		release = 43;
+		envelope = env3;
+		sound = {pan_flute, C4};
+	};
+	instrument[3] =
+	{
+		release = 10;
+		envelope = env4;
+		sound = {choir_ooh, F5};
+	};
+};
+
+bank music37
+{
+	date = {1996, 3, 19};
+	wave music;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env1 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env2 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env3 {6, 32700, 298, 0, 1, 0, -1, 0};
+	envelope env4 {2, 32700, 205, 0, 1, 0, -1, 0};
+	envelope env5 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env6 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env7 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env8 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env9 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env10 {6, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env11 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	envelope env12 {2, 32700, 205, 0, 1, 0, -1, 0};
+	envelope env13 {3, 32700, 298, 0, 1, 0, -1, 0};
+	envelope env14 {11, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 19;
+		envelope = env0;
+		sound = {harmonica, C4};
+	};
+	instrument[1] =
+	{
+		release = 208;
+		envelope = env1;
+		sound = {slap_bass, Ab3};
+	};
+	instrument[2] =
+	{
+		release = 208;
+		envelope = env2;
+		sound = {muted_guitar_fourth, E3};
+	};
+	instrument[3] =
+	{
+		release = 10;
+		envelope = env3;
+		sound = {electric_piano, C5};
+	};
+	instrument[4] =
+	{
+		release = 34;
+		envelope = env4;
+		sound = {piano, Fs6};
+	};
+	instrument[5] =
+	{
+		release = 53;
+		envelope = env5;
+		sound = {french_horn, C4};
+		soundH = {B4, french_hornH, C4};
+	};
+	instrument[10] =
+	{
+		release = 10;
+		envelope = env6;
+		soundL = {A2, closed_hi_hat, E2};
+		sound = {open_hi_hat, Bb2};
+	};
+	instrument[11] =
+	{
+		release = 10;
+		envelope = env7;
+		soundL = {Cs3, ride_cymbal, Eb3};
+		sound = {crash_cymbal, Eb3};
+		soundH = {Cs3, ride_cymbal, Eb3};
+	};
+	instrument[12] =
+	{
+		release = 208;
+		envelope = env8;
+		soundL = {A5, triangleL, Ab5};
+		sound = {triangle, A5};
+		soundH = {A5, cabasa, Bb5};
+	};
+	instrument[6] =
+	{
+		release = 43;
+		envelope = env9;
+		sound = {pan_flute, C4};
+	};
+	instrument[7] =
+	{
+		release = 15;
+		envelope = env10;
+		soundL = {C3, strings_2L, Eb3};
+		sound = {strings_2, Ab3};
+		soundH = {G4, strings_2H, Fs4};
+	};
+	percussion[0] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, A2};
+	};
+	percussion[1] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, Bb2};
+	};
+	percussion[2] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, B2};
+	};
+	percussion[3] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, C3};
+	};
+	percussion[4] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, Cs3};
+	};
+	percussion[5] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, D3};
+	};
+	percussion[6] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, Eb3};
+	};
+	percussion[7] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, E3};
+	};
+	percussion[8] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, F3};
+	};
+	percussion[9] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, Fs3};
+	};
+	percussion[10] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, G3};
+	};
+	percussion[11] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, Ab3};
+	};
+	percussion[12] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, A3};
+	};
+	percussion[13] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, Bb3};
+	};
+	percussion[14] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, B3};
+	};
+	percussion[15] =
+	{
+		release = 10;
+		pan = 62;
+		envelope = env11;
+		sound = {kick, C4};
+	};
+	percussion[16] =
+	{
+		release = 10;
+		pan = 57;
+		envelope = env11;
+		sound = {rim, C4};
+	};
+	percussion[17] =
+	{
+		release = 10;
+		pan = 65;
+		envelope = env11;
+		sound = {snare, Ab4};
+	};
+	percussion[18] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env11;
+		sound = {snare, D4};
+	};
+	percussion[19] =
+	{
+		release = 10;
+		pan = 66;
+		envelope = env11;
+		sound = {snare, Eb4};
+	};
+	percussion[20] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env11;
+		sound = {tom, B2};
+	};
+	percussion[21] =
+	{
+		release = 10;
+		pan = 6;
+		envelope = env11;
+		sound = {tom, C3};
+	};
+	percussion[22] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env11;
+		sound = {tom, F3};
+	};
+	percussion[23] =
+	{
+		release = 10;
+		pan = 27;
+		envelope = env11;
+		sound = {tom, Fs3};
+	};
+	percussion[24] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env11;
+		sound = {tom, Ab3};
+	};
+	percussion[25] =
+	{
+		release = 10;
+		pan = 45;
+		envelope = env11;
+		sound = {tom, A3};
+	};
+	percussion[26] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env11;
+		sound = {tom, C4};
+	};
+	percussion[27] =
+	{
+		release = 10;
+		pan = 53;
+		envelope = env11;
+		sound = {tom, Cs4};
+	};
+	percussion[28] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env11;
+		sound = {tom, Eb4};
+	};
+	percussion[29] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env11;
+		sound = {tom, E4};
+	};
+	percussion[30] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env11;
+		sound = {tom, F4};
+	};
+	percussion[31] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env11;
+		sound = {tom, Fs4};
+	};
+	percussion[32] =
+	{
+		release = 10;
+		pan = 83;
+		envelope = env11;
+		sound = {tom, G4};
+	};
+	percussion[33] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env11;
+		sound = {tambourine, Eb4};
+	};
+	percussion[34] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env11;
+		sound = {tambourine, E4};
+	};
+	percussion[35] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env11;
+		sound = {tambourine, F4};
+	};
+	percussion[36] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env11;
+		sound = {tambourine, Fs4};
+	};
+	percussion[37] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env11;
+		sound = {tambourine, G4};
+	};
+	percussion[38] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env11;
+		sound = {tambourine, Ab4};
+	};
+	percussion[39] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env11;
+		sound = {tambourine, A4};
+	};
+	percussion[40] =
+	{
+		release = 10;
+		pan = 35;
+		envelope = env11;
+		sound = {tambourine, Bb4};
+	};
+	percussion[41] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env11;
+		sound = {bongo_1, Ab3};
+	};
+	percussion[42] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env11;
+		sound = {bongo_1, A3};
+	};
+	percussion[43] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env11;
+		sound = {bongo_1, Bb3};
+	};
+	percussion[44] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env11;
+		sound = {bongo_1, B3};
+	};
+	percussion[45] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env11;
+		sound = {bongo_1, C4};
+	};
+	percussion[46] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env11;
+		sound = {bongo_1, Cs4};
+	};
+	percussion[47] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env11;
+		sound = {bongo_1, D4};
+	};
+	percussion[48] =
+	{
+		release = 10;
+		pan = 54;
+		envelope = env11;
+		sound = {bongo_1, Eb4};
+	};
+	percussion[49] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env11;
+		sound = {bongo_1, D5};
+	};
+	percussion[50] =
+	{
+		release = 10;
+		pan = 70;
+		envelope = env11;
+		sound = {bongo_1, Eb5};
+	};
+	percussion[51] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env11;
+		sound = {bongo_2, Ab3};
+	};
+	percussion[52] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env11;
+		sound = {bongo_2, A3};
+	};
+	percussion[53] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env11;
+		sound = {bongo_2, Bb3};
+	};
+	percussion[54] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env11;
+		sound = {bongo_2, B3};
+	};
+	percussion[55] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env11;
+		sound = {bongo_2, C4};
+	};
+	percussion[56] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env11;
+		sound = {bongo_2, Cs4};
+	};
+	percussion[57] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env11;
+		sound = {bongo_2, D4};
+	};
+	percussion[58] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env11;
+		sound = {bongo_2, Eb4};
+	};
+	percussion[59] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env11;
+		sound = {bongo_2, E4};
+	};
+	percussion[60] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env11;
+		sound = {bongo_2, F4};
+	};
+	percussion[61] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env11;
+		sound = {bongo_2, Fs4};
+	};
+	percussion[62] =
+	{
+		release = 10;
+		pan = 82;
+		envelope = env11;
+		sound = {bongo_2, G4};
+	};
+	percussion[63] =
+	{
+		release = 10;
+		pan = 128;
+		envelope = env11;
+		sound = {claves, C4};
+	};
+	instrument[15] =
+	{
+		release = 10;
+		envelope = env12;
+		sound = {piano, Fs6};
+	};
+	instrument[8] =
+	{
+		release = 10;
+		envelope = env13;
+		sound = {electric_piano, C5};
+	};
+	instrument[14] =
+	{
+		release = 34;
+		envelope = env14;
+		sound = {harmonica, C4};
+	};
+};

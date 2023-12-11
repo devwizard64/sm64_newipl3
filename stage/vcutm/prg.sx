@@ -1,0 +1,58 @@
+#include <sm64/prglang.h>
+
+.data
+
+p_vcutm1_enemy:
+	pObject(S_VCUTM_54, 154, -1919, -6256, 0, 270, 0, 0, 7, 0, o_13004B1C)
+	pObject(S_VCUTM_54, -2047, -3378, -2047, 0, 0, 0, 0, 7, 0, o_13004B1C)
+	pObject(S_VCUTM_55, 3251, -1082, -6256, 0, 270, 0, 1, 75, 0, o_13001B70)
+	pObject(S_VCUTM_55, 2355, -1901, -6256, 0, 270, 0, 1, 75, 0, o_13001B70)
+	pObject(S_VCUTM_55, 1459, -1594, -6256, 0, 90, 0, 1, 75, 0, o_13001B70)
+	pObject(S_VCUTM_55, -1151, -2413, -6256, 0, 270, 0, 1, 75, 0, o_13001B70)
+	pReturn()
+
+p_vcutm1_star:
+	pObject(S_1H_85, 4506, 26, -6246, 0, 0, 0, 0, 2, 0, o_130001CC)
+	pReturn()
+
+p_vcutm1_movebg:
+	pObject(S_NULL, 4600, 250, -4500, 0, 0, 0, 0, 0, 0, o_13003E8C)
+	pReturn()
+
+.globl p_vcutm
+p_vcutm:
+	pStageInit()
+	pLoadText(SEG_TEXTURE, _TextureKSegmentRomStart, _TextureKSegmentRomEnd)
+	pLoadPres(SEG_STAGE_GFX, _VCutMGfxSegmentRomStart, _VCutMGfxSegmentRomEnd)
+	pLoadPres(SEG_SHAPE1_GFX, _Shape1HGfxSegmentRomStart, _Shape1HGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE1_SHP, _Shape1HShpSegmentRomStart, _Shape1HShpSegmentRomEnd)
+	pLoadPres(SEG_SHAPE3_GFX, _CommonGfxSegmentRomStart, _CommonGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE3_SHP, _CommonShpSegmentRomStart, _CommonShpSegmentRomEnd)
+	pStageStart()
+		pMario()
+		pCall(p_shape_common)
+		pCall(p_shape_1h)
+		pShapeScript(S_VCUTM_54, s_vcutm_54)
+		pShapeScript(S_PIPE, s_pipe)
+		pSceneStart(1, s_vcutm1)
+			pObject(S_NULL, -6143, 6734, -6143, 0, 0, 0, 0, 10, 0, o_13002F64)
+			pPort(10, STAGE_VCUTM, 1, 10)
+			pPort(PORT_FALL, STAGE_GROUNDS, 1, 7)
+			pPort(PORT_WIN, STAGE_GROUNDS, 1, 8)
+			pPort(PORT_DIE, STAGE_GROUNDS, 1, 6)
+			pCall(p_vcutm1_movebg)
+			pCall(p_vcutm1_enemy)
+			pCall(p_vcutm1_star)
+			pMap(0x07009750)
+			pTag(0x0700AB0C)
+			pMsg(0, 129)
+			pBgm(NA_MODE_DEFAULT, NA_BGM_SLIDER)
+			pEnv(ENV_ROCK)
+		pSceneEnd()
+	pStageEnd()
+	pPlayerOpen(1, 0, -6143, 5734, -6143)
+	pCallback(game_process, 0)
+	pProcess(game_process, 1)
+	pStageExit()
+	pFreeze(1)
+	pExit()

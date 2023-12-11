@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+
+def sh(x): return max(-32768, min(32767, int(round(x))))
+
+if len(sys.argv) < 2 or len(sys.argv) > 3:
+	sys.stderr.write("usage: %s <obj> <map> [area]\n" % sys.argv[0])
+	sys.exit(1)
+fn = sys.argv[1]
+with open(fn, "r") as f:
+	vtx = []
+	obj = []
+	tbl = {}
+	tri = None
+	code, arg, area = "0", "", ""
+	for line in f:
+		x = line.split()
+		if not x: continue
+		elif x[0] == "v":
+			vtx.append(tuple([sh(float(x)) for x in x[1:4]]))
+		elif x[0] == "f":
+			if tri is None:
+				if bg in tbl:
+					tri = tbl[bg]
+				else:
+					tri = []
+					tbl[bg] = tri
+					obj.append((bg, tri))
+			face = [int(v.partition("/")[0])-1 for v in x[1:]]
+			for i in range(len(face)-2):
+				tri.append((face[0], face[i+1], face[i+2], arg, area))
+		elif x[0] == "usemtl":
+			x, _, area = x[1].partition(";")
+			bg, _, code = x.partition(",")
+			tri = None
+with open(sys.argv[2], "w") as f:
+	f.write("MAP_VTX, %d,\n" % len(vtx))
+	for v in vtx: f.write("%d, %d, %d,\n" % v)
+	for bg, tri in obj:
+		f.write("%s, %d,\n" % (bg, len(tri)))
+		for t in tri:
+			if t[3]:    f.write("%d, %d, %d, %s,\n" % t[:4])
+			else:       f.write("%d, %d, %d,\n" % t[:3])
+	f.write("MAP_BGEND,\n")
+if len(sys.argv) > 3:
+	with open(sys.argv[3], "w") as f:
+		for bg, tri in obj:
+			for t in tri:
+				if not t[4]:
+					sys.stderr.write("error: null area\n")
+					sys.exit(1)
+				f.write(t[4]+",")
+			f.write("\n")

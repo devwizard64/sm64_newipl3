@@ -1,0 +1,54 @@
+#include <sm64/objlang.h>
+
+#define SCRIPT
+
+.data
+
+.globl o_13005610
+o_13005610:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oPtr(O_ANIME, anime_lakitu2)
+	oAnime(0)
+	oSetF(O_ALPHA, 0)
+	oWhile()
+		oCallback(camera_8029B49C)
+	oWend()
+
+.globl o_13005638
+o_13005638:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oPtr(O_ANIME, 0x0501C504)
+	oAnime(0)
+	oWhile()
+		oCallback(camera_8029B08C)
+	oWend()
+
+.globl o_1300565C
+o_1300565C:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001|OF_0010)
+	oPtr(O_ANIME, 0x050009E8)
+	oAnime(0)
+	oWhile()
+		oCallback(camera_8029BDE4)
+	oWend()
+
+.globl o_13005680
+o_13005680:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001|OF_0010)
+	oPtr(O_ANIME, 0x050009E8)
+	oAnime(0)
+	oWhile()
+		oCallback(camera_8029BF64)
+	oWend()
+
+.globl o_130056A4
+o_130056A4:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oWhile()
+		oCallback(camera_8029C254)
+	oWend()

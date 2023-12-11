@@ -1,0 +1,9 @@
+.globl p_shape_1e
+p_shape_1e:
+	pShapeScript(S_1E_84, s_1e_84)
+	pShapeScript(S_1E_85, s_1e_85)
+	pShapeScript(S_1E_86, 0x05014630)
+	pShapeScript(S_1E_87, s_1e_87)
+	pShapeScript(S_1E_88, s_1e_88)
+	pShapeScript(S_1E_89, s_1e_89)
+	pReturn()

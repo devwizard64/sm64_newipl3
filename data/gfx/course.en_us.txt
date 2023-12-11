@@ -1,0 +1,105 @@
+$name: course_name
+$lang: en.m
+
+$$ 1
+$tbl:
+ 1 BOB-OMB BATTLEFIELD
+
+$$ 2
+$tbl:
+ 2 WHOMP'S FORTRESS
+
+$$ 3
+$tbl:
+ 3 JOLLY ROGER BAY
+
+$$ 4
+$tbl:
+ 4 COOL, COOL MOUNTAIN
+
+$$ 5
+$tbl:
+ 5 BIG BOO'S HAUNT
+
+$$ 6
+$tbl:
+ 6 HAZY MAZE CAVE
+
+$$ 7
+$tbl:
+ 7 LETHAL LAVA LAND
+
+$$ 8
+$tbl:
+ 8 SHIFTING SAND LAND
+
+$$ 9
+$tbl:
+ 9 DIRE, DIRE DOCKS
+
+$$ 10
+$tbl:
+10 SNOWMAN'S LAND
+
+$$ 11
+$tbl:
+11 WET-DRY WORLD
+
+$$ 12
+$tbl:
+12 TALL, TALL MOUNTAIN
+
+$$ 13
+$tbl:
+13 TINY-HUGE ISLAND
+
+$$ 14
+$tbl:
+14 TICK TOCK CLOCK
+
+$$ 15
+$tbl:
+15 RAINBOW RIDE
+
+$$ 16
+$tbl:
+   BOWSER IN THE DARK WORLD
+
+$$ 17
+$tbl:
+   BOWSER IN THE FIRE SEA
+
+$$ 18
+$tbl:
+   BOWSER IN THE SKY
+
+$$ 19
+$tbl:
+   THE PRINCESS'S SECRET SLIDE
+
+$$ 20
+$tbl:
+   CAVERN OF THE METAL CAP
+
+$$ 21
+$tbl:
+   TOWER OF THE WING CAP
+
+$$ 22
+$tbl:
+   VANISH CAP UNDER THE MOAT
+
+$$ 23
+$tbl:
+   WING MARIO OVER THE RAINBOW
+
+$$ 24
+$tbl:
+   THE SECRET AQUARIUM
+
+$$ 25
+$tbl:
+
+$$ 26
+$tbl:
+   CASTLE SECRET STARS

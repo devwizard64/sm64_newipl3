@@ -1,0 +1,11 @@
+.globl p_shape_2b
+p_shape_2b:
+	pShapeScript(S_BUB, s_bub)
+	pShapeScript(S_CHEST, s_chest)
+	pShapeScript(S_CHESTLID, s_chestlid)
+	pShapeScript(S_PIRANHA, s_piranha)
+	pShapeScript(S_WATERRING, s_waterring)
+	pShapeScript(S_WATERMINE, s_watermine)
+	pShapeScript(S_KELP, s_kelp)
+	pShapeScript(S_SKEETER, s_skeeter)
+	pReturn()

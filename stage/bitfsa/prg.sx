@@ -1,0 +1,42 @@
+#include <sm64/prglang.h>
+
+.data
+
+p_bitfsa1_movebg:
+	pObject(S_BITFSA_54, 0, 0, 0, 0, 90, 0, 0, 0, 0, o_13001920)
+	pObject(S_2A_179, 4, 1329, 3598, 0, 90, 0, 0, 0, 0, o_130037EC)
+	pObject(S_2A_179, 3584, 1329, 0, 0, 90, 0, 0, 0, 0, o_130037EC)
+	pObject(S_2A_179, 0, 1329, -3583, 0, 90, 0, 0, 0, 0, o_130037EC)
+	pObject(S_2A_179, -3583, 1329, 0, 0, 90, 0, 0, 0, 0, o_130037EC)
+	pReturn()
+
+.globl p_bitfsa
+p_bitfsa:
+	pStageInit()
+	pLoadPres(SEG_BACK, _BackDSegmentRomStart, _BackDSegmentRomEnd)
+	pLoadText(SEG_TEXTURE, _TextureASegmentRomStart, _TextureASegmentRomEnd)
+	pLoadPres(SEG_WEATHER, _WeatherSegmentRomStart, _WeatherSegmentRomEnd)
+	pLoadPres(SEG_STAGE_GFX, _BitFSAGfxSegmentRomStart, _BitFSAGfxSegmentRomEnd)
+	pLoadPres(SEG_SHAPE2_GFX, _Shape2AGfxSegmentRomStart, _Shape2AGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE2_SHP, _Shape2AShpSegmentRomStart, _Shape2AShpSegmentRomEnd)
+	pStageStart()
+		pMario()
+		pCall(p_shape_2a)
+		pShapeScript(S_BITFSA_54, s_bitfsa_54)
+		pSceneStart(1, s_bitfsa1)
+			pObject(S_NULL, 0, 2229, 0, 0, 180, 0, 0, 10, 0, o_13002F6C)
+			pPort(10, STAGE_BITFSA, 1, 10)
+			pPort(PORT_WIN, STAGE_INSIDE, 3, 54)
+			pPort(PORT_DIE, STAGE_BITFS, 1, 12)
+			pCall(p_bitfsa1_movebg)
+			pMap(0x070019F0)
+			pBgm(NA_MODE_ARENA, NA_BGM_ARENA)
+			pEnv(ENV_ROCK)
+		pSceneEnd()
+	pStageEnd()
+	pPlayerOpen(1, 180, 0, 1229, 0)
+	pCallback(game_process, 0)
+	pProcess(game_process, 1)
+	pStageExit()
+	pFreeze(1)
+	pExit()

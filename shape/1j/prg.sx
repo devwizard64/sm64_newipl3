@@ -1,0 +1,6 @@
+.globl p_shape_1j
+p_shape_1j:
+	pShapeScript(S_1J_84, s_1j_84)
+	pShapeScript(S_1J_222, s_1j_222)
+	pShapeScript(S_1J_85, s_1j_85)
+	pReturn()

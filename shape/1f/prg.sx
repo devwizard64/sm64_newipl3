@@ -1,0 +1,7 @@
+.globl p_shape_1f
+p_shape_1f:
+	pShapeGfx(S_1F_84, 0x05000840, LAYER_XLU_DECAL)
+	pShapeScript(S_1F_85, s_1f_85)
+	pShapeScript(S_1F_86, s_1f_86)
+	pShapeScript(S_1F_87, s_1f_87)
+	pReturn()

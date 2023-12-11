@@ -1,0 +1,11 @@
+.globl p_shape_2c
+p_shape_2c:
+	pShapeScript(S_2C_100, s_2c_100)
+	pShapeScript(S_2C_103, s_2c_103)
+	pShapeScript(S_2C_104, s_2c_104)
+	pShapeScript(S_2C_191, s_2c_191)
+	pShapeScript(S_2C_101, s_2c_101)
+	pShapeScript(S_2C_102, s_2c_102)
+	pShapeScript(S_2C_106, s_2c_106)
+	pShapeScript(S_2C_107, s_2c_107)
+	pReturn()

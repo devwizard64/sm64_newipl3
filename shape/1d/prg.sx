@@ -1,0 +1,8 @@
+.globl p_shape_1d
+p_shape_1d:
+	pShapeScript(S_1D_84, 0x05008D14)
+	pShapeScript(S_1D_85, s_1d_85)
+	pShapeScript(S_1D_86, s_1d_86)
+	pShapeGfx(S_1D_87, 0x05013CB8, LAYER_XLU_SURF)
+	pShapeScript(S_1D_88, s_1d_88)
+	pReturn()

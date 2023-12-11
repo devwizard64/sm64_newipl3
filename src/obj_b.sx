@@ -1,0 +1,1419 @@
+#include <sm64/objlang.h>
+
+#define SCRIPT
+
+.data
+
+#include "object_b/select.c"
+.globl o_13003068
+o_13003068:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oBillboard()
+	oHit(100, 64)
+	oSetI(O_HIT_CODE, 16)
+	oSetI(O_HIT_TIMER, 0)
+	oSetI(O_SHAPE_CODE, -1)
+	oCallback(object_b_802E5EE8)
+	oWhile()
+		oCallback(object_b_802E5F64)
+		oAddI(O_SHAPE_CODE, 1)
+	oWend()
+
+.globl o_130030A4
+o_130030A4:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oBillboard()
+	oSetI(O_HIT_TIMER, 0)
+	oSetI(O_SHAPE_CODE, -1)
+	oCallback(object_b_802E6098)
+	oWhile()
+		oCallback(object_b_802E6114)
+		oAddI(O_SHAPE_CODE, 1)
+	oWend()
+
+.globl o_130030D4
+o_130030D4:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0040|OF_2000)
+	oBillboard()
+	oSetI(O_HIT_TIMER, 0)
+	oSetI(O_SHAPE_CODE, -1)
+	oCallback(object_b_802E62A4)
+	oWhile()
+		oCallback(object_b_802E6474)
+		oAddI(O_SHAPE_CODE, 1)
+	oWend()
+
+.globl o_13003104
+o_13003104:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0040|OF_2000)
+	oBillboard()
+	oSetI(O_HIT_TIMER, 0)
+	oSetI(O_SHAPE_CODE, -1)
+	oCallback(object_b_802E62A4)
+	oWhile()
+		oCallback(object_b_802E6628)
+		oAddI(O_SHAPE_CODE, 1)
+	oWend()
+
+.globl o_kelpblade
+o_kelpblade:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oPtr(O_ANIME, anime_kelp)
+	oAnime(0)
+	oCallback(object_b_802E6790)
+	oWhile()
+	oWend()
+
+.globl o_kelp
+o_kelp:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oGround()
+	oCallback(object_b_802E67DC)
+	oWhile()
+	oWend()
+
+.globl o_13003174
+o_13003174:
+	oInit(OT_ATTACK)
+	oSetFlag(O_FLAG, OF_0001|OF_0008|OF_0040|OF_0400|OF_2000|OF_4000)
+	oPtr(O_ANIME, anime_bobomb)
+	oGround()
+	oAnime(0)
+	oSetI(O_HIT_TIMER, 0)
+	oSavePos()
+	oCallback(object_b_802E6A2C)
+	oWhile()
+		oCallback(object_b_802E742C)
+	oWend()
+
+.globl o_130031AC
+o_130031AC:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oBillboard()
+	oSetI(O_SHAPE_CODE, -1)
+	oCallback(object_b_802E75A0)
+	oSleep(1)
+	oWhile()
+		oCallback(objlib_802A399C)
+		oAddI(O_SHAPE_CODE, 1)
+	oWend()
+
+.globl o_130031DC
+o_130031DC:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0008|OF_0040|OF_0400|OF_2000)
+	oPtr(O_ANIME, anime_bobomb)
+	oHitCode(0x00800000)
+	oGround()
+	oHit(100, 60)
+	oAnime(0)
+	oSetI(O_V2, 0)
+	oSavePos()
+	oCallback(object_b_802E76AC)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802E7C4C)
+	oWend()
+
+.globl o_13003228
+o_13003228:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0008|OF_0040|OF_0400|OF_2000|OF_4000)
+	oPtr(O_ANIME, anime_bobomb)
+	oHitCode(0x00800000)
+	oGround()
+	oHit(100, 60)
+	oAnime(0)
+	oSetI(O_V2, 1)
+	oSavePos()
+	oCallback(object_b_802E76AC)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802E7C4C)
+	oWend()
+
+.globl o_13003274
+o_13003274:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001|OF_4000)
+	oMap(map_cannonlid)
+	oSavePos()
+	oCallback(object_b_802E7C90)
+	oWhile()
+		oCallback(object_b_802E7E54)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_130032A8
+o_130032A8:
+	oInit(OT_ATTACH)
+	oSetFlag(O_FLAG, OF_0001|OF_0040)
+	oCallback(object_b_802E7F70)
+	oWhile()
+		oCallback(object_b_802E80DC)
+	oWend()
+
+.globl o_130032C8
+o_130032C8:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001|OF_0040)
+	oWhile()
+		oCallback(object_b_802E82B0)
+	oWend()
+
+.globl o_signpost
+o_signpost:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001)
+	oMap(map_signpost)
+	oHitCode(0x00800000)
+	oSetI(O_HIT_FLAG, 4096)
+	oGround()
+	oHit(150, 80)
+	oSetI(O_V0, 0)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_map_load)
+		oSetI(O_HIT_RESULT, 0)
+	oWend()
+
+.globl o_13003324
+o_13003324:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001)
+	oHitCode(0x00800000)
+	oSetI(O_HIT_FLAG, 4096)
+	oHit(150, 80)
+	oSetI(O_V0, 0)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oSetI(O_HIT_RESULT, 0)
+	oWend()
+
+.globl o_13003354
+o_13003354:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0002|OF_0008|OF_0040|OF_2000)
+	oPtr(O_ANIME, anime_amp)
+	oAnime(0)
+	oSetF(O_SHAPE_OFFSET, 40)
+	oSetI(O_HIT_TIMER, 0)
+	oCallback(object_b_802E8388)
+	oWhile()
+		oCallback(object_b_802E89D4)
+	oWend()
+
+.globl o_13003388
+o_13003388:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0002|OF_0040|OF_2000)
+	oPtr(O_ANIME, anime_amp)
+	oAnime(0)
+	oSetF(O_SHAPE_OFFSET, 40)
+	oSetI(O_HIT_TIMER, 0)
+	oCallback(object_b_802E8AE4)
+	oWhile()
+		oCallback(object_b_802E8ECC)
+	oWend()
+
+.globl o_130033BC
+o_130033BC:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001|OF_0008)
+	oPtr(O_ANIME, anime_butterfly)
+	oGround()
+	oSetF(O_SHAPE_OFFSET, 5)
+	oCallback(object_b_802E8F68)
+	oWhile()
+		oCallback(object_b_802E96C8)
+	oWend()
+
+.globl o_130033EC
+o_130033EC:
+	oInit(OT_ATTACH)
+	oSetFlag(O_FLAG, OF_0001|OF_0008)
+	oPtr(O_ANIME, 0x05005768)
+	oSetI(O_HIT_CODE, 1)
+	oHit(75, 75)
+	oCallback(object_b_802E9764)
+	oWhile()
+		oCallback(object_b_802EA588)
+	oWend()
+
+o_13003420:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0400)
+	oSetI(O_HIT_CODE, 2)
+	oGround()
+	oHit(40, 50)
+	oCallback(object_b_802EA6A8)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802EA7E0)
+	oWend()
+
+.globl o_13003454
+o_13003454:
+	oInit(OT_DEFAULT)
+	oExit()
+
+o_1300345C:
+	oInit(OT_DEFAULT)
+	oExit()
+
+.globl o_13003464
+o_13003464:
+	oInit(OT_DEFAULT)
+	oExit()
+
+.globl o_1300346C
+o_1300346C:
+	oInit(OT_DEFAULT)
+	oExit()
+
+.globl o_13003474
+o_13003474:
+	oInit(OT_DEFAULT)
+	oExit()
+
+o_1300347C:
+	oInit(OT_DEFAULT)
+	oExit()
+
+.globl o_13003484
+o_13003484:
+	oInit(OT_EFFECT)
+	oSetFlag(O_FLAG, OF_0001|OF_0002|OF_0004)
+	oBillboard()
+	oSetFlag(O_FLAG, OF_0001)
+	oSetI(O_SHAPE_CODE, -1)
+	oCallback(object_b_802EA888)
+	oSetRandF(O_VEL_Y, 3, 6)
+	oSetRandA(O_ANG_Y, 0, 0)
+	oSleep(1)
+	oWhile()
+		oCallback(object_b_802EA934)
+	oWend()
+
+.globl o_130034C4
+o_130034C4:
+	oInit(OT_EFFECT)
+	oSetFlag(O_FLAG, OF_0001)
+	oSetF(O_SHAPE_ANG_X, 0)
+	oSetF(O_SHAPE_ANG_Y, 0)
+	oSetF(O_SHAPE_ANG_Z, 0)
+	oSetI(O_SHAPE_CODE, -1)
+	oCallback(object_b_802EAA10)
+	oAddI(O_SHAPE_CODE, 1)
+	oSleep(6)
+	oWhile()
+		oCallback(object_b_802EAA50)
+		oAddI(O_SHAPE_CODE, 1)
+		oFor(6)
+			oCallback(object_b_802EAA50)
+		oFend()
+	oWend()
+
+.globl o_13003510
+o_13003510:
+	oInit(OT_ATTACK)
+	oSetFlag(O_FLAG, OF_0001|OF_0040)
+	oBillboard()
+	oHitCode(0x00000008)
+	oSetI(O_AP, 2)
+	oSetI(O_HIT_TIMER, 0)
+	oHitOff(150, 150, 150)
+	oSetI(O_SHAPE_CODE, -1)
+	oCallback(object_b_802EAA8C)
+	oWhile()
+		oCallback(object_b_802EAAD0)
+		oAddI(O_SHAPE_CODE, 1)
+	oWend()
+
+.globl o_13003558
+o_13003558:
+	oInit(OT_EFFECT)
+	oSetFlag(O_FLAG, OF_0001|OF_0002|OF_0004)
+	oBillboard()
+	oSetI(O_SHAPE_CODE, -1)
+	oCallback(object_b_802EABF0)
+	oSleep(1)
+	oWhile()
+		oCallback(objlib_802A399C)
+		oAddI(O_SHAPE_CODE, 1)
+	oWend()
+
+.globl o_13003588
+o_13003588:
+	oInit(OT_EFFECT)
+	oSetFlag(O_FLAG, OF_0001|OF_0002|OF_0004)
+	oBillboard()
+	oSetI(O_SHAPE_CODE, -1)
+	oSleep(1)
+	oWhile()
+		oCallback(objlib_802A399C)
+		oAddI(O_SHAPE_CODE, 1)
+	oWend()
+
+.globl o_130035B0
+o_130035B0:
+	oInit(OT_DEFAULT)
+	oBillboard()
+	oSetFlag(O_FLAG, OF_0001)
+	oCallback(object_b_802EAC3C)
+	oAddRandF(O_POS_X, -50, 100)
+	oAddRandF(O_POS_Y, -50, 100)
+	oAddRandF(O_POS_Z, -50, 100)
+	oCall(o_13003600)
+	oSleep(1)
+	oWhile()
+		oCall(o_13003600)
+		oCallback(object_b_802EAD3C)
+	oWend()
+
+o_13003600:
+	oAddRandF(O_POS_X, -2, 4)
+	oAddRandF(O_POS_Z, -2, 4)
+	oReturn()
+
+.globl o_13003614
+o_13003614:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oWhile()
+		oCallback(object_b_802EAEF8)
+	oWend()
+
+.globl o_1300362C
+o_1300362C:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0008)
+	oPtr(O_ANIME, anime_bully)
+	oGround()
+	oSavePos()
+	oCallback(object_b_802EB05C)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802EB9D0)
+	oWend()
+
+.globl o_13003660
+o_13003660:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0008)
+	oPtr(O_ANIME, anime_bully)
+	oGround()
+	oSavePos()
+	oCallback(object_b_802EB104)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802EB9D0)
+	oWend()
+
+.globl o_13003694
+o_13003694:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0008)
+	oPtr(O_ANIME, anime_bully)
+	oSavePos()
+	oCallback(object_b_802EB104)
+	oCallback(object_b_802EBC00)
+	oWhile()
+		oCallback(object_b_802EBCE0)
+	oWend()
+
+o_130036C8:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0008)
+	oPtr(O_ANIME, 0x06003994)
+	oGround()
+	oSavePos()
+	oSetI(O_V0, 16)
+	oCallback(object_b_802EB05C)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802EB9D0)
+	oWend()
+
+.globl o_13003700
+o_13003700:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0008)
+	oPtr(O_ANIME, 0x06003994)
+	oGround()
+	oSavePos()
+	oSetI(O_V0, 16)
+	oCallback(object_b_802EB104)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802EB9D0)
+	oWend()
+
+.globl o_13003738
+o_13003738:
+	oInit(OT_DEFAULT)
+	oShapeHide()
+	oWhile()
+		oCallback(object_b_802EC908)
+	oWend()
+
+.globl o_13003750
+o_13003750:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oPtr(O_ANIME, anime_waterring)
+	oHitOff(75, 20, 20)
+	oHitCode(0x00010000)
+	oSetI(O_AP, 2)
+	oSetI(O_HIT_TIMER, 0)
+	oCallback(object_b_802EC1B0)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802EC75C)
+	oWend()
+
+.globl o_13003798
+o_13003798:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oPtr(O_ANIME, anime_waterring)
+	oHitOff(75, 20, 20)
+	oHitCode(0x00010000)
+	oSetI(O_AP, 2)
+	oSetI(O_HIT_TIMER, 0)
+	oCallback(object_b_802EC9B8)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802ECBA4)
+	oWend()
+
+.globl o_130037E0
+o_130037E0:
+	oInit(OT_DEFAULT)
+	oWhile()
+	oWend()
+
+.globl o_130037EC
+o_130037EC:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001)
+	oSetI(O_HIT_TIMER, 0)
+	oHitOff(40, 40, 40)
+	oSleep(1)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802ECC14)
+	oWend()
+
+.globl o_1300381C
+o_1300381C:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oBillboard()
+	oSetF(O_SHAPE_OFFSET, -288)
+	oSetI(O_SHAPE_CODE, -1)
+	oWhile()
+		oCallback(object_b_802ECD0C)
+	oWend()
+
+.globl o_13003840
+o_13003840:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oBillboard()
+	oSetF(O_SHAPE_OFFSET, -288)
+	oSetI(O_ALPHA, 255)
+	oSetI(O_SHAPE_CODE, -1)
+	oWhile()
+		oCallback(object_b_802ECEA0)
+	oWend()
+
+.globl o_13003868
+o_13003868:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oCallback(object_b_802ECFAC)
+	oWhile()
+		oCallback(object_b_802ED39C)
+	oWend()
+
+.globl o_13003888
+o_13003888:
+	oInit(OT_EFFECT)
+	oBillboard()
+	oSetFlag(O_FLAG, OF_0001)
+	oSetF(O_SHAPE_OFFSET, 25)
+	oSetI(O_SHAPE_CODE, -1)
+	oWhile()
+		oAddI(O_SHAPE_CODE, 1)
+		oCallback(object_b_802ED40C)
+	oWend()
+
+.globl o_130038B0
+o_130038B0:
+	oInit(OT_DEFAULT)
+	oBillboard()
+	oSetFlag(O_FLAG, OF_0001)
+	oSetI(O_SHAPE_CODE, -1)
+	oWhile()
+		oCallback(object_b_802ED45C)
+	oWend()
+
+.globl o_130038D0
+o_130038D0:
+	oInit(OT_DEFAULT)
+	oShapeHide()
+	oWhile()
+		oCallback(object_b_802ED498)
+	oWend()
+
+.globl o_130038E8
+o_130038E8:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001|OF_0008)
+	oMap(0x0701D078)
+	oWhile()
+		oCallback(object_b_802ED62C)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13003910
+o_13003910:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001|OF_0002)
+	oMap(0x0700F868)
+	oCallback(object_b_802ED78C)
+	oWhile()
+		oCallback(object_b_802ED7FC)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13003940
+o_13003940:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001|OF_0002)
+	oMap(0x0700F934)
+	oCallback(object_b_802EDACC)
+	oWhile()
+		oCallback(object_b_802EDB2C)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13003970
+o_13003970:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001|OF_0002)
+	oMap(0x0700FAA4)
+	oCallback(object_b_802EDDFC)
+	oWhile()
+		oCallback(object_b_802EDF28)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_130039A0
+o_130039A0:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0008|OF_2000)
+	oPtr(O_ANIME, 0x06005E5C)
+	oGround()
+	oSavePos()
+	oSetI(O_HIT_TIMER, -1)
+	oCallback(object_b_802EE124)
+	oWhile()
+		oCallback(object_b_802EE7E0)
+	oWend()
+
+.globl o_130039D4
+o_130039D4:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oSetF(O_SHAPE_OFFSET, 27)
+	oBillboard()
+	oHit(110, 100)
+	oSetI(O_HIT_TIMER, 0)
+	oSetI(O_SHAPE_CODE, -1)
+	oWhile()
+		oAddI(O_SHAPE_CODE, 1)
+		oCallback(object_b_802EE8F4)
+	oWend()
+
+.globl o_13003A08
+o_13003A08:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001)
+	oBillboard()
+	oSetF(O_SHAPE_OFFSET, 130)
+	oCallback(object_b_802EF21C)
+	oWhile()
+		oCallback(object_b_802EF274)
+	oWend()
+
+.globl o_13003A30
+o_13003A30:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001)
+	oBillboard()
+	oSetF(O_SHAPE_OFFSET, 130)
+	oCallback(object_b_802EF34C)
+	oWhile()
+		oCallback(object_b_802EF524)
+	oWend()
+
+.globl o_13003A58
+o_13003A58:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001)
+	oBillboard()
+	oSetF(O_SHAPE_OFFSET, 130)
+	oCallback(object_b_802EE9CC)
+	oWhile()
+		oCallback(object_b_802EEDF0)
+	oWend()
+
+.globl o_13003A80
+o_13003A80:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001)
+	oSetI(O_V2, 63)
+	oCallback(object_b_802EEEB4)
+	oWhile()
+		oCallback(object_b_802EEF9C)
+	oWend()
+
+.globl o_13003AA4
+o_13003AA4:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001)
+	oSetI(O_V2, 127)
+	oCallback(object_b_802EEEB4)
+	oWhile()
+		oCallback(object_b_802EEF9C)
+	oWend()
+
+.globl o_13003AC8
+o_13003AC8:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001)
+	oWhile()
+		oCallback(object_b_802EF0E8)
+	oWend()
+
+.globl o_13003AE0
+o_13003AE0:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oCallback(object_b_802EF63C)
+	oWhile()
+		oCallback(object_b_802EF66C)
+	oWend()
+
+.globl o_13003B00
+o_13003B00:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001|OF_0010)
+	oMap(0x07027F54)
+	oCallback(object_b_802EF820)
+	oWhile()
+		oCallback(object_b_802EF858)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13003B30
+o_13003B30:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001|OF_0010)
+	oMap(0x0702808C)
+	oCallback(object_b_802EFCD0)
+	oWhile()
+		oCallback(object_b_802EFD8C)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13003B60
+o_13003B60:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001)
+	oMap(0x07028110)
+	oSavePos()
+	oSetF(O_CHECK_DIST, 20000)
+	oCallback(object_b_802EFE64)
+	oWhile()
+		oCallback(object_b_802EFEF4)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13003B98
+o_13003B98:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oBillboard()
+	oWhile()
+		oCallback(object_b_802F0104)
+	oWend()
+
+.globl o_13003BB4
+o_13003BB4:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001)
+	oMap(0x070125F4)
+	oSavePos()
+	oSetF(O_CHECK_DIST, 20000)
+	oCallback(object_b_802F0168)
+	oWhile()
+		oCallback(object_b_802F05B4)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13003BEC
+o_13003BEC:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oCallback(object_b_802F06A8)
+	oWhile()
+		oCallback(object_b_802F0714)
+	oWend()
+
+.globl o_13003C0C
+o_13003C0C:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oHit(50, 50)
+	oSetI(O_HIT_TIMER, 0)
+	oWhile()
+		oCallback(object_b_802F0788)
+	oWend()
+
+.globl o_13003C30
+o_13003C30:
+	oInit(OT_DEFAULT)
+	oWhile()
+		oCallback(object_b_802F07F4)
+	oWend()
+
+.globl o_13003C44
+o_13003C44:
+	oInit(OT_DEFAULT)
+	oWhile()
+		oCallback(object_b_802F0820)
+	oWend()
+
+.globl o_13003C58
+o_13003C58:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oPtr(O_ANIME, 0x0700C95C)
+	oAnime(0)
+	oCallback(object_b_802F084C)
+	oWhile()
+	oWend()
+
+.globl o_13003C7C
+o_13003C7C:
+	oInit(OT_DEFAULT)
+	oWhile()
+		oCallback(object_b_802F0898)
+	oWend()
+
+.globl o_13003C90
+o_13003C90:
+	oInit(OT_DEFAULT)
+	oCallback(object_b_802F0950)
+	oWhile()
+	oWend()
+
+.globl o_13003CA4
+o_13003CA4:
+	oInit(OT_DEFAULT)
+	oWhile()
+		oCallback(object_b_802F09A4)
+	oWend()
+
+.globl o_13003CB8
+o_13003CB8:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001)
+	oMap(0x070116C8)
+	oSetF(O_CHECK_DIST, 4000)
+	oCallback(object_b_802F09F0)
+	oWhile()
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13003CE4
+o_13003CE4:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0008|OF_2000)
+	oGround()
+	oSetI(O_HIT_TIMER, 0)
+	oCallback(object_b_802F0A40)
+	oWhile()
+		oCallback(object_b_802F105C)
+	oWend()
+
+.globl o_13003D0C
+o_13003D0C:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001|OF_2000)
+	oGround()
+	oSetF(O_SHAPE_OFFSET, 110)
+	oCallback(object_b_802F120C)
+	oWhile()
+		oCallback(object_b_802F1370)
+	oWend()
+
+.globl o_13003D34
+o_13003D34:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oWhile()
+		oCallback(object_b_802F151C)
+	oWend()
+
+.globl o_13003D4C
+o_13003D4C:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001)
+	oSetF(O_SHAPE_OFFSET, 180)
+	oHitCode(0x00800000)
+	oHit(210, 550)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+	oWend()
+
+.globl o_13003D74
+o_13003D74:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0008|OF_2000)
+	oSetF(O_SHAPE_OFFSET, 180)
+	oCallback(object_b_802F15A8)
+	oSetF(O_CHECK_DIST, 20000)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802F1714)
+	oWend()
+
+.globl o_13003DA0
+o_13003DA0:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oWhile()
+		oCallback(object_b_802F17F0)
+	oWend()
+
+.globl o_13003DB8
+o_13003DB8:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001|OF_2000)
+	oCallback(object_b_802F1D64)
+	oWhile()
+		oCallback(object_b_802F1F3C)
+	oWend()
+
+.globl o_13003DD8
+o_13003DD8:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001|OF_2000)
+	oCallback(object_b_802F1FD0)
+	oWhile()
+		oCallback(object_b_802F20AC)
+	oWend()
+
+.globl o_13003DF8
+o_13003DF8:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001|OF_2000)
+	oCallback(object_b_802F2140)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802F23A8)
+	oWend()
+
+.globl o_13003E1C
+o_13003E1C:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001|OF_2000)
+	oCallback(object_b_802F2498)
+	oWhile()
+		oCallback(object_b_802F1F3C)
+	oWend()
+
+.globl o_13003E3C
+o_13003E3C:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oCallback(objlib_802A4120)
+	oCallback(object_b_802F24F4)
+	oWhile()
+		oCallback(object_b_802F25B0)
+	oWend()
+
+.globl o_13003E64
+o_13003E64:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oCallback(object_b_802F24F4)
+	oCallback(object_b_802F2614)
+	oWhile()
+		oCallback(object_b_802F2768)
+	oWend()
+
+.globl o_13003E8C
+o_13003E8C:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001|OF_4000)
+	oCallback(object_b_802F2C84)
+	oWhile()
+		oCallback(object_b_802F2D8C)
+	oWend()
+
+.globl o_redcoin
+o_redcoin:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oBillboard()
+	oSetI(O_HIT_TIMER, 0)
+	oSetI(O_SHAPE_CODE, -1)
+	oCallback(objlib_802A4120)
+	oCallback(redcoin_init)
+	oWhile()
+		oCallback(redcoin_proc)
+		oAddI(O_SHAPE_CODE, 1)
+	oWend()
+
+.globl o_13003EE4
+o_13003EE4:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001|OF_4000)
+	oWhile()
+		oCallback(object_b_802F328C)
+	oWend()
+
+.globl o_13003EFC
+o_13003EFC:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001|OF_4000)
+	oCallback(object_b_802F3014)
+	oWhile()
+		oCallback(object_b_802F30F0)
+	oWend()
+
+.globl o_13003F1C
+o_13003F1C:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oHit(100, 100)
+	oSetI(O_HIT_TIMER, 0)
+	oWhile()
+		oCallback(object_b_802F31BC)
+	oWend()
+
+.globl o_13003F40
+o_13003F40:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001)
+	oMap(0x07013678)
+	oSavePos()
+	oSetF(O_CHECK_DIST, 2000)
+	oCallback(object_b_802F336C)
+	oWhile()
+		oCallback(object_b_802F36A4)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13003F78
+o_13003F78:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001)
+	oMap(0x0702844C)
+	oSavePos()
+	oWhile()
+		oCallback(object_b_802F3A30)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13003FA4
+o_13003FA4:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001)
+	oMap(0x0701D578)
+	oSavePos()
+	oSetF(O_CHECK_DIST, 2000)
+	oCallback(object_b_802F3B98)
+	oWhile()
+		oCallback(object_b_802F36A4)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13003FDC
+o_13003FDC:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001|OF_2000)
+	oBillboard()
+	oHitOff(30, 30, 0)
+	oSetF(O_SHAPE_OFFSET, 30)
+	oCallback(object_b_802F3CC8)
+	oWhile()
+		oCallback(object_b_802F40CC)
+	oWend()
+
+.globl o_13004010
+o_13004010:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001|OF_2000)
+	oBillboard()
+	oHitOff(30, 30, 0)
+	oSetF(O_SHAPE_OFFSET, 30)
+	oCallback(object_b_802F3CC8)
+	oWhile()
+		oCallback(object_b_802F4248)
+	oWend()
+
+.globl o_13004044
+o_13004044:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oBillboard()
+	oHitOff(30, 30, 0)
+	oSetF(O_SHAPE_OFFSET, 30)
+	oCallback(object_b_802F3CC8)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802F44C0)
+	oWend()
+
+.globl o_1300407C
+o_1300407C:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oBillboard()
+	oHitOff(30, 30, 0)
+	oSetF(O_SHAPE_OFFSET, 30)
+	oCallback(object_b_802F3D30)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802F45B8)
+	oWend()
+
+.globl o_130040B4
+o_130040B4:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001|OF_2000)
+	oBillboard()
+	oHitOff(30, 30, 0)
+	oSetF(O_SHAPE_OFFSET, 30)
+	oCallback(object_b_802F3CC8)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802F45F0)
+	oWend()
+
+.globl o_130040EC
+o_130040EC:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001|OF_2000)
+	oBillboard()
+	oHitOff(30, 30, 0)
+	oSetF(O_SHAPE_OFFSET, 30)
+	oCallback(object_b_802F3CC8)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802F4710)
+	oWend()
+
+.globl o_13004124
+o_13004124:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oHit(100, 100)
+	oSetI(O_HIT_TIMER, 0)
+	oWhile()
+		oCallback(object_b_802F48F4)
+	oWend()
+
+.globl o_13004148
+o_13004148:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001|OF_2000)
+	oBillboard()
+	oHitOff(30, 30, 0)
+	oSetF(O_SHAPE_OFFSET, 30)
+	oCallback(object_b_802F3CC8)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802F496C)
+	oWend()
+
+.globl o_13004180
+o_13004180:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oHit(100, 100)
+	oSetI(O_HIT_TIMER, 0)
+	oWhile()
+		oCallback(object_b_802F4B00)
+	oWend()
+
+.globl o_130041A4
+o_130041A4:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oWhile()
+		oCallback(object_b_802F4B78)
+	oWend()
+
+.globl o_130041BC
+o_130041BC:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001|OF_0020|OF_0800)
+	oMap(0x0702B6E0)
+	oSavePos()
+	oCallback(object_b_802F4EB4)
+	oWhile()
+		oCallback(object_b_802F55A4)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_130041F0
+o_130041F0:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001)
+	oMap(0x0702B7F4)
+	oWhile()
+		oCallback(object_b_802F4D78)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13004218
+o_13004218:
+	oInit(OT_ATTACK)
+	oSetFlag(O_FLAG, OF_0001|OF_0008|OF_0040|OF_0400)
+	oGround()
+	oSavePos()
+	oCallback(object_b_802F5CD4)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802F6228)
+	oWend()
+
+.globl o_13004244
+o_13004244:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001)
+	oMap(0x0700EF6C)
+	oSavePos()
+	oWhile()
+		oCallback(object_b_802F62E4)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13004270
+o_13004270:
+	oInit(OT_DEFAULT)
+	oWhile()
+		oCallback(object_b_802F6448)
+	oWend()
+
+.globl o_13004284
+o_13004284:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001|OF_0008)
+	oMap(0x070183C0)
+	oSetF(O_V2, 64)
+	oSavePos()
+	oWhile()
+		oCallback(object_b_802F6984)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_130042B4
+o_130042B4:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001|OF_0008)
+	oMap(0x07018630)
+	oSetF(O_V2, 64)
+	oSavePos()
+	oWhile()
+		oCallback(object_b_802F6984)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_130042E4
+o_130042E4:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001|OF_0008)
+	oMap(0x0700C824)
+	oSetF(O_V2, 64)
+	oSavePos()
+	oWhile()
+		oCallback(object_b_802F6984)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13004314
+o_13004314:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001)
+	oMap(0x07018444)
+	oSetRandA(O_V3, 1, 32)
+	oSavePos()
+	oWhile()
+		oCallback(object_b_802F6C0C)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_13004348
+o_13004348:
+	oInit(OT_ITEM)
+	oSetFlag(O_FLAG, OF_0001)
+	oBillboard()
+	oSavePos()
+	oCallback(object_b_802F6D20)
+	oWhile()
+		oCallback(object_b_802F6D58)
+	oWend()
+
+.globl o_13004370
+o_13004370:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0010)
+	oPtr(O_ANIME, 0x05008EB4)
+	oAnime(0)
+	oCallback(object_b_802F6E40)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802F7264)
+	oWend()
+
+.globl o_130043A0
+o_130043A0:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_2000)
+	oSavePos()
+	oCallback(object_b_802F7348)
+	oWhile()
+		oCallback(object_b_802F74DC)
+	oWend()
+
+.globl o_130043C4
+o_130043C4:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001)
+	oSavePos()
+	oWhile()
+		oCallback(object_b_802F7760)
+	oWend()
+
+.globl o_130043E0
+o_130043E0:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001)
+	oMap(0x0700D198)
+	oWhile()
+		oCallback(object_map_load)
+	oWend()
+
+o_13004400:
+	oInit(OT_MOVEBG)
+	oSetFlag(O_FLAG, OF_0001)
+	oMap(0x0700C8A8)
+	oSavePos()
+	oWhile()
+		oCallback(object_b_802F7924)
+		oCallback(object_map_load)
+	oWend()
+
+.globl o_1300442C
+o_1300442C:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oCallback(object_b_802F7978)
+	oWhile()
+		oCallback(object_b_802F79B0)
+	oWend()
+
+.globl o_1300444C
+o_1300444C:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oGround()
+	oCallback(object_b_802F7FA0)
+	oWhile()
+		oCallback(object_b_802F8044)
+	oWend()
+
+.globl o_13004470
+o_13004470:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oGround()
+	oCallback(object_b_802F8158)
+	oWhile()
+		oCallback(object_b_802F8208)
+	oWend()
+
+.globl o_13004494
+o_13004494:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oGround()
+	oCallback(object_b_802F82F8)
+	oWhile()
+		oCallback(object_b_802F83A4)
+	oWend()
+
+.globl o_130044B8
+o_130044B8:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001)
+	oGround()
+	oCallback(object_b_802F7C9C)
+	oSetI(O_HIT_TIMER, -1)
+	oWhile()
+		oCallback(object_b_802F7D04)
+	oWend()
+
+.globl o_130044E0
+o_130044E0:
+	oInit(OT_DEFAULT)
+	oSetFlag(O_FLAG, OF_0001)
+	oSavePos()
+	oWhile()
+		oCallback(object_b_802F7A58)
+	oWend()
+
+.globl o_mips
+o_mips:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0008|OF_0400)
+	oPtr(O_ANIME, anime_mips)
+	oSetI(O_HIT_CODE, 2)
+	oGround()
+	oHit(50, 75)
+	oSetI(O_HIT_TIMER, 0)
+	oCallback(object_b_802F8490)
+	oWhile()
+		oCallback(object_b_802F8DAC)
+	oWend()
+
+.globl o_13004538
+o_13004538:
+	oInit(OT_ENEMYA)
+	oSetFlag(O_FLAG, OF_0001|OF_0008|OF_2000)
+	oPtr(O_ANIME, 0x050241E8)
+	oHitCode(0x00800000)
+	oGround()
+	oHit(160, 150)
+	oAnime(0)
+	oSavePos()
+	oCallback(object_b_802F8E54)
+	oWhile()
+		oSetI(O_HIT_TIMER, 0)
+		oCallback(object_b_802F965C)
+	oWend()

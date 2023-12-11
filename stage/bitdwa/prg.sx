@@ -1,0 +1,31 @@
+#include <sm64/prglang.h>
+
+.data
+
+.globl p_bitdwa
+p_bitdwa:
+	pStageInit()
+	pLoadPres(SEG_STAGE_GFX, _BitDWAGfxSegmentRomStart, _BitDWAGfxSegmentRomEnd)
+	pLoadPres(SEG_BACK, _BackISegmentRomStart, _BackISegmentRomEnd)
+	pLoadPres(SEG_SHAPE2_GFX, _Shape2AGfxSegmentRomStart, _Shape2AGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE2_SHP, _Shape2AShpSegmentRomStart, _Shape2AShpSegmentRomEnd)
+	pStageStart()
+		pMario()
+		pCall(p_shape_2a)
+		pShapeScript(S_2A_3, s_2a_3)
+		pSceneStart(1, s_bitdwa1)
+			pObject(S_NULL, 0, 1307, 0, 0, 180, 0, 0, 10, 0, o_13002F6C)
+			pPort(10, STAGE_BITDWA, 1, 10)
+			pPort(PORT_WIN, STAGE_INSIDE, 1, 36)
+			pPort(PORT_DIE, STAGE_BITDW, 1, 12)
+			pMap(0x07002838)
+			pBgm(NA_MODE_ARENA, NA_BGM_ARENA)
+			pEnv(ENV_ROCK)
+		pSceneEnd()
+	pStageEnd()
+	pPlayerOpen(1, 180, 0, 307, 0)
+	pCallback(game_process, 0)
+	pProcess(game_process, 1)
+	pStageExit()
+	pFreeze(1)
+	pExit()

@@ -1,0 +1,48 @@
+#include <sm64/prglang.h>
+
+.data
+
+p_totwc1_statbg:
+	pObject(S_1H_85, 0, -2047, 10, 0, 0, 0, 0, 0, 0, o_130001CC)
+	pReturn()
+
+p_totwc1_star:
+	pObject(S_NULL, 800, -1700, 0, 0, 0, 0, 0, 0, 0, o_13003E8C)
+	pReturn()
+
+.globl p_totwc
+p_totwc:
+	pStageInit()
+	pLoadPres(SEG_STAGE_GFX, _TotWCGfxSegmentRomStart, _TotWCGfxSegmentRomEnd)
+	pLoadPres(SEG_BACK, _BackFSegmentRomStart, _BackFSegmentRomEnd)
+	pLoadText(SEG_TEXTURE, _TextureESegmentRomStart, _TextureESegmentRomEnd)
+	pLoadPres(SEG_SHAPE1_GFX, _Shape1HGfxSegmentRomStart, _Shape1HGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE1_SHP, _Shape1HShpSegmentRomStart, _Shape1HShpSegmentRomEnd)
+	pLoadPres(SEG_SHAPE3_GFX, _CommonGfxSegmentRomStart, _CommonGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE3_SHP, _CommonShpSegmentRomStart, _CommonShpSegmentRomEnd)
+	pStageStart()
+		pMario()
+		pCall(p_shape_common)
+		pCall(p_shape_1h)
+		pShapeScript(S_TOTWC_3, s_totwc_3)
+		pSceneStart(1, s_totwc1)
+			pObject(S_NULL, -4095, 2935, 0, 0, 90, 0, 0, 10, 0, o_13002F78)
+			pPort(10, STAGE_TOTWC, 1, 10)
+			pPort(PORT_FALL, STAGE_INSIDE, 1, 32)
+			pPort(PORT_WIN, STAGE_INSIDE, 1, 38)
+			pPort(PORT_DIE, STAGE_INSIDE, 1, 35)
+			pCall(p_totwc1_star)
+			pCall(p_totwc1_statbg)
+			pMap(0x07007A18)
+			pTag(0x070088AC)
+			pMsg(0, 131)
+			pBgm(NA_MODE_DEFAULT, NA_BGM_SLIDER)
+			pEnv(ENV_ROCK)
+		pSceneEnd()
+	pStageEnd()
+	pPlayerOpen(1, 90, -4095, 2935, 0)
+	pCallback(game_process, 0)
+	pProcess(game_process, 1)
+	pStageExit()
+	pFreeze(1)
+	pExit()

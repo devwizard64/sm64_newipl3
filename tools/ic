@@ -1,0 +1,590 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+import struct
+import subprocess
+
+def token(x):
+	i = 0
+	while i < len(x):
+		while x[i] in "\t ":
+			i += 1
+			if i >= len(x): return
+		n = i
+		if x[i] == "\"":
+			while True:
+				i += 1
+				if i >= len(x): yield None
+				if x[i] == "\"": break
+			i += 1
+			yield x[n:i]
+		elif x[i] in ",;=[]{}":
+			i += 1
+			yield x[n:i]
+		else:
+			while True:
+				if x[i] in "!#$%&'()*/:<>?@\\^`|~": yield None
+				i += 1
+				if i >= len(x): break
+				if x[i] in " ,;=[]{}": break
+			yield x[n:i]
+
+def syntaxerr():
+	sys.stderr.write("%s:%d: syntax error\n" % (fn, ln))
+	sys.exit(1)
+
+def expected(code):
+	sys.stderr.write("%s:%d: expected '%s'\n" % (fn, ln, code))
+	sys.exit(1)
+
+def undefined(name):
+	sys.stderr.write("%s:%d: '%s' undefined\n" % (fn, ln, name))
+	sys.exit(1)
+
+def redefined(name):
+	sys.stderr.write("%s:%d: '%s' redefined\n" % (fn, ln, name))
+	sys.exit(1)
+
+def redefidx(name, i):
+	sys.stderr.write("%s:%d: %s %d redefined\n" % (fn, ln, name, i))
+	sys.exit(1)
+
+def missing(code):
+	sys.stderr.write("%s:%d: missing %s\n" % (fn, ln, code))
+	sys.exit(1)
+
+def notaifc():
+	sys.stderr.write("%s: not an AIFC file\n" % fn)
+	sys.exit(1)
+
+def illfmt():
+	sys.stderr.write("%s: illegal format\n" % fn)
+	sys.exit(1)
+
+def al_note(x):
+	return (
+		"C", "Cs", "D", "Eb", "E",
+		"F", "Fs", "G", "Ab", "A", "Bb", "B",
+	)[(x+9) % 12] + "%d" % ((x+9) // 12)
+
+Na_FreqTable = (
+	 0.105112,  0.111362,  0.117984,  0.125000,
+	 0.132433,  0.140308,  0.148651,  0.157490,
+	 0.166855,  0.176777,  0.187288,  0.198425,
+	 0.210224,  0.222725,  0.235969,  0.250000,
+	 0.264866,  0.280616,  0.297302,  0.314980,
+	 0.333710,  0.353553,  0.374577,  0.396850,
+	 0.420448,  0.445449,  0.471937,  0.500000,
+	 0.529732,  0.561231,  0.594604,  0.629961,
+	 0.667420,  0.707107,  0.749154,  0.793701,
+	 0.840897,  0.890899,  0.943875,  1.000000,
+	 1.059463,  1.122462,  1.189207,  1.259921,
+	 1.334840,  1.414214,  1.498307,  1.587401,
+	 1.681793,  1.781798,  1.887749,  2.000000,
+	 2.118926,  2.244924,  2.378414,  2.519842,
+	 2.669680,  2.828428,  2.996615,  3.174803,
+	 3.363586,  3.563596,  3.775498,  4.000000,
+	 4.237853,  4.489849,  4.756829,  5.039685,
+	 5.339360,  5.656855,  5.993229,  6.349606,
+	 6.727173,  7.127192,  7.550996,  8.000000,
+	 8.475705,  8.979697,  9.513658, 10.079370,
+	10.678720, 11.313710, 11.986459, 12.699211,
+	13.454346, 14.254383, 15.101993, 16.000000,
+	16.951410, 17.959394, 19.027315, 20.158740,
+	21.357440, 22.627420, 23.972918, 25.398422,
+	26.908691, 28.508766, 30.203985, 32.000000,
+	33.902820, 35.918790, 38.054630, 40.317480,
+	42.714880, 45.254840, 47.945835, 50.796844,
+	53.817383, 57.017532, 60.407970, 64.000000,
+	67.805640, 71.837580, 76.109260, 80.634960,
+	85.429760, 45.254840, 47.945835, 50.796844,
+	53.817383, 57.017532, 60.407970, 64.000000,
+	67.805640, 71.837580, 76.109260, 80.634960,
+)
+
+def f32(x):
+	return struct.unpack(">f", struct.pack(">f", x))[0]
+
+def sound(bank, wave, snd):
+	addr = bank["snddata"][snd[0]]["addr"]
+	rate = wave["snddata"][snd[0]]["rate"]
+	note = snd[1]
+	return addr, f32(f32(rate)/32000), note
+
+def isnd(bank, wave, snd):
+	addr, rate, note = sound(bank, wave, snd)
+	return addr, f32(rate * f32(Na_FreqTable[39-(note-39)]))
+
+def psnd(bank, wave, snd):
+	addr, rate, note = sound(bank, wave, snd)
+	return addr, f32(rate * f32(Na_FreqTable[note]))
+
+modenone = {
+	"wave": ("wave", "{"),
+	"bank": ("bank", "{"),
+}
+
+modewave = {
+	"sound": ("name", "w_snd", ";"),
+}
+
+modebank = {
+	"date": ("=", "list", "b_date"),
+	"wave": ("b_wave", ";"),
+	"envelope": ("name", "list", "b_env"),
+	"instrument": ("[", "b_inst", "]", "=", "{", "inst", ";"),
+	"percussion": ("[", "b_perc", "]", "=", "{", "perc", ";"),
+}
+
+modeinst = {
+	"release":  ("=", "rel", ";"),
+	"envelope": ("=", "env", ";"),
+	"soundL":   ("=", "list", "sndL"),
+	"sound":    ("=", "list", "snd"),
+	"soundH":   ("=", "list", "sndH"),
+}
+
+modeperc = {
+	"release":  ("=", "rel", ";"),
+	"pan":      ("=", "pan", ";"),
+	"envelope": ("=", "env", ";"),
+	"sound":    ("=", "list", "snd"),
+}
+
+arg = []
+flag = []
+ctl = None
+tbl = None
+i = 1
+while i < len(sys.argv):
+	x = sys.argv[i]
+	i += 1
+	if x.startswith("-"):
+		if x.startswith("-I") or x.startswith("-D"):
+			if len(x) == 2:
+				x += sys.argv[i]
+				i += 1
+			flag.append(x)
+		elif x == "-ctl":
+			ctl = sys.argv[i]
+			i += 1
+		elif x == "-tbl":
+			tbl = sys.argv[i]
+			i += 1
+		else:
+			sys.stderr.write("error: bad opt '%s'\n" % x)
+			sys.exit(1)
+	else:
+		arg.append(x)
+if ctl == None:
+	sys.stderr.write("error: -ctl not specified\n")
+	sys.exit(1)
+if tbl == None:
+	sys.stderr.write("error: -tbl not specified\n")
+	sys.exit(1)
+wavedata = []
+bankdata = []
+wavetab = {}
+banktab = {}
+notetab = {al_note(i): i for i in range(128)}
+for fn in arg:
+	ln = 1
+	path = os.path.dirname(fn)
+	data = subprocess.check_output(["cpp"] + flag + [fn], text=True)
+	wave = None
+	bank = None
+	mode = []
+	for line in data.split("\n"):
+		if line.startswith("#"):
+			arg = line.split()
+			ln = int(arg[1])
+			fn = eval(arg[2])
+			if fn.startswith("<"): continue
+		else:
+			for tok in token(line):
+				if tok == None: syntaxerr()
+				if len(mode) == 0:
+					if bank != None:
+						if tok == "}":
+							bank = None
+							wave = None
+							mode.append(";")
+							continue
+						if tok in modebank:
+							mode = list(modebank[tok])
+							continue
+					elif wave != None:
+						if tok == "}":
+							wave = None
+							mode.append(";")
+							continue
+						if tok in modewave:
+							mode = list(modewave[tok])
+							continue
+					else:
+						if tok in modenone:
+							mode = list(modenone[tok])
+							continue
+					syntaxerr()
+				code = mode.pop(0)
+				if code == "wave":
+					if tok in wavetab: redefined(tok)
+					wave = wavetab[tok] = {
+						"ref": 0,
+						"snd": [], "snddata": {},
+					}
+					wavedata.append(wavetab[tok])
+					continue
+				if code == "bank":
+					if tok in banktab: redefined(tok)
+					bank = banktab[tok] = {
+						"date": [0, 0, 0],
+						"snd":  [], "snddata":  {},
+						"env":  [], "envdata":  {},
+						"inst": [], "instdata": {},
+						"perc": [], "percdata": {},
+					}
+					bankdata.append(banktab[tok])
+					continue
+				if code == "w_snd":
+					if name in wave["snddata"]: redefined(name)
+					if not tok.startswith("\""): syntaxerr()
+					uri = tok[1:-1]
+					if os.path.isfile(os.path.join(path, uri)):
+						uri = os.path.join(path, uri)
+					elif not os.path.isfile(uri):
+						sys.stderr.write("error: %s: file not found\n" % uri)
+						sys.exit(1)
+					wave["snddata"][name] = {"path": uri}
+					wave["snd"].append(wave["snddata"][name])
+					continue
+				if code == "b_date":
+					if len(lst) != 3 or not "".join(lst).isdigit(): syntaxerr()
+					bank["date"] = [int(x) for x in lst]
+					code = ";"
+				if code == "b_wave":
+					if tok not in wavetab: undefined(tok)
+					bank["wave"] = tok
+					wave = wavetab[bank["wave"]]
+					wave["ref"] += 1
+					continue
+				if code == "b_env":
+					if name in bank["envdata"]: redefined(name)
+					try: x = [int(x) for x in lst]
+					except: syntaxerr()
+					bank["envdata"][name] = {"data": x}
+					bank["env"].append(bank["envdata"][name])
+					code = ";"
+				if code == "b_inst":
+					if not tok.isdigit(): syntaxerr()
+					i = int(tok)
+					if i in bank["instdata"]: redefidx("inst.", i)
+					obj = bank["instdata"][i] = {
+						None: i,
+						"rel": 208,
+					}
+					bank["inst"].append(obj)
+					continue
+				if code == "b_perc":
+					if not tok.isdigit(): syntaxerr()
+					i = int(tok)
+					if i in bank["percdata"]: redefidx("perc.", i)
+					obj = bank["percdata"][i] = {
+						None: i,
+						"rel": 10,
+						"pan": 63,
+					}
+					bank["perc"].append(obj)
+					continue
+				if code == "inst":
+					if tok != "}":
+						if tok in modeinst:
+							mode = list(modeinst[tok]) + ["inst"] + mode
+							continue
+						syntaxerr()
+				if code == "perc":
+					if tok != "}":
+						if tok in modeperc:
+							mode = list(modeperc[tok]) + ["perc"] + mode
+							continue
+						syntaxerr()
+				if code == "rel":
+					try: x = int(tok)
+					except: syntaxerr()
+					obj["rel"] = x
+					continue
+				if code == "pan":
+					try: x = int(tok)
+					except: syntaxerr()
+					obj["pan"] = x
+					continue
+				if code == "env":
+					if tok not in bank["envdata"]: undefined(tok)
+					obj["env"] = tok
+					continue
+				if code == "snd":
+					if wave == None: missing("wave")
+					if (
+						len(lst) != 2 or
+						lst[0] not in wave["snddata"] or
+						lst[1] not in notetab
+					): syntaxerr()
+					if lst[0] not in bank["snddata"]:
+						bank["snddata"][lst[0]] = {}
+						bank["snd"].append(lst[0])
+					obj[code] = (lst[0], notetab[lst[1]])
+					code = ";"
+				if code == "sndL" or code == "sndH":
+					if wave == None: missing("wave")
+					if (
+						len(lst) != 3 or
+						lst[0] not in notetab or
+						lst[1] not in wave["snddata"] or
+						lst[2] not in notetab
+					): syntaxerr()
+					if lst[1] not in bank["snddata"]:
+						bank["snddata"][lst[1]] = {}
+						bank["snd"].append(lst[1])
+					obj[code] = (lst[1], notetab[lst[2]], notetab[lst[0]])
+					code = ";"
+				if code == "name":
+					name = tok
+					continue
+				if code == "list":
+					lst = []
+					mode.insert(0, "item")
+					code = "{"
+				if code == "item":
+					if tok != "}":
+						lst.append(tok)
+						mode.insert(0, "next")
+					continue
+				if code == "next":
+					if tok != "}":
+						if tok != ",": syntaxerr()
+						mode.insert(0, "item")
+					continue
+				if code in {",", ";", "=", "[", "]", "{", "}"}:
+					if tok != code: expected(code)
+			ln += 1
+for wave in wavedata:
+	for snd in wave["snd"]:
+		fn = snd["path"]
+		with open(fn, "rb") as f:
+			if f.read(4) != B"FORM": notaifc()
+			f.seek(4, 1)
+			if f.read(4) != B"AIFC": notaifc()
+			while True:
+				x = f.read(8)
+				if len(x) == 0: break
+				addr = f.tell()
+				code, size = struct.unpack(">4sI", x)
+				if code == B"COMM":
+					nc, nf, ss, x, y = struct.unpack(
+						">HIHHQ", f.read(18)
+					)
+					c, n = struct.unpack(">4sB", f.read(5))
+					s = f.read(n)
+					if (
+						nc != 1 or
+						ss != 16 or
+						c != B"VAPC" or
+						s != B"VADPCM ~4-1"
+					): illfmt()
+					rate, = struct.unpack(">d", struct.pack(
+						">Q", (0x3FF+(x-0x3FFF)) << 52 |
+						(y & 0x7FFFFFFFFFFFFFFF) >> 11
+					))
+					snd["rate"] = rate
+				elif code == B"APPL":
+					c, n = struct.unpack(">4sB", f.read(5))
+					s = f.read(n)
+					if c == B"stoc":
+						if s == B"VADPCMCODES":
+							v, o, n = struct.unpack(">HHH", f.read(6))
+							if v != 1: illfmt()
+							snd["book"] = (o, n, f.tell())
+						elif s == B"VADPCMLOOPS":
+							v, n, start, end, count = struct.unpack(
+								">HHIII", f.read(16)
+							)
+							if v != 1 or n != 1: illfmt()
+							snd["loop"] = (start, end, count, f.tell())
+				elif code == B"SSND":
+					off, blk = struct.unpack(">II", f.read(8))
+					if off != 0 or blk != 0: illfmt()
+					snd["wave"] = (f.tell(), size-8)
+				f.seek(addr+size)
+ctldata = []
+tbldata = []
+buf = B"\0"*0x10000
+addr = 4 + 8*len(bankdata)
+for wave in wavedata:
+	addr = (addr+15) & ~15
+	wave["addr"] = addr
+	ptr = 0
+	for snd in wave["snd"]:
+		ptr = (ptr+15) & ~15
+		snd["addr"] = ptr
+		tbldata.append(".balign 16\n")
+		tbldata.append(".incbin \"%s\", %d, %d\n" % (
+			snd["path"], snd["wave"][0], snd["wave"][1]
+		))
+		with open(snd["path"], "rb") as f:
+			f.seek(snd["wave"][0])
+			size = snd["wave"][1]
+			while size > 0:
+				x = f.read(min(len(buf)-ptr%len(buf), size))
+				buf = buf[:ptr%len(buf)]+x+buf[ptr%len(buf)+len(x):]
+				ptr += len(x)
+				size -= len(x)
+	if ptr & 15:
+		tbldata.append(".byte %s\n" % ", ".join([
+			"%d" % struct.unpack(">B", buf[i:i+1])[0]
+			for i in range(ptr%len(buf), (ptr%len(buf)+15) & ~15)
+		]))
+		ptr = (ptr+15) & ~15
+	addr += ptr
+	wave["size"] = addr - wave["addr"]
+addr = 4 + 8*len(bankdata)
+for bank in bankdata:
+	addr = (addr+15) & ~15
+	bank["addr"] = addr
+	wave = wavetab[bank["wave"]]
+	ctldata.append(".balign 16\n")
+	ninst = 0
+	nperc = 0
+	if len(bank["instdata"]) > 0: ninst = max(bank["instdata"].keys())+1
+	if len(bank["percdata"]) > 0: nperc = max(bank["percdata"].keys())+1
+	if nperc > 0 and ninst < 10: ninst = 10
+	ctldata.append(".word %d, %d, %d, 0x%04d%02d%02d\n" % (
+		ninst,
+		nperc,
+		1 if wave["ref"] > 1 else 0,
+		bank["date"][0],
+		bank["date"][1],
+		bank["date"][2],
+	))
+	ptr = 0
+	ctldata.append(".balign 16\n")
+	perci = len(ctldata)
+	ctldata.append(".word 0\n")
+	ptr += 4
+	insti = []
+	for i in range(ninst):
+		insti.append(len(ctldata))
+		ctldata.append(".word 0\n")
+		ptr += 4
+	for i in bank["snd"]:
+		snd = wave["snddata"][i]
+		ptr = (ptr+15) & ~15
+		ctldata.append(".balign 16\n")
+		bank["snddata"][i]["addr"] = ptr
+		index = len(ctldata)
+		ctldata.append(None)
+		ptr += 20
+		book = 0
+		loop = 0
+		if "book" in snd:
+			book = ptr = (ptr+15) & ~15
+			ctldata.append(".balign 16\n")
+			ctldata.append(".word %d, %d\n" % (
+				snd["book"][0], snd["book"][1],
+			))
+			ptr += 8
+			n = 16 << snd["book"][1]
+			ctldata.append(".incbin \"%s\", %d, %d\n" % (
+				snd["path"], snd["book"][2], n,
+			))
+			ptr += n
+		if "loop" in snd:
+			loop = ptr = (ptr+15) & ~15
+			ctldata.append(".balign 16\n")
+			ctldata.append(".word %d, %d, %d, 0\n" % (
+				snd["loop"][0], snd["loop"][1], snd["loop"][2],
+			))
+			ptr += 16
+			if snd["loop"][2] != 0:
+				ctldata.append(".incbin \"%s\", %d, 32\n" % (
+					snd["path"], snd["loop"][3],
+				))
+				ptr += 32
+		ctldata[index] = ".word 0, %d, %d, %d, %d\n" % (
+			snd["addr"], loop, book, snd["wave"][1]
+		)
+	for env in bank["env"]:
+		ptr = (ptr+15) & ~15
+		ctldata.append(".balign 16\n")
+		ctldata.append(".short %s\n" % ", ".join(
+			"%d" % x for x in env["data"]
+		))
+		env["addr"] = ptr
+		ptr += 2*len(env["data"])
+	for inst in bank["inst"]:
+		ptr = (ptr+15) & ~15
+		ctldata.append(".balign 16\n")
+		ctldata[insti[inst[None]]] = ".word %d\n" % ptr
+		min_ = 0
+		max_ = 127
+		rel = inst["rel"]
+		env = 0
+		snd = [(0, 0), (0, 0), (0, 0)]
+		if "env" in inst:
+			env = bank["envdata"][inst["env"]]["addr"]
+		if "sndL" in inst:
+			min_ = inst["sndL"][2]
+			snd[0] = isnd(bank, wave, inst["sndL"])
+		if "snd" in inst:
+			snd[1] = isnd(bank, wave, inst["snd"])
+		if "sndH" in inst:
+			max_ = inst["sndH"][2]
+			snd[2] = isnd(bank, wave, inst["sndH"])
+		ctldata.append(".byte 0, %d, %d, %d\n" % (min_, max_, rel))
+		ctldata.append(".word %d\n" % env)
+		for x in snd: ctldata.append(".word %d\n.float %s\n" % x)
+		ptr += 32
+	if len(bank["perc"]) > 0:
+		percp = [0]*nperc
+		for perc in bank["perc"]:
+			ptr = (ptr+15) & ~15
+			ctldata.append(".balign 16\n")
+			percp[perc[None]] = ptr
+			rel = perc["rel"]
+			pan = perc["pan"]
+			env = 0
+			snd = (0, 0)
+			if "env" in perc:
+				env = bank["envdata"][perc["env"]]["addr"]
+			if "snd" in perc:
+				snd = psnd(bank, wave, perc["snd"])
+			ctldata.append(".byte %d, %d, 0, 0\n" % (rel, pan))
+			ctldata.append(".word %d\n.float %s\n" % snd)
+			ctldata.append(".word %d\n" % env)
+			ptr += 16
+		ptr = (ptr+15) & ~15
+		ctldata.append(".balign 16\n")
+		ctldata[perci] = ".word %d\n" % ptr
+		for x in percp:
+			ctldata.append(".word %d\n" % x)
+			ptr += 4
+	addr += 16+ptr
+	addr = (addr+15) & ~15
+	bank["size"] = addr - bank["addr"]
+with open(ctl, "w") as f:
+	f.write(".data\n")
+	f.write(".short 1, %d\n" % len(bankdata))
+	for bank in bankdata:
+		f.write(".word %d, %d\n" % (bank["addr"], bank["size"]))
+	for x in ctldata: f.write(x)
+	f.write(".byte 0\n")
+	f.write(".balign 64\n")
+with open(tbl, "w") as f:
+	f.write(".data\n")
+	f.write(".short 2, %d\n" % len(bankdata))
+	for bank in bankdata:
+		wave = wavetab[bank["wave"]]
+		f.write(".word %d, %d\n" % (wave["addr"], wave["size"]))
+	for x in tbldata: f.write(x)
+	f.write(".byte 0\n")
+	f.write(".balign 64\n")

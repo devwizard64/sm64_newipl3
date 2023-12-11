@@ -1,0 +1,51 @@
+#include <sm64/prglang.h>
+
+.data
+
+p_cotmc1_statbg:
+	pObject(S_1H_85, 0, 363, -6144, 0, 0, 0, 0, 1, 0, o_130001CC)
+	pObject(S_NULL, 0, 500, -7373, 0, 0, 0, 0, 0, 0, o_13003C30)
+	pObject(S_NULL, 0, 500, 3584, 0, 0, 0, 0, 0, 0, o_13003C30)
+	pReturn()
+
+p_cotmc1_star:
+	pObject(S_NULL, 0, -200, -7000, 0, 0, 0, 0, 0, 0, o_13003E8C)
+	pReturn()
+
+.globl p_cotmc
+p_cotmc:
+	pStageInit()
+	pLoadPres(SEG_STAGE_GFX, _CotMCGfxSegmentRomStart, _CotMCGfxSegmentRomEnd)
+	pLoadText(SEG_TEXTURE, _TextureGSegmentRomStart, _TextureGSegmentRomEnd)
+	pLoadPres(SEG_SHAPE1_GFX, _Shape1HGfxSegmentRomStart, _Shape1HGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE1_SHP, _Shape1HShpSegmentRomStart, _Shape1HShpSegmentRomEnd)
+	pLoadPres(SEG_SHAPE2_GFX, _Shape2FGfxSegmentRomStart, _Shape2FGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE2_SHP, _Shape2FShpSegmentRomStart, _Shape2FShpSegmentRomEnd)
+	pLoadPres(SEG_SHAPE3_GFX, _CommonGfxSegmentRomStart, _CommonGfxSegmentRomEnd)
+	pLoadData(SEG_SHAPE3_SHP, _CommonShpSegmentRomStart, _CommonShpSegmentRomEnd)
+	pStageStart()
+		pMario()
+		pCall(p_shape_1h)
+		pCall(p_shape_2f)
+		pCall(p_shape_common)
+		pSceneStart(1, s_cotmc1)
+			pObject(S_NULL, -4185, 1020, -47, 0, 90, 0, 0, 10, 0, o_13002F64)
+			pPort(10, STAGE_COTMC, 1, 10)
+			pPort(PORT_WIN, STAGE_INSIDE, 3, 52)
+			pPort(PORT_DIE, STAGE_INSIDE, 3, 102)
+			pPort(PORT_FALL, STAGE_GROUNDS, 1, 20)
+			pCall(p_cotmc1_star)
+			pCall(p_cotmc1_statbg)
+			pMap(0x0700A508)
+			pTag(0x0700BD38)
+			pMsg(0, 130)
+			pBgm(NA_MODE_DUNGEON, NA_BGM_DUNGEON)
+			pEnv(ENV_ROCK)
+		pSceneEnd()
+	pStageEnd()
+	pPlayerOpen(1, 90, -4185, 20, -47)
+	pCallback(game_process, 0)
+	pProcess(game_process, 1)
+	pStageExit()
+	pFreeze(1)
+	pExit()

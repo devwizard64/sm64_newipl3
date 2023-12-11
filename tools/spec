@@ -1,0 +1,228 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+import subprocess
+
+def token(x):
+	i = 0
+	while i < len(x):
+		while x[i] in "\t ":
+			i += 1
+			if i >= len(x): return
+		n = i
+		if x[i] == "\"":
+			while True:
+				i += 1
+				if i >= len(x): yield None
+				if x[i] == "\"": break
+			i += 1
+			yield x[n:i]
+		elif x[i] in ",;=[]{}":
+			i += 1
+			yield x[n:i]
+		else:
+			while True:
+				if x[i] in "!#$%&'()*/:<>?@\\^`|~": yield None
+				i += 1
+				if i >= len(x): break
+				if x[i] in " ,;=[]{}": break
+			yield x[n:i]
+
+def makepath(path):
+	while True:
+		i = path.find("$(")
+		n = path.find(")")
+		if i < 0 or n < 0: break
+		path = path[:i] + os.getenv(path[i+2:n], "") + path[n+1:]
+	return path
+
+fn = None
+flag = []
+output = None
+i = 1
+while i < len(sys.argv):
+	x = sys.argv[i]
+	i += 1
+	if x.startswith("-"):
+		if x.startswith("-I") or x.startswith("-D"):
+			if len(x) == 2:
+				x += sys.argv[i]
+				i += 1
+			flag.append(x)
+		elif x == "-o":
+			output = sys.argv[i]
+			i += 1
+		else:
+			sys.stderr.write("error: bad opt '%s'\n" % x)
+			sys.exit(1)
+	else:
+		if fn:
+			sys.stderr.write("error: multiple file specified\n")
+			sys.exit(1)
+		fn = x
+if not output:
+	sys.stderr.write("usage: %s [flag] -o ld spec\n" % sys.argv[0])
+	sys.exit(1)
+ln = 1
+data = subprocess.check_output(["cpp"] + flag + [fn], text=True)
+segdata = []
+seg = None
+for line in data.split("\n"):
+	if line.startswith("#"):
+		arg = line.split()
+		ln = int(arg[1])
+		fn = eval(arg[2])
+		if fn.startswith("<"): continue
+	else:
+		arg = list(token(line))
+		if len(arg) > 0:
+			if arg[0] == "beginseg":
+				if len(arg) != 1 or seg != None:
+					print("%s:%d: syntax error" % (fn, ln))
+					sys.exit(1)
+				seg = {"flags": set(), "include": []}
+			elif arg[0] == "endseg":
+				if len(arg) != 1 or seg == None:
+					print("%s:%d: syntax error" % (fn, ln))
+					sys.exit(1)
+				if "name" not in seg:
+					print("%s:%d: missing name" % (fn, ln))
+					sys.exit(1)
+				if "OBJECT" not in seg["flags"]:
+					print("%s:%d: need OBJECT flag" % (fn, ln))
+					sys.exit(1)
+				if "BOOT" in seg["flags"]:
+					if len(segdata) != 0:
+						print("%s:%d: multiple BOOT segments" % (fn, ln))
+						sys.exit(1)
+				else:
+					if len(segdata) == 0:
+						print("%s:%d: first segment must be BOOT" % (fn, ln))
+						sys.exit(1)
+				segdata.append(seg)
+				seg = None
+			else:
+				if seg == None:
+					print("%s:%d: syntax error" % (fn, ln))
+					sys.exit(1)
+				if arg[0] == "name":
+					if len(arg) != 2 or not arg[1].startswith("\""):
+						print("%s:%d: syntax error" % (fn, ln))
+						sys.exit(1)
+					seg["name"] = arg[1][1:-1]
+				elif arg[0] == "flags":
+					for tok in arg[1:]:
+						if tok not in {
+							"OBJECT",
+							"BOOT",
+						}:
+							print("%s:%d: syntax error" % (fn, ln))
+							sys.exit(1)
+						seg["flags"].add(tok)
+				elif arg[0] == "address":
+					seg["address"] = " ".join(arg[1:])
+				elif arg[0] == "number":
+					seg["address"] = "(%s) << 24" % " ".join(arg[1:])
+				elif arg[0] == "maxaddr":
+					seg["maxaddr"] = " ".join(arg[1:])
+				elif arg[0] == "entry":
+					seg["entry"] = " ".join(arg[1:])
+				elif arg[0] == "stack":
+					seg["stack"] = " ".join(arg[1:])
+				elif arg[0] == "include":
+					if len(arg) != 2 or not arg[1].startswith("\""):
+						print("%s:%d: syntax error" % (fn, ln))
+						sys.exit(1)
+					seg["include"].append(makepath(arg[1][1:-1]))
+				else:
+					print("%s:%d: syntax error" % (fn, ln))
+					sys.exit(1)
+		ln += 1
+with open(output, "w") as f:
+	f.write(
+		"OUTPUT_ARCH(mips)\n"
+		"SECTIONS\n"
+		"{\n"
+		"\t__rom = 0x1000;\n"
+	)
+	for seg in segdata:
+		if "BOOT" in seg["flags"]:
+			if "entry" in seg: f.write("\t__crt0Entry = %s;\n" % seg["entry"])
+			if "stack" in seg: f.write("\t__crt0Stack = %s;\n" % seg["stack"])
+			f.write((
+				"\t__crt0BssStart = _%sSegmentBssStart;\n"
+				"\t__crt0BssEnd = _%sSegmentBssEnd;\n"
+			) % (seg["name"], seg["name"]))
+			f.write("\tENTRY(_%sSegmentTextStart)\n" % seg["name"])
+		if "address" in seg: f.write("\t. = %s;\n" % seg["address"])
+		f.write("\t_%sSegmentRomStart = __rom;\n" % seg["name"])
+		f.write("\t.%s.text : AT(__rom) SUBALIGN(16) {\n" % seg["name"])
+		if "BOOT" in seg["flags"]: f.write("\t\t. += 0x50;\n")
+		for path in seg["include"]:
+			f.write("\t\t%s(.text*); . = ALIGN(16);\n" % path)
+		f.write("\t}\n")
+		f.write("\t__rom += SIZEOF(.%s.text);\n" % seg["name"]);
+		f.write("\t.%s.data : AT(__rom) SUBALIGN(16) {\n" % seg["name"])
+		for path in seg["include"]:
+			f.write("\t\t%s(.data); . = ALIGN(16);\n" % path)
+			f.write("\t\t%s(.rodata*); . = ALIGN(16);\n" % path)
+		f.write("\t}\n")
+		f.write("\t__rom += SIZEOF(.%s.data);\n" % seg["name"]);
+		f.write("\t.%s.sdata : AT(__rom) SUBALIGN(16) {\n" % seg["name"])
+		for path in seg["include"]:
+			f.write("\t\tKEEP(%s(.sdata)); . = ALIGN(16);\n" % path)
+			f.write("\t\tKEEP(%s(.lit8)); . = ALIGN(16);\n" % path)
+			f.write("\t\tKEEP(%s(.lit4)); . = ALIGN(16);\n" % path)
+		f.write("\t}\n")
+		f.write("\t__rom += SIZEOF(.%s.sdata);\n" % seg["name"]);
+		f.write("\t.%s.sbss : AT(__rom) SUBALIGN(16) {\n" % seg["name"])
+		for path in seg["include"]:
+			f.write("\t\t%s(.sbss); . = ALIGN(16);\n" % path)
+			f.write("\t\t%s(.scommon); . = ALIGN(16);\n" % path)
+		f.write("\t}\n")
+		f.write("\t.%s.bss : AT(__rom) SUBALIGN(16) {\n" % seg["name"])
+		for path in seg["include"]:
+			f.write("\t\t%s(.bss); . = ALIGN(16);\n" % path)
+			f.write("\t\t%s(COMMON); . = ALIGN(16);\n" % path)
+		f.write("\t}\n")
+		if "BOOT" in seg["flags"]: f.write(
+			"\tASSERT(__rom <= 0x101000, "
+			"\"error: boot segment is too large\")\n"
+		)
+		if "maxaddr" in seg: f.write((
+			"\tASSERT(. <= (%s), \"error: segment '%s' is too large\")\n"
+		) % (seg["maxaddr"], seg["name"]))
+		f.write("\t_%sSegmentRomEnd = __rom;\n" % seg["name"])
+		f.write((
+			"\t_%sSegmentStart = ADDR(.%s.text);\n"
+			"\t_%sSegmentTextStart = ADDR(.%s.text);\n"
+			"\t_%sSegmentTextEnd = ADDR(.%s.text) + "
+				"SIZEOF(.%s.text);\n"
+			"\t_%sSegmentDataStart = ADDR(.%s.data);\n"
+			"\t_%sSegmentDataEnd = ADDR(.%s.data) + "
+				"SIZEOF(.%s.data) + "
+				"SIZEOF(.%s.sdata);\n"
+			"\t_%sSegmentBssStart = ADDR(.%s.sbss);\n"
+			"\t_%sSegmentBssEnd = ADDR(.%s.sbss) + "
+				"SIZEOF(.%s.sbss) + "
+				"SIZEOF(.%s.bss);\n"
+			"\t_%sSegmentEnd = ADDR(.%s.bss) + "
+				"SIZEOF(.%s.bss);\n"
+		) % (
+			seg["name"], seg["name"],
+			seg["name"], seg["name"],
+			seg["name"], seg["name"],
+				seg["name"],
+			seg["name"], seg["name"],
+			seg["name"], seg["name"],
+				seg["name"],
+				seg["name"],
+			seg["name"], seg["name"],
+			seg["name"], seg["name"],
+				seg["name"],
+				seg["name"],
+			seg["name"], seg["name"],
+				seg["name"],
+		))
+	f.write("\t/DISCARD/ : { *(*) }\n}\n")

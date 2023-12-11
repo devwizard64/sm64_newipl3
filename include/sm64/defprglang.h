@@ -1,0 +1,81 @@
+#ifndef __SM64_DEFPRGLANG_H__
+#define __SM64_DEFPRGLANG_H__
+
+#define P_CMP_AND               0
+#define P_CMP_NAND              1
+#define P_CMP_EQ                2
+#define P_CMP_NE                3
+#define P_CMP_LT                4
+#define P_CMP_LE                5
+#define P_CMP_GT                6
+#define P_CMP_GE                7
+
+#define P_VAR_FILE              0
+#define P_VAR_COURSE            1
+#define P_VAR_LEVEL             2
+#define P_VAR_STAGE             3
+#define P_VAR_SCENE             4
+
+#define P_CMD_EXECUTE            0
+#define P_CMD_CHAIN              1
+#define P_CMD_EXIT               2
+#define P_CMD_SLEEP              3
+#define P_CMD_FREEZE             4
+#define P_CMD_JUMP               5
+#define P_CMD_CALL               6
+#define P_CMD_RETURN             7
+#define P_CMD_FOR                8
+#define P_CMD_DONE               9
+#define P_CMD_REPEAT             10
+#define P_CMD_UNTIL              11
+#define P_CMD_JUMP_IF            12
+#define P_CMD_CALL_IF            13
+#define P_CMD_IF                 14
+#define P_CMD_ELSE               15
+#define P_CMD_ENDIF              16
+#define P_CMD_CALLBACK           17
+#define P_CMD_PROCESS            18
+#define P_CMD_SET                19
+#define P_CMD_PUSH               20
+#define P_CMD_PULL               21
+#define P_CMD_LOAD_CODE          22
+#define P_CMD_LOAD_DATA          23
+#define P_CMD_LOAD_PRES          24
+#define P_CMD_LOAD_FACE          25
+#define P_CMD_LOAD_TEXT          26
+#define P_CMD_STAGE_INIT         27
+#define P_CMD_STAGE_EXIT         28
+#define P_CMD_STAGE_START        29
+#define P_CMD_STAGE_END          30
+#define P_CMD_SCENE_START        31
+#define P_CMD_SCENE_END          32
+#define P_CMD_SHAPE_GFX          33
+#define P_CMD_SHAPE_SCRIPT       34
+#define P_CMD_SHAPE_SCALE        35
+#define P_CMD_OBJECT             36
+#define P_CMD_PLAYER             37
+#define P_CMD_PORT               38
+#define P_CMD_BGPORT             39
+#define P_CMD_CONNECT            40
+#define P_CMD_SCENE_OPEN         41
+#define P_CMD_SCENE_CLOSE        42
+#define P_CMD_PLAYER_OPEN        43
+#define P_CMD_PLAYER_CLOSE       44
+#define P_CMD_SCENE_PROC         45
+#define P_CMD_MAP                46
+#define P_CMD_AREA               47
+#define P_CMD_MSG                48
+#define P_CMD_ENV                49
+#define P_CMD_50                 50
+#define P_CMD_WIPE               51
+#define P_CMD_VI_BLACK           52
+#define P_CMD_VI_GAMMA           53
+#define P_CMD_BGM                54
+#define P_CMD_BGM_PLAY           55
+#define P_CMD_AUD_FADEOUT        56
+#define P_CMD_TAG                57
+#define P_CMD_58                 58
+#define P_CMD_JET                59
+#define P_CMD_VAR                60
+
+#endif /* __SM64_DEFPRGLANG_H__ */

@@ -1,0 +1,21 @@
+#include <sm64/prglang.h>
+
+.data
+
+.globl p_ending
+p_ending:
+	pStageInit()
+	pLoadPres(SEG_STAGE_GFX, _EndingGfxSegmentRomStart, _EndingGfxSegmentRomEnd)
+	pStageStart()
+		pSceneStart(1, s_ending)
+		pSceneEnd()
+	pStageEnd()
+	pSleep(30*2)
+	pViBlack(FALSE)
+	pSceneOpen(1)
+	pWipe(WIPE_FADE_IN, 30*2+15, 0x00, 0x00, 0x00)
+	pSleep(30*4)
+	pCallback(ending_sound, 0)
+.loop:
+	pSleep(1)
+	pJump(.loop)

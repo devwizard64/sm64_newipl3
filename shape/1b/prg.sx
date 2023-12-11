@@ -1,0 +1,6 @@
+.globl p_shape_1b
+p_shape_1b:
+	pShapeScript(S_BLARGG, s_blargg)
+	pShapeScript(S_BULLY, s_bully)
+	pShapeScript(S_BIGBULLY, s_bigbully)
+	pReturn()

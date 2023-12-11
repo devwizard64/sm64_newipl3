@@ -1,0 +1,6 @@
+.globl p_shape_1h
+p_shape_1h:
+	pShapeGfx(S_1H_84, 0x05002E00, LAYER_TEX_EDGE)
+	pShapeScript(S_1H_85, s_1h_85)
+	pShapeGfx(S_1H_86, 0x05003120, LAYER_OPA_SURF)
+	pReturn()
