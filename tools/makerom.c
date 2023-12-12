@@ -27,29 +27,10 @@ static void makeheader(unsigned char *data, const char *path)
 		else if (c >= 'A' && c <= 'F') c -= 'A'-10;
 		else if (c >= 'a' && c <= 'f') c -= 'a'-10;
 		else continue;
-		if (!(i & 1))   data[i/2] = c << 4;
-		else            data[i/2] |= c;
+		if (!(i & 1))   data[i >> 1] = c << 4;
+		else            data[i >> 1] |= c;
 		i++;
 	}
-	fclose(fp);
-}
-
-static void makeboot(unsigned char *data, const char *boot, const char *font)
-{
-	FILE *fp;
-	if (!(fp = fopen(boot, "rb")))
-	{
-		fprintf(stderr, "error: could not read '%s'\n", boot);
-		exit(1);
-	}
-	fread(&data[0x40], 1, 0xB70-0x40, fp);
-	fclose(fp);
-	if (!(fp = fopen(font, "rb")))
-	{
-		fprintf(stderr, "error: could not read '%s'\n", font);
-		exit(1);
-	}
-	fread(&data[0xB70], 1, 0x1000-0xB70, fp);
 	fclose(fp);
 }
 
@@ -139,7 +120,8 @@ static void usage(const char *path)
 		"\t-b bootfile\n"
 		"\t-F fontfile\n"
 		"\t-s romsize (Mbits)\n"
-		"\t-f filldata (0x00 -0xff)\n"
+		"\t-a align\n"
+		"\t-f filldata (0x00 - 0xff)\n"
 	);
 }
 
@@ -157,9 +139,9 @@ int main(int argc, char *argv[])
 	const char *opt_boot = "Boot";
 	const char *opt_font = "font";
 	long opt_size = 0;
-	long opt_fill = 0;
 	long opt_align = 0;
-	while ((c = getopt(argc, argv, "r:h:b:F:s:f:")) != -1)
+	long opt_fill = 0;
+	while ((c = getopt(argc, argv, "r:h:b:F:s:a:f:")) != -1)
 	{
 		switch (c)
 		{
@@ -196,16 +178,29 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 	elf_open(&elf, argv[optind], "rb");
+	elf_loadsection(&elf);
 	end = 0x1000 + elf_size(&elf);
 	size = 1024*1024/8 * opt_size;
 	if (size < end) size = end;
 	align = (1 << opt_align) - 1;
 	size = (size+align) & ~align;
-	memset(data = malloc(size), 0, 0x1000);
+	memset(data = malloc(size), 0, end);
 	makeheader(data, opt_header);
-	makeboot(data, opt_boot, opt_font);
+	if (!(fp = fopen(opt_boot, "rb")))
+	{
+		fprintf(stderr, "error: could not read '%s'\n", opt_boot);
+		return 1;
+	}
+	fread(&data[0x40], 1, 0xB70-0x40, fp);
+	fclose(fp);
+	if (!(fp = fopen(opt_font, "rb")))
+	{
+		fprintf(stderr, "error: could not read '%s'\n", opt_font);
+		return 1;
+	}
+	fread(&data[0xB70], 1, 0x1000-0xB70, fp);
+	fclose(fp);
 	elf_load(&elf, data+0x1000);
-	elf_loadsection(&elf);
 	makecrt0(data+0x1000, &elf);
 	*(uint32_t *)(data+8) = elf.eh.entry;
 	elf_close(&elf);

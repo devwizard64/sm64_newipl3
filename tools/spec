@@ -157,35 +157,24 @@ with open(output, "w") as f:
 			f.write("\tENTRY(_%sSegmentTextStart)\n" % seg["name"])
 		if "address" in seg: f.write("\t. = %s;\n" % seg["address"])
 		f.write("\t_%sSegmentRomStart = __rom;\n" % seg["name"])
-		f.write("\t.%s.text : AT(__rom) SUBALIGN(16) {\n" % seg["name"])
-		if "BOOT" in seg["flags"]: f.write("\t\t. += 0x50;\n")
-		for path in seg["include"]:
-			f.write("\t\t%s(.text*); . = ALIGN(16);\n" % path)
-		f.write("\t}\n")
-		f.write("\t__rom += SIZEOF(.%s.text);\n" % seg["name"]);
-		f.write("\t.%s.data : AT(__rom) SUBALIGN(16) {\n" % seg["name"])
-		for path in seg["include"]:
-			f.write("\t\t%s(.data); . = ALIGN(16);\n" % path)
-			f.write("\t\t%s(.rodata*); . = ALIGN(16);\n" % path)
-		f.write("\t}\n")
-		f.write("\t__rom += SIZEOF(.%s.data);\n" % seg["name"]);
-		f.write("\t.%s.sdata : AT(__rom) SUBALIGN(16) {\n" % seg["name"])
-		for path in seg["include"]:
-			f.write("\t\tKEEP(%s(.sdata)); . = ALIGN(16);\n" % path)
-			f.write("\t\tKEEP(%s(.lit8)); . = ALIGN(16);\n" % path)
-			f.write("\t\tKEEP(%s(.lit4)); . = ALIGN(16);\n" % path)
-		f.write("\t}\n")
-		f.write("\t__rom += SIZEOF(.%s.sdata);\n" % seg["name"]);
-		f.write("\t.%s.sbss : AT(__rom) SUBALIGN(16) {\n" % seg["name"])
-		for path in seg["include"]:
-			f.write("\t\t%s(.sbss); . = ALIGN(16);\n" % path)
-			f.write("\t\t%s(.scommon); . = ALIGN(16);\n" % path)
-		f.write("\t}\n")
-		f.write("\t.%s.bss : AT(__rom) SUBALIGN(16) {\n" % seg["name"])
-		for path in seg["include"]:
-			f.write("\t\t%s(.bss); . = ALIGN(16);\n" % path)
-			f.write("\t\t%s(COMMON); . = ALIGN(16);\n" % path)
-		f.write("\t}\n")
+		for sec, lst in (
+			("text", (".text*",)),
+			("data", (".data", ".rodata*")),
+			("sdata", (".sdata", ".lit8", ".lit4")),
+			("sbss", (".sbss", ".scommon")),
+			("bss", (".bss", "COMMON")),
+		):
+			f.write("\t.%s.%s : AT(__rom) SUBALIGN(16) {\n" % (
+				seg["name"], sec
+			))
+			if sec == "text":
+				if "BOOT" in seg["flags"]: f.write("\t\t. += 0x50;\n")
+			for path in seg["include"]:
+				for sub in lst:
+					f.write("\t\t%s(%s); . = ALIGN(16);\n" % (path, sub))
+			f.write("\t}\n")
+			if sec not in {"sbss", "bss"}:
+				f.write("\t__rom += SIZEOF(.%s.%s);\n" % (seg["name"], sec))
 		if "BOOT" in seg["flags"]: f.write(
 			"\tASSERT(__rom <= 0x101000, "
 			"\"error: boot segment is too large\")\n"

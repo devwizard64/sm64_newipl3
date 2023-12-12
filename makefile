@@ -162,7 +162,7 @@ $(BUILD)/data/back/%.elf:       ADDRESS := 0x0A000000
 $(BUILD)/data/weather/%.elf:    ADDRESS := 0x0B000000
 
 $(BUILD)/$(APP).bps: $(OUTPUT)
-	flips $(DONOR)/U$(ICODE)0$(VERSION)$(suffix $@) $< $@
+	flips $(DONOR)/U$(ICODE)0$(VERSION)$(suffix $<) $< $@
 
 build/C3/$(APP).z64: $(BUILD)/$(APP).elf $(ROMHEADER) $(BOOT) $(FONT) tools/makerom
 	tools/makerom -r $@ -h $(ROMHEADER) -b $(BOOT) -F $(FONT) -a 14 $<
@@ -175,7 +175,7 @@ $(BUILD)/%.ndd: $(BUILD)/%.elf tools/makedisk
 	tools/makedisk -R $@ $<
 
 $(BUILD)/$(APP).elf: $(BUILD)/$(APP).ld $(OBJ) $(MENU_OBJ) $(DATA) $(SZP) $(SHAPE_SZP) $(SHAPE_DATA) $(BACK_SZP) $(TEXTURE_SZP) $(STAGE_SZP) $(STAGE_DATA) $(AUDIO_DATA)
-	$(U64_LD) -Map $(@:.elf=.map) -T$(BUILD)/$(APP).ld -o $@
+	$(U64_LD) -N -Map $(@:.elf=.map) -T$(BUILD)/$(APP).ld -o $@
 
 $(BUILD)/$(APP).ld: spec tools/spec
 	@mkdir -p $(dir $@)
