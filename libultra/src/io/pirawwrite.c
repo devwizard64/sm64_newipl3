@@ -8,6 +8,6 @@ s32 osPiRawWriteIo(u32 devAddr, u32 data)
 	{
 		stat = IO_READ(PI_STATUS_REG);
 	}
-	IO_WRITE((u32)osRomBase | devAddr, data);
+	IO_WRITE((u32)osRomBase + devAddr, data);
 	return 0;
 }

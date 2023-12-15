@@ -104,6 +104,8 @@ ROMHEADER   := libultra/src/PR/romheader
 BOOT        := $(BUILD)/libultra/src/PR/Boot
 FONT        := libultra/src/PR/font
 
+IPL3 := lib/ipl3_prod.z64
+
 TOOLS := \
 	tools/fixsym \
 	tools/fixabi \
@@ -167,8 +169,8 @@ $(BUILD)/$(APP).bps: $(OUTPUT)
 build/C3/$(APP).z64: $(BUILD)/$(APP).elf $(ROMHEADER) $(BOOT) $(FONT) tools/makerom
 	tools/makerom -r $@ -h $(ROMHEADER) -b $(BOOT) -F $(FONT) -a 14 $<
 
-$(BUILD)/%.z64: $(BUILD)/%.elf $(ROMHEADER) $(BOOT) $(FONT) tools/makerom tools/nrdc
-	tools/makerom -r $@ -h $(ROMHEADER) -b $(BOOT) -F $(FONT) -s 64 -f 0xff $<
+$(BUILD)/%.z64: $(BUILD)/%.elf tools/makerom tools/nrdc
+	tools/makerom -r $@ -i $(IPL3) -s 64 -f 0xff $<
 	tools/nrdc -b -t "$(TITLE)" -i $(ICODE) -v $(VERSION) $@
 
 $(BUILD)/%.ndd: $(BUILD)/%.elf tools/makedisk

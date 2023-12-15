@@ -9,7 +9,7 @@ s32 osPiRawStartDma(s32 direction, u32 devAddr, void *dramAddr, u32 size)
 		stat = IO_READ(PI_STATUS_REG);
 	}
 	IO_WRITE(PI_DRAM_ADDR_REG, osVirtualToPhysical(dramAddr));
-	IO_WRITE(PI_CART_ADDR_REG, K1_TO_PHYS((u32)osRomBase | devAddr));
+	IO_WRITE(PI_CART_ADDR_REG, K1_TO_PHYS((u32)osRomBase + devAddr));
 	switch (direction)
 	{
 	case OS_READ:
